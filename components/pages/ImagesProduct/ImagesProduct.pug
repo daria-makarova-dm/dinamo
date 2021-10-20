@@ -1,0 +1,103 @@
+section.images-product
+  .container
+    Breadcrumbs
+    .card-detail
+      .card-detail__top-block(ref="cardDetailTopBlock")
+        h2.card-detail__title {{ imageCart.photoTitle }}
+        .filter-checkboxes.filter-checkboxes--buttons.filter-checkboxes--buttons-round.images-product__filter-checkboxes
+          .filter-checkboxes__row
+            div(v-for="item in getForwhom" :key="`forwhom-${item.id}`")
+              Tooltip
+                template(#link)
+                  BaseCheckbox(
+                    :checked="isSelected(`forwhom-${item.id}`)"
+                    @input="changeFilter(`forwhom-${item.id}`, item.title)"
+                  ) {{ item.title }}
+      ImageTabCartDetail
+      CardImageSlider(
+        class="card-detail__image-slider"
+      )
+      .card-detail__middle-block(ref="cardDetailMiddleBlock")
+        .card-detail__prices
+          .card-detail__price-value {{ objCardDescription.price | currency }}
+          .card-detail__price-value.card-detail__price-value--discount {{ objCardDescription.discountPrice | currency }}
+          .card-detail__price-bonus(v-if="objCardDescription.bonusPrice") {{ objCardDescription.bonusPrice }}
+          .card-detail__bottom-block(ref="cardDetailBottomBlock")
+        .card-detail__panel-control
+          button.card-detail__add-card.btn.btn--blue(type="button" @click="getPopUp")
+            transition(name="btn-card" mode="out-in")
+              span(v-if="!visibleCountToBtn" key="addCard") {{ $t('cardDetail.createImage') }}
+              span(v-else key="countCard") {{ `${$t('cardDetail.inCard')} ${countProductToCard}${$t('cardDetail.piecesShort')}` }}
+          button.card-detail__favorites(type="button" @click="toggleFavorite")
+            FavoriteBtn
+            | {{ $t('cardDetail.favorites') }}
+      .card-detail__bottom-block(ref="cardDetailBottomBlock")
+        .card-detail__description-block
+          p.card-detail__description-text(v-for="(text, idx) in objCardDescription.text" :key="idx") {{ text }}
+          ul.card-detail-list
+            li.card-detail-list__item(v-for="(item, idx) in objCardDescription.list" :key="idx") {{ item }}
+          ul.card-detail-make-list(v-if="objCardDescription.make")
+            li.li.card-detail-make-list__title {{ $t('cardDetail.make') }}
+            li.card-detail-make-list__item(v-for="(item, idx) in objCardDescription.make" :key="idx") {{ item }}
+          ul.card-detail-care-list(v-if="objCardDescription.care")
+            li.card-detail-care-list__title {{ $t('cardDetail.care') }}
+            li.card-detail-care-list__item(v-for="(item, idx) in objCardDescription.care.item" :key="idx") {{ item }}
+            li.card-detail-care-list__icons-wrap
+              img(v-for="(icon, idx) in objCardDescription.care.icons" :key="idx" :src="icon" alt="care-icon")
+        .card-detail__delivery-block
+          NuxtLink(to="card-detail") {{ $t('cardDetail.delivery') }}
+        CardDetailShareSocial(
+          class="card-detail__sharing"
+        )
+    .images-product__products-list-block.fix-block-width
+      .title-block
+        h2 Товары в образе
+      .images-product__products-list
+        TheProductCard(
+          v-for="(cart, idx) in imageCart.productCarts"
+          v-if="cart.productPreviewImg"
+          :id="cart.id"
+          :key="idx"
+          :productPreviewImg="cart.productPreviewImg"
+          :propFavorite="cart.favorite"
+          :title="cart.title"
+          :firm="cart.firm"
+          :price="cart.price"
+          :bestsellerLabel="cart.bestsellerLabel"
+          :noveltyLabel="cart.noveltyLabel"
+          :discountPrice="cart.discountPrice"
+          :custom="cart.custom"
+          @toggleFavorite="onToggleFavorite"
+          class="products-cards__card"
+        )
+        EmptyCard(v-else class="products-cards__card")
+      .images-product__grids(v-for="collection in imageCards" :key="collection.id")
+        .images-product__grid.photo-grid.photo-grid--small(v-if="collection.type === 'small'")
+          picture.photo-grid__block-image-wrap
+            img.photo-grid__block-image(:src="collection.mediaMaterials.bigImage" alt="bigImage")
+          .photo-grid__grid-block
+            picture.photo-grid__grid-block-image-wrap(v-for="(image, index) in collection.mediaMaterials.smallImage" :key="index")
+              img.photo-grid__grid-block-image(:src="image" alt="smallImage")
+        .images-product__grid.photo-grid.photo-grid--medium(v-else-if="collection.type === 'medium'")
+          picture.photo-grid__block-image-wrap
+            img.photo-grid__block-image(:src="collection.mediaMaterials.bigImage" alt="bigImage")
+          .photo-grid__grid-block
+            picture.photo-grid__grid-block-image-wrap
+              img.photo-grid__grid-block-image(v-if="collection.mediaMaterials.averageImage" :src="collection.mediaMaterials.averageImage" alt="bigImage")
+            picture.photo-grid__grid-block-image-wrap(v-for="(image, index) in collection.mediaMaterials.smallImage" :key="index")
+              img.photo-grid__grid-block-image(:src="image" alt="smallImage")
+        .images-product__grid.photo-grid.photo-grid--big(v-else)
+          .photo-grid__grid-block(v-for="(image, index) in collection.mediaMaterials.bigImage" :key="index")
+            picture.photo-grid__grid-block-image-wrap
+              img.photo-grid__block-image(:src="image" alt="bigImage")
+    .images-product__links
+      TheCrossLink(
+        v-for="(link, idx) in crossLinks"
+        :key="idx"
+        :link="link.link"
+        :srcImage="link.srcImage"
+        :title="link.title"
+        :type="link.type"
+        class="cross-links__link"
+      )
+

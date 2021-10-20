@@ -1,0 +1,39 @@
+form.order-form(@submit.prvent)
+  h2 {{ $t('orderPage.city.title') }}
+
+  div.order-form__city(v-if="targetCity")
+    p {{ targetCity[$store.state.ln] }}
+    BaseButton(@click.native.prevent="changeCity") Изменить
+  .form-control.form-control--city(v-else :class="{ invalid: !cityIsValid }")
+    input(type="text" id="city" v-model="city" @input="searchCity($event)")
+    ul(v-if="cityResult")
+      li(v-for="item in cityResult" @click="chooseCity(item)") {{ item[$store.state.ln] }}
+
+
+  h2 {{ $t('orderPage.dataRecipient') }}
+  .order-form__account
+    p Войдите в аккаунт болельщика, чтобы пользоваться бонусами и получить 65 баллов за заказ
+    BaseButton.btn--blue(type="link" to="/auth") войти в аккаунт болельщика
+  .order-form__data-block
+    .form-control(:class="{ invalid: !firstNameIsValid }")
+      label(for="firstname") Имя
+      input(type="text" id="firstname" v-model="firstname" @blur="changeDirty('firstname')" @input="changeData($event, 'firstname')")
+    .form-control(:class="{ invalid: !lastNameIsValid }")
+      label(for="lastname") Фамилия
+      input(type="text" id="lastname" v-model="lastname" @blur="changeDirty('lastname')" @input="changeData($event, 'lastname')")
+    p Полные фамилия и имя могут потребоваться при получении заказа
+    .form-control(:class="{ invalid: !emailIsValid }")
+      label(for="email") Email
+      input(type="email" id="email" v-model="email" @blur="changeDirty('email')" @input="changeData($event, 'email')")
+    .form-control(:class="{ invalid: !phoneIsValid }")
+      label(for="phone") Телефон
+      input(
+        type="phone"
+        id="phone"
+        v-facade="'+7 ### ###-##-##'"
+        placeholder="+7 ___ ___−__−__"
+        @blur="changeDirty('phone')"
+        @input="changeData($event, 'phone')"
+        v-model="phone"
+      )
+    p Номер телефона используется для оповещений об изменениях статуса заказа

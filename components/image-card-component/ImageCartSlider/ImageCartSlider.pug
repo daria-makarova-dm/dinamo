@@ -1,0 +1,22 @@
+.image-cart-slider
+  .image-cart-slider__control
+    button.image-cart-slider__btn.image-cart-slider__btn-prev
+      ArrowIcon
+    button.image-cart-slider__btn.image-cart-slider__btn-next
+      ArrowIcon
+  .image-cart-slider__wrap-slider
+    swiper.image-cart-slider__swiper(ref="slider" :options="swiperOption")
+      swiper-slide(v-for="(cart, idx) in productCarts" :key="idx")
+        TheProductCart(
+          :productPreviewImg="cart.productPreviewImg"
+          :propFavorite="cart.propFavorite"
+          :id="cart.id"
+          :title="cart.title"
+          :firm="cart.firm"
+          :price="cart.price"
+          :bestsellerLabel="cart.bestsellerLabel"
+          :noveltyLabel="cart.noveltyLabel"
+          :discountPrice="cart.discountPrice"
+          :custom="cart.custom"
+          class="image-cart-slider__card"
+        )

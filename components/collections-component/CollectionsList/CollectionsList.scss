@@ -1,0 +1,91 @@
+.collections-page {
+  &__title {
+    padding: 10px;
+
+    @media (min-width: $tablet) {
+      padding: 20px;
+    }
+  }
+}
+
+.collections-list {
+  &__block {
+    border-bottom: 1px solid $cl-cobalt;
+  }
+
+  &__link {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    font-size: 26px;
+    line-height: 35px;
+    color: $cl-cobalt;
+
+    @media (min-width: $tablet) {
+      font-size: 46px;
+      line-height: 50px;
+    }
+
+    &:hover {
+      & svg path {
+        fill: $cl-white;
+      }
+    }
+
+    & svg {
+      width: 40px;
+      height: 40px;
+
+      @media (min-width: $tablet) {
+        transform: translateY(10px);
+      }
+    }
+  }
+
+  &__description {
+    display: flex;
+    flex-direction: column;
+    border-bottom: 1px solid $cl-cobalt;
+
+    @media (min-width: $desktop) {
+      border-top: 1px solid $cl-cobalt;
+      flex-direction: row;
+      height: calc(100vw / 2);
+      max-height: 960px;
+    }
+  }
+
+  &__title {
+    width: 100%;
+    padding: 20px 40px 30px;
+    display: flex;
+    align-items: flex-end;
+    border-bottom: 1px solid $cl-cobalt;
+
+    @media (min-width: $desktop) {
+      width: 50%;
+      min-width: 50%;
+      padding: 40px;
+      border-right: 1px solid $cl-cobalt;
+      border-bottom: none;
+    }
+  }
+
+  &__cover {
+    width: 100%;
+    height: 100vw * 0.73;
+    display: block;
+    
+    & img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    @media (min-width: $desktop) {
+      width: 50%;
+      height: 100%;
+    }
+  }
+}

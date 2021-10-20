@@ -1,0 +1,187 @@
+.order-courier {
+    padding-top: 25px;
+    padding-bottom: 45px;
+    h2 {
+        font-size: 26px;
+        line-height: 35px;
+        letter-spacing: -2%;
+        font-weight: 500;
+        margin-bottom: 10px;
+    }
+
+    .form-control {
+        padding: 0;
+        margin-bottom: 5px;
+        .b-select{
+            width: 100%;
+            .multiselect {
+                &__single {
+                    margin-right: 15px;
+                    font-size: 16px;
+                    line-height: 20px;
+                    font-weight: 500;
+                }
+                &__select {
+                    right: 15px;
+                    top: 50%;
+                    transform: translateY(-50%);
+                }
+                &__tags {
+                    border: 1px solid $cl-cobalt;
+                    padding: 20px 15px;
+                }
+
+                &--active {
+                    .multiselect__select {
+                        transform: translateY(-50%) rotate(180deg);
+                    }
+                }
+            }
+        }
+
+        &+p {
+            font-size: 12px;
+            line-height: 16px;
+            font-weight: 400;
+            margin-bottom: 10px;
+        }
+    }
+
+    &__map {
+        display: none;
+    }
+
+    &__adress {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        margin-bottom: 15px;
+
+        .form-control {
+            padding: 10px 15px;
+            border: 1px solid $cl-cobalt;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            margin-bottom: 10px;
+            width: calc(50% - 5px);
+            &.full {
+                width: 100%;
+            }
+
+            label {
+                font-size: 12px;
+                line-height: 16px;
+                font-weight: 400;
+                margin-bottom: 4px;
+            }
+            input {
+                color: $cl-cobalt;
+                font-weight: 500;
+                border: none;
+                font-size: 16px;
+                line-height: 20px;
+                padding: 0;
+                max-width: 100%;
+                &::placeholder {
+                  color: $cl-cobalt;
+                }
+            }
+        }
+    }
+}
+
+@media (min-width: $desktop-min) {
+    .order-courier {
+        padding: 0;
+        margin-bottom: 20px;
+        h2 {
+            font-size: 36px;
+            line-height: 40px;
+            margin-bottom: 20px;
+        }
+
+        &__map {
+            display: block;
+            width: 100%;
+            height: 440px;
+            margin-bottom: 25px;
+            img {
+                object-fit: cover;
+                height: 100%;
+                width: 100%;
+            }
+        }
+
+        &__adress {
+            margin-bottom: 20px;
+            .form-control {
+                width: calc(100% / 4 - 17.5px);
+                margin-bottom: 0;
+                padding: 10px 12px;
+                &.full {
+                    margin-bottom: 20px;
+                }
+                label {
+                    font-size: 14px;
+                    line-height: 20px;
+                }
+                input {
+                    font-size: 16px;
+                    line-height: 20px;
+                }
+            }
+        }
+
+        &__data {
+            margin-bottom: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            .form-control {
+                width: calc(50% - 5px);
+                margin-bottom: 5px;
+                padding: 0;
+                .b-select {
+                    .multiselect__tags {
+                        font-size: 16px;
+                    }
+                }
+                &+p {
+                    margin-bottom: 0;
+                    width: 100%;
+                    order: 2;
+                }
+            }
+        }
+    }
+}
+
+@media (min-width: $desktop) {
+    .order-courier {
+        max-width: 680px;
+        margin-bottom: 80px;
+        h2 {
+            font-size: 26px;
+            line-height: 30px;
+            margin-bottom: 15px;
+        }
+        &__map {
+            margin-bottom: 20px;
+        }
+
+        &__adress {
+            .form-control {
+                width: calc(100% / 4 - 15px);
+                margin-bottom: 0;
+                padding: 10px 15px;
+            }
+        }
+
+        &__data {
+            .form-control {
+                width: calc(50% - 10px);
+            }
+        }
+    }
+}

@@ -1,0 +1,7 @@
+.b-footer-menu
+  div.b-footer-menu__section(v-for="(list, Index) in menu" :key="Index")
+    h3.b-footer-menu__title {{ list.title }}
+    ul.b-footer-menu__list
+      li.b-footer-menu__item(v-for="item in list.items")
+        a(v-if="item.externalReference" :href="item.link" :title="item.title") {{ item.title }}
+        NuxtLink(v-else :to="item.link" :title="item.title") {{ item.title }}

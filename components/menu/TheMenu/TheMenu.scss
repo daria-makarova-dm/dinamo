@@ -1,0 +1,59 @@
+.b-menu {
+  position: relative;
+  width: $menu-header-width;
+  z-index: $z-index-header;
+
+  &:after {
+    background: $cl-white;
+    content: "";
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: -1;
+  }
+
+  &, & ul {
+    padding: 0;
+  }
+
+  & ul li:before {
+    display: none;
+  }
+
+  &__row {
+    height: $menu-header-height-row;
+    display: flex;
+    border-bottom: 1px solid $cl-cobalt;
+  }
+
+  &__item {
+    border-left: 1px solid $menu-header-border-color;
+    display: flex;
+    padding: 0 20px;
+    align-items: center;
+
+    &--submenu {
+      border-left: none;
+      border-right: 1px solid $menu-header-border-color;
+      width: 100%;
+    }
+
+    &--catalog {
+      width: $menu-header-nav-width;
+    }
+
+    &--user-btn {
+      width: 180px;
+    }
+  }
+
+  .no-border {
+    border: none;
+  }
+
+  .no-padding {
+    padding: 0;
+  }
+}

@@ -1,0 +1,31 @@
+.container
+  SuggestionSlider(
+    :slides="slides"
+  )
+  AdvertisingBanner(
+    :title="banners[0].title"
+    :img="banners[0].img"
+    :link="banners[0].link"
+  )
+  TheImageCart(
+    :photoTitle="imageCart.photoTitle"
+    :photoUrl="imageCart.photoUrl"
+    :quote="imageCart.quote"
+    :productCarts="imageCart.productCarts"
+  )
+  ProductsCards
+  AdvertisingBanner(
+    :title="banners[1].title"
+    :img="banners[1].img"
+    :link="banners[1].link"
+  )
+  .cross-links.fix-block-width
+    TheCrossLink(
+      v-for="(link, idx) in crossLinks"
+      :key="idx"
+      :link="link.link"
+      :srcImage="link.srcImage"
+      :title="link.title"
+      :type="link.type"
+      class="cross-links__link"
+    )

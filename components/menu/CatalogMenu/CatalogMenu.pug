@@ -1,0 +1,26 @@
+nav.b-catalog-nav
+  button.b-catalog-nav__btn.b-catalog-nav__btn--dropdown(
+    type="button"
+    @click="toggleDropdownCatalog"
+    v-click-outside="hiddenDropdownCatalog"
+  )
+    | {{ $t('menu.catalog.catalogDropdownBtn') }}
+    span.b-catalog-nav__icon.b-catalog-nav__icon--open(
+      v-if="catalogDropdownIsOpen"
+    )
+      span
+    span.b-catalog-nav__icon.b-catalog-nav__icon--close(
+      v-else
+    )
+      span
+  CatalogDropdown(v-if="catalogDropdownIsOpen")
+  NuxtLink.b-catalog-nav__link(
+    v-for="(link, idx) in btnLinks"
+    :to="link.link"
+    :key="idx"
+  ) {{ link.text }}
+  NuxtLink.b-catalog-nav__link.b-catalog-nav__link--cart(to="/cart")
+    span.b-catalog-nav__icon.b-catalog-nav__icon--cart
+      CartIcon
+    span {{ $t('menu.catalog.catalogCartBtn') }}
+    span.count(v-if="$store.getters['cart/count'] > 0") {{ $store.getters['cart/count'] }}

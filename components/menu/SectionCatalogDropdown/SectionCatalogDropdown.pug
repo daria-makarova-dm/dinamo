@@ -1,0 +1,29 @@
+li(:class="`b-catalog-dropdown__lvl${lvl}`")
+  .b-catalog-dropdown__list
+    .b-catalog-dropdown__item.b-catalog-dropdown__item--lvl1(
+      v-for="(link, idx) in data"
+      :key="idx"
+      :class="{active: idx === activeBtnIdx}"
+    )
+      BaseButton(
+        v-if="link.nextLvlDropdown"
+        mode="dropdown"
+        @mouseenter.native="changeActiveImg(idx)"
+        @click.native="changeActiveBtn(lvl, idx)"
+      )
+        | {{ link.name }}
+        .b-catalog-dropdown__icon-arrow
+          ArrowRightThinIcon
+      BaseButton(
+        v-else
+        type="link"
+        mode="dropdown"
+        :to="link.link"
+        @mouseenter.native="changeActiveImg(idx)"
+      ) {{ link.name }}
+  .b-catalog-dropdown__preview(:class="`b-catalog-dropdown__preview--lvl${lvl}`" v-if="selectImage && !activeBtnIdx")
+    .b-catalog-dropdown__preview-img-wrap
+      img.b-catalog-dropdown__preview-img.b-catalog-dropdown__preview-img--lvl1(
+        :src="selectImage"
+      )
+    p.b-catalog-dropdown__preview-text.b-catalog-dropdown__preview-text--lvl2 1272 товара

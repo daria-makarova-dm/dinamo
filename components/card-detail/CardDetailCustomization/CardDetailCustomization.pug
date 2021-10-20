@@ -1,0 +1,24 @@
+div.b-card-detail-customization
+  BaseButton(:class="{ active: isOpen }" @click.native="toggleOpen").button__wide Нанести фамилию и логотипы
+  div(v-if="isOpen").b-card-detail-customization__dropdown
+    div.b-card-detail-customization__player
+      vSelect(
+        v-model="valueSelect"
+        :options="optionsSelect"
+        :searchable="false"
+        :hideSelected="true"
+      ).b-select--button-like
+      input(type="text" v-model="lastname" placeholder="Фамилия").b-card-detail-customization__surname
+      input(type="number" v-model="number" placeholder="1").b-card-detail-customization__number
+      p.b-card-detail-customization__price Нанесение фамилии и номера
+        span {{ 200 | currency }}
+    div.b-card-detail-customization__wrapper
+      div(v-for="(logo, idx) in logos" :key="logo.id" @click="changeAddLogo(idx)" :class="{ added: logo.isAdded }").b-card-detail-customization__sponsor
+        picture.b-card-detail-customization__logo
+          img(:src="logo.img")
+        p {{ 400 | currency }}
+    p(v-if="logoPrice > 0").b-card-detail-customization__price Нанесение логотипов спонсоров
+        span +{{ logoPrice | currency }}
+    div.b-card-detail-customization__caution
+      p Проверьте правильность имени
+      p Одежда с нанесением производится только по полной предоплате и не подлежит возврату или обмену.

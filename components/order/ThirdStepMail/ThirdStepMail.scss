@@ -1,0 +1,123 @@
+.order-mail {
+    padding-top: 25px;
+    padding-bottom: 45px;
+    h2 {
+        font-size: 26px;
+        line-height: 35px;
+        letter-spacing: -2%;
+        font-weight: 500;
+        margin-bottom: 10px;
+    }
+
+    .form-control {
+        padding: 0;
+        margin-bottom: 5px;
+    }
+
+    &__adress {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        margin-bottom: 15px;
+
+        .form-control {
+            padding: 10px 15px;
+            border: 1px solid $cl-cobalt;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            margin-bottom: 10px;
+            width: calc(50% - 5px);
+            &.full {
+                width: 100%;
+            }
+
+            &.index {
+                width: 100%;
+            }
+
+            label {
+                font-size: 12px;
+                line-height: 16px;
+                font-weight: 400;
+                margin-bottom: 4px;
+            }
+            input {
+                color: $cl-cobalt;
+                font-weight: 500;
+                border: none;
+                font-size: 16px;
+                line-height: 20px;
+                padding: 0;
+                max-width: 100%;
+                &::placeholder {
+                  color: $cl-cobalt;
+                }
+            }
+        }
+    }
+}
+
+@media (min-width: $desktop-min) {
+    .order-mail {
+        margin-bottom: 30px;
+        padding: 0;
+        h2 {
+            font-size: 36px;
+            line-height: 40px;
+            margin-bottom: 20px;
+        }
+
+        &__adress {
+            margin-bottom: 20px;
+        }
+
+        .form-control {
+            width: calc(100% / 4 - 17.5px);
+            margin-bottom: 20px;
+            padding: 10px 12px;
+            &.full {
+                margin-bottom: 20px;
+            }
+            &.index {
+                margin-bottom: 0;
+            }
+            label {
+                font-size: 14px;
+                line-height: 20px;
+            }
+            input {
+                font-size: 16px;
+                line-height: 20px;
+                width: 100%;
+            }
+        }
+    }
+}
+
+@media (min-width: $desktop) {
+    .order-mail {
+        max-width: 680px;
+        margin-bottom: 60px;
+        &__adress {
+            margin-bottom: 30px;
+        }
+        .form-control {
+            width: calc(51% / 3 - 20px);
+            margin-bottom: 20px;
+            &.index {
+                width: 100%;
+                margin-bottom: 0;
+            }
+
+            &.half {
+                width: 49%;
+            }
+        }
+
+        p {
+            font-size: 20px;
+            line-height: 25px;
+        }
+    }
+}

@@ -1,0 +1,7 @@
+.quote-block
+  h3.quote-block__title {{ quote.title }}
+  NuxtLink.quote-block__quote-link-arrow(:to="quote.link")
+    include ../../Icons/ArrowIcon/ArrowIcon.pug
+  .quote-block__text
+    blockquote.quote-block__quote {{ quote.quote }}
+    NuxtLink.quote-block__quote-link.btn.btn--blue(:to="quote.link") К образу

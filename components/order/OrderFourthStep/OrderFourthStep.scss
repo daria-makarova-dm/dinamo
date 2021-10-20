@@ -1,0 +1,161 @@
+.order-bonus {
+    padding-top: 20px;
+    padding-bottom: 60px;
+    h2 {
+        font-size: 26px;
+        line-height: 40px;
+        letter-spacing: -2%;
+        font-weight: 500;
+        margin-bottom: 7px;
+        span {
+            font-size: 14px;
+            line-height: 20px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            padding: 10px 15px;
+            font-weight: 400;
+            background: $cl-alice-blue;
+            margin-left: 20px;
+        }
+    }
+
+    p {
+        font-size: 14px;
+        line-height: 20px;
+        margin-bottom: 40px;
+    }
+
+    &__range {
+        display: flex;
+        margin-bottom: 25px;
+        .range {
+            flex-grow: 1;
+        }
+
+        .vue-range-slider {
+            &.slider-component {
+                &.slider-horizontal {
+                    padding: 10px !important;
+                    .slider {
+                        height: 2px !important;
+                        border-radius: 0;
+                        background-color: $cl-cobalt;
+                        .slider-process {
+                            background-color: $cl-cobalt;
+                            border-radius: 0;
+                        }
+
+                        .slider-dot {
+                            background-color: $cl-cobalt;
+                            height: 20px !important;
+                            width: 20px !important;
+                            top: -10px !important;
+                            box-shadow: none;
+                        }
+
+                        .slider-tooltip-wrap.slider-tooltip-top {
+                            top: -5px;
+                            .slider-tooltip {
+                                font-size: 20px;
+                                line-height: 25px;
+                                font-weight: 500;
+                                color: $cl-cobalt;
+                                background: $cl-white;
+                                border: none;
+                                border-radius: 0;
+                                &::before {
+                                    display: none;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    &__promo {
+        position: relative;
+        display: flex;
+        .button {
+            padding: 20px 10px;
+            font-size: 16px;
+            line-height: 20px;
+            color: $cl-white;
+            background: $cl-cobalt;
+            justify-content: center;
+            width: 124px;
+            border-radius: 0;
+        }
+
+        input {
+            flex-grow: 1;
+            padding: 20px 15px;
+            border: 1px solid $cl-cobalt;
+            font-size: 16px;
+            line-height: 20px;
+            color: $cl-cobalt;
+            &::placeholder {
+                color: $cl-cobalt;
+            }
+        }
+
+        p {
+            display: block;
+            position: absolute;
+            bottom: -26px;
+            font-size: 12px;
+            line-height: 16px;
+            margin-bottom: 0;
+        }
+    }
+}
+
+@media (min-width: $desktop-min) {
+    .order-bonus {
+        padding: 0;
+        margin-bottom: 76px;
+        h2 {
+            font-size: 36px;
+            line-height: 40px;
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 14px;
+            line-height: 20px;
+            margin-bottom: 50px;
+        }
+
+        &__range {
+            margin-bottom: 32px;
+            max-width: 440px;
+        }
+
+        &__promo {
+            margin-top: 10px;
+            max-width: 475px;
+            .button {
+                width: 144px;
+            }
+
+            p {
+                display: block;
+                position: absolute;
+                bottom: -26px;
+                font-size: 12px;
+                line-height: 16px;
+                margin-bottom: 0;
+            }
+        }
+    }
+}
+
+@media (min-width: $desktop) {
+    .order-bonus {
+        margin-bottom: 60px;
+        &__range {
+            margin-bottom: 60px;
+        }
+    }
+}

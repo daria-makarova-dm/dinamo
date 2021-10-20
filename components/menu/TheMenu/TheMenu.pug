@@ -1,0 +1,16 @@
+ul.b-menu
+  li.b-menu__row
+    .b-menu__item.b-menu__item--submenu
+      TheSubmenu
+    .b-menu__item.b-menu__item--partners.no-border.no-padding
+      MenuPartner(
+        v-for="partner in $t('menu.partnerLogo')"
+        :key="partner.id" :img-url="partner.img"
+        :link-title="partner.linkTitle"
+        :link-url="partner.linkUrl"
+      )
+  li.b-menu__row
+    .b-menu__item.b-menu__item--catalog.no-border.no-padding
+      CatalogMenu
+    .b-menu__item.b-menu__item--user-btn.no-border.no-padding
+      MenuUserButtons

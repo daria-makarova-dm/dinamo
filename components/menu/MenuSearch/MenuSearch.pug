@@ -1,0 +1,21 @@
+.menu-search(:class="openClass" @keyup.esc="close")
+  BaseOverlay(v-if="isOpen")
+  BaseButton(mode="button--search" v-show="!isOpen" @click.native="open")
+    SearchIcon
+  .menu-search__open(v-show="isOpen")
+    .menu-search__field-wrap
+      .menu-search__field
+        .menu-search__button
+          SearchIcon
+        .menu-search__input-wrap
+          input(type="search" id="search" v-model="value" @input="search($event)" ref="input" placeholder="поиск товаров").menu-search__input
+      BaseButton.menu-search__reset(mode="button--close reset" @click.native="close")
+        CloseThinIcon
+    ul.menu-search__result-list(v-if="result")
+      li(v-for="(item, key) in result" :key="key")
+        BaseButton(mode="button--search-result" type="link" to="/catalog" @click.native="close")
+          span.menu-search__icon
+            SearchIcon
+          span(v-html="strong(item, value)")
+          span.menu-search__icon.menu-search__icon--arrow
+            ArrowRightThinIcon

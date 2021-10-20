@@ -1,0 +1,11 @@
+.modal-video(:class="{ 'full-container': isFullContainer }")
+  Modal(:noTitleBlock = "noTitleBlock" :isModalVideo = "isModalVideo")
+    template(v-slot:link)
+      .modal-video__btn
+        picture.modal-video__poster
+          img(:src="videoposter" alt="видео-обложка")
+        .modal-video__play-btn
+          svg(class="modal-video__play-btn-icon" width="15" height="18" viewBox="0 0 15 18" fill="none" xmlns="http://www.w3.org/2000/svg")
+            path(d="M15 9L-8.15666e-07 17.6603L-5.85621e-08 0.339745L15 9Z")
+    template(v-slot:content)
+      Video(:videosrc="videosrc")

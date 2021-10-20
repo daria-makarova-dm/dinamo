@@ -1,0 +1,26 @@
+section.order(v-if="!desktop")
+  h1.title--h1 {{ $t('orderPage.title') }}
+  .container
+    Component(:is="stepComponent")
+  StepControl
+section.order(v-else)
+  div.order__left
+    h1.title--h1 {{ $t('orderPage.title') }}
+    .container.container--min
+      OrderFirstStep
+      OrderSecondStep
+      OrderThirdStep
+      OrderFourthStep
+      OrderFifthStep
+      .order__pay-block
+        BaseButton.btn.btn--blue.btn--pay перейти к оплате
+        p Нажимая «Перейти к оплате», вы соглашаетесь с условиями использования сервиса. С подробными условиями доставки можно ознакомиться на странице о доставке
+  div.order__right
+      OrderFinalStep
+      div.order__total-block
+        .container
+          p.total К оплате
+            span {{ total | currency }}
+          BaseButton.btn.btn--blue перейти к оплате
+          p.bonus вам начислится 
+            span 65 баллов

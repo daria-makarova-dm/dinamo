@@ -1,0 +1,19 @@
+.modal-table-size
+  Modal(:title="$t('tableSize.title')")
+    template(v-slot:link)
+      button.modal-table-size__btn таблица размеров
+    template(v-slot:content)
+      table
+        //- caption {{ table.caption }}
+        thead
+          tr
+            th {{ $t('tableSize.size') }}
+            th {{ $t('tableSize.rus') }}
+            th {{ $t('tableSize.height') }}
+            th {{ $t('tableSize.girth') }}
+            th {{ $t('tableSize.waist') }}
+        tbody
+          tr(v-for="(row, idx) in table.row" :key="idx")
+            td(v-for="(td, idx) in row" :key="idx") {{ td }}
+      p.modal__signature {{ $t('tableSize.signature') }}
+

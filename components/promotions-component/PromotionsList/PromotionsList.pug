@@ -1,0 +1,12 @@
+.promotions-list.fix-block-width
+  h1.promotions-list__title АКЦИИ
+  .promotions-list__list
+    ThePromotionCard(v-for="promo in inPromoCards" :key="promo.id"
+      :promotionDateStart="promo.start"
+      :promotionPhoto="promo.url"
+      :promotionDateEnd="promo.end"
+      :promotionLink="{path: `/promotions/${promo.id}`, params: {id: promo.id}}"
+      :promotionTitle="promo.title"
+      :promotionDescr="promo.preview"
+      class="promotions-list__card"
+    )

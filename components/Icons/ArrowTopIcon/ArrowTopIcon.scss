@@ -1,0 +1,10 @@
+.arrow-top-icon {
+  fill: $cl-white;
+
+  .b-submenu & {
+    fill: $cl-cobalt;
+    height: 8px;
+    line-height: 8px;
+    width: 8px;
+  }
+}

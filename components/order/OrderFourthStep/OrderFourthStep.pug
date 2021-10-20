@@ -1,0 +1,19 @@
+div.order-bonus
+  h2
+    | Баллы
+    span У вас {{ $store.state.user.scores }} баллов
+  p Баллами можно оплатить до 30% от суммы заказа
+  div.order-bonus__range
+    span 0
+    vRange(
+      :modelRange="currentScoresValue"
+      formatter="{value}"
+      :minMaxValue="{ min: 0, max: maxScoresValue }"
+      @slide-end="changeRange($event)"
+    )
+    span {{ maxScoresValue }}
+  h2 Подарочный сертификат
+  div.order-bonus__promo
+    input(type="text" v-model="certificate" @input="checkCertificate($event)")
+    BaseButton(@click.native="resetInput") Удалить
+    p(v-if="certificateIsAdd") Сертификат применён

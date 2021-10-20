@@ -1,0 +1,237 @@
+.b-card-detail-customization {
+  margin-bottom: 23px;
+
+  &__dropdown {
+    padding: 10px 10px 23px;
+    border: 1px solid $cl-cobalt;
+  }
+
+  &__player {
+    margin-bottom: 20px;
+  }
+
+  &__surname {
+    width: calc(355 * 100% / 428);
+    padding: 10px 15px;
+    margin-right: calc(8 * 100% / 428);
+  }
+
+  &__number {
+    text-align: center;
+    width: calc(65 * 100% / 428);
+    padding: 10px 15px;
+    &::-webkit-inner-spin-button,
+    ::-webkit-outer-spin-button {
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      margin: 0;
+    }
+  }
+
+  &__surname,
+  &__number {
+    color: $cl-cobalt;
+    border: 1px solid $cl-cobalt;
+    box-shadow: none;
+    &::placeholder {
+      color: $cl-nepal;
+    }
+  }
+
+  &__price {
+    width: 100%;
+    padding-bottom: 10px;
+    margin-top: 10px;
+    border-bottom: 1px solid $cl-cobalt;
+    display: flex;
+    justify-content: space-between;
+    span {
+      margin-left: 10px;
+    }
+  }
+
+  &__wrapper {
+    margin-right: -5px;
+    margin-bottom: -5px;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  &__sponsor {
+    width: calc((100% - 15px) / 3);
+    height: 0;
+    padding-bottom: calc(100% * 133 / 313);
+    margin-right: 5px;
+    margin-bottom: 5px;
+    border: 1px solid $cl-cobalt;
+    position: relative;
+    cursor: pointer;
+    p {
+      position: absolute;
+      bottom: calc(10 * 100% / 135);
+      left: 50%;
+      transform: translateX(-50%);
+      transition: all $duration-animation-base ease;
+    }
+
+    &.added {
+      &::before,
+      &::after {
+        z-index: 4;
+        opacity: 1;
+      }
+    }
+
+    &::before {
+      content: "";
+      width: 20px;
+      height: 20px;
+      background-color: $cl-cobalt;
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      z-index: -1;
+      opacity: 0;
+      transition: all $duration-animation-base ease;
+    }
+
+    &::after {
+      content: "";
+      width: 7px;
+      height: 12px;
+      background-color: transparent;
+      border: 2px solid transparent;
+      border-bottom-color: $cl-white;
+      border-right-color: $cl-white;
+      position: absolute;
+      top: 22px;
+      left: 19px;
+      transform-origin: top right;
+      transform: rotate(45deg) translate(-50%, -50%);
+      z-index: -1;
+      opacity: 0;
+      transition: all $duration-animation-base ease;
+    }
+  }
+
+  &__logo {
+    width: calc(80 * 100% / 99);
+    display: block;
+    position: absolute;
+    top: calc(10 * 100% / 135);
+    left: 50%;
+    transform: translateX(-50%);
+    img {
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+      display: block;
+    }
+  }
+
+  &__caution {
+    padding: 15px 15px 12px 50px;
+    margin-top: 20px;
+    background-color: $cl-alice-blue;
+    position: relative;
+
+    p {
+      font-size: 12px;
+      line-height: 16px;
+      color: $cl-cobalt;
+      margin-bottom: 4px;
+      &:last-of-type {
+        margin-bottom: 0;
+      }
+    }
+
+    &::before {
+      content: "i";
+      line-height: 1;
+      text-align: center;
+      width: 20px;
+      height: 20px;
+      position: absolute;
+      top: 50%;
+      left: 15px;
+      transform: translateY(-50%);
+      border: 1px solid $cl-cobalt;
+      border-radius: 50%;
+    }
+  }
+
+  @media screen and (min-width: 480px) {
+    &__sponsor {
+      padding-bottom: calc(100% * 133 / 433);
+    }
+
+    &__logo {
+      width: calc(80 * 100% / 137);
+    }
+  }
+
+  @media screen and (min-width: $desktop) {
+    width: calc(440 * 100% / 680);
+
+    &__dropdown {
+      padding: 20px;
+    }
+
+    &__surname {
+      font-size: 20px;
+      line-height: 23px;
+      width: calc(320 * 100% / 398);
+      padding: 12px 20px 13px;
+      margin-right: calc(8 * 100% / 398);
+    }
+
+    &__number {
+      font-size: 20px;
+      line-height: 23px;
+      width: calc(70 * 100% / 398);
+      padding: 12px 20px 13px;
+    }
+
+    &__price {
+      font-size: 20px;
+      line-height: 25px;
+      padding-bottom: 15px;
+      margin-top: 15px;
+    }
+
+    &__wrapper {
+      margin-right: -10px;
+      margin-bottom: -10px;
+    }
+    &__sponsor {
+      width: calc((100% - 40px) / 4);
+      padding-bottom: calc(135 * 100% / 407);
+      margin-right: 10px;
+      margin-bottom: 10px;
+      p {
+        font-size: 20px;
+        line-height: 25px;
+        bottom: (10 * 100% / 90);
+      }
+    }
+
+    &__logo {
+      width: calc(69 * 100% / 90);
+      top: calc(10 * 100% / 90);
+    }
+
+    &__caution {
+      padding: 20px 39px 20px 60px;
+      p {
+        font-size: 14px;
+        line-height: 20px;
+      }
+
+      &::before {
+        font-size: 16px;
+        left: 20px;
+      }
+    }
+  }
+}

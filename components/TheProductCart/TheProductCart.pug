@@ -1,0 +1,18 @@
+NuxtLink.product-card(:to="{path: `/card/${id}`, params: {id: id}}")
+  .product-card__img-wrap
+    img.product-card__img(:src="productPreviewImg", :title="title" :alt="title")
+    button.product-card__favorite-btn(@click.prevent="toggleFavorite")
+      FavoriteBtn(:class="{ active: favorite }")
+    button.btn.btn--white.product-card__add-to-cart-btn
+      | В корзину
+    p.product-card__label.label.label--discount(v-if="discountPrice") {{ $t('card.discountLabel') }}
+    p.product-card__label.label.label--hit(v-else-if="bestsellerLabel") {{ $t('card.bestsellerLabel') }}
+    p.product-card__label.label.label--new(v-else-if="noveltyLabel") {{ $t('card.noveltyLabel') }}
+  .product-card__text-block
+    img.product-card__custom-icon(v-if="custom" src="@/assets/image/custom-icon.svg")
+    .product-card__description-block
+      h3.product-card__title {{ title.trim() }}
+      p.product-card__firm(v-if="firm && title.trim().length < 30") {{ firm }}
+    .product-card__price-block
+      p.product-card__price {{ price | currency }}
+      p.product-card__price-discount(v-if="discountPrice") {{ discountPrice | currency }}

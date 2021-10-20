@@ -1,0 +1,129 @@
+.b-catalog-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  border: 1px solid $menu-header-border-color;
+  text-align: left;
+  display: flex;
+  background: $cl-white;
+  margin-left: -1px;
+
+  &:after {
+    box-shadow: 0 5px 20px rgba(9, 89, 161, .6);
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    content: '';
+    z-index: -1;
+  }
+
+  &__lvl1 {
+    display: flex;
+  }
+
+  &__lvl2 {
+    display: flex;
+  }
+
+  &__list {
+    .b-catalog-dropdown__lvl1 & {
+      border-left: 1px solid transparent;
+      padding: 10px 0;
+      width: 262px;
+    }
+
+    .b-catalog-dropdown__lvl2 & {
+      width: 286px;
+      padding: 10px 0;
+      border-left: 1px solid $menu-header-border-color;
+      position: relative;
+    }
+  }
+
+  &__item {
+    display: flex;
+    justify-content: space-between;
+
+    &:hover,
+    &.active {
+      background: $cl-cobalt;
+
+      .b-catalog-dropdown__link {
+        color: $cl-white;
+      }
+
+      .b-catalog-dropdown__icon-arrow {
+        display: block;
+      }
+    }
+
+    &--lvl2 {
+      width: 100%;
+    }
+  }
+
+  &__icon-arrow {
+    display: none;
+  }
+
+  &__link {
+    color: $cl-cobalt;
+  }
+
+  &__preview {
+    padding: 20px 20px 30px;
+    background: $cl-white;
+    text-align: center;
+    border-left: 1px solid $menu-header-border-color;
+    //border-bottom: 1px solid $menu-header-border-color;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    //position: absolute;
+    //top: 0;
+    //bottom: 0;
+
+    &--lvl1 {
+      left: 262px;
+      width: 577px;
+
+      @media (min-width: $desktop) {
+        width: 713px;
+      }
+    }
+
+    &--lvl2 {
+      left: 286px;
+      padding: 20px 20px 30px;
+      width: 291px;
+
+      @media (min-width: $desktop) {
+        width: 428px;
+      }
+    }
+
+    &-img-wrap {
+      width: 100%;
+      height: 471px;
+      max-height: 471px;
+
+      .b-catalog-dropdown__preview--lvl2 & {
+        height: 491px;
+        max-height: 491px;
+      }
+
+      @media (min-width: $desktop) {
+        height: 491px;
+        max-height: 491px;
+      }
+    }
+
+    &-img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+  }
+}

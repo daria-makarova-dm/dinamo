@@ -1,0 +1,40 @@
+.container
+  .images__filter-header
+    h1.title-page.fullwidth-title ОБРАЗЫ
+    .filter-checkboxes.filter-checkboxes--buttons.filter-checkboxes--buttons-round
+      .filter-checkboxes__row
+        Tooltip(v-for="item in getForwhom" :key="`forwhom-${item.id}`")
+          template(#link)
+            BaseCheckbox(
+              :checked="isSelected(`forwhom-${item.id}`)"
+              @input="changeFilter(`forwhom-${item.id}`, item.title)"
+            ) {{ item.title }}
+  TheImageCart(
+    :photoTitle="imageCart.photoTitle"
+    :photoUrl="imageCart.photoUrl"
+    :quote="imageCart.quote"
+    :productCarts="imageCart.productCarts"
+    class="images__image-card"
+  )
+  .images__list-grid.photo-grid.photo-grid--small.fix-block-width(v-for="(image, index) in imagesData" :key="index" v-if="image.type === 'small'")
+    picture.photo-grid__block-image-wrap
+      img.photo-grid__block-image(:src="image.mediaMaterials.urlMain" alt="bigImage")
+    .photo-grid__grid-block
+      picture.photo-grid__grid-block-image-wrap(v-for="(image, index) in image.mediaMaterials.additionalImg" :key="index")
+        img.photo-grid__grid-block-image(:src="image" alt="smallImage")
+  TheImageCart(
+    :photoTitle="imageCart.photoTitle"
+    :photoUrl="imageCart.photoUrl"
+    :quote="imageCart.quote"
+    :productCarts="imageCart.productCarts"
+    isBlockMirror
+  )
+  .images__list-grid.photo-grid.photo-grid--big.fix-block-width(v-for="(image, index) in imagesData" :key="index" v-if="image.type === 'big'")
+    picture.photo-grid__block-image-wrap
+      img.photo-grid__block-image(:src="image.mediaMaterials.urlMain" alt="bigImage")
+    .photo-grid__grid-block
+      picture.photo-grid__grid-block-image-wrap(v-for="(image, index) in image.mediaMaterials.additionalImg" :key="index")
+        img.photo-grid__grid-block-image(:src="image" alt="smallImage")
+  .show-more(v-if="showMoreBtn")
+    span.show-more__shown-products {{ inOffset }} из {{ inLength }} товаров
+    button(@click="showMore").show-more__button.btn.btn--blue Показать еще

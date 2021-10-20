@@ -1,0 +1,1163 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server 1",
+      "author": "typicode 1",
+      "slug": "gde-zp-epta"
+    },
+    {
+      "id": 2,
+      "title": "json-server 2",
+      "author": "typicode 2",
+      "slug": "cho-tam-na-zavode"
+    },
+    {
+      "id": 3,
+      "title": "json-server 3",
+      "author": "typicode 3",
+      "slug": "gde-to-daleko"
+    },
+    {
+      "id": 4,
+      "title": "json-server 4",
+      "author": "typicode 4",
+      "slug": "net-tyt-nichego"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  },
+  "show": [
+    {
+      "name": "12",
+      "value": 12
+    },
+    {
+      "name": "24",
+      "value": 24
+    },
+    {
+      "name": "48",
+      "value": 48
+    }
+  ],
+  "sort": [
+    {
+      "name": "по популярности",
+      "value": "popular_desc"
+    },
+    {
+      "name": "по увеличению цены",
+      "value": "price_asc"
+    },
+    {
+      "name": "по уменьшению цены",
+      "value": "price_desc"
+    },
+    {
+      "name": "сначала новинки",
+      "value": "new_desc"
+    }
+  ],
+  "filter": {
+    "price": {
+      "min": 100,
+      "max": 10000,
+      "currentMin": 1000,
+      "currentMax": 7500
+    },
+    "count": 45,
+    "color": [
+      {
+        "id": 1,
+        "title": "Черный",
+        "color": "000000"
+      },
+      {
+        "id": 2,
+        "title": "Синий",
+        "color": "0959A1"
+      },
+      {
+        "id": 3,
+        "title": "Белый",
+        "color": "FFFFFF"
+      },
+      {
+        "id": 4,
+        "title": "Красный",
+        "color": "CE0013"
+      },
+      {
+        "id": 5,
+        "title": "Серый",
+        "color": "BDBDBD"
+      },
+      {
+        "id": 6,
+        "title": "Золотой",
+        "color": "BFA069"
+      }
+    ],
+    "categories": [
+      {
+        "id": 1,
+        "title": "Верхняя одежда",
+        "slug": "verhnyaya-odezhda",
+        "items": [
+          {
+            "id": 1,
+            "title": "Футболки и олимпийки",
+            "slug": "futbolki-i-olimpijki"
+          },
+          {
+            "id": 2,
+            "title": "Штаны",
+            "slug": "shtany"
+          },
+          {
+            "id": 3,
+            "title": "Комплекты",
+            "slug": "komplekty"
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "title": "Свитшоты и толстовки",
+        "slug": "svitshoty-i-tolstovki",
+        "items": [
+          {
+            "id": 1,
+            "title": "Футболки и олимпийки",
+            "slug": "futbolki-i-olimpijki"
+          },
+          {
+            "id": 2,
+            "title": "Штаны",
+            "slug": "shtany"
+          },
+          {
+            "id": 3,
+            "title": "Комплекты",
+            "slug": "komplekty"
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "title": "Футболки и поло",
+        "slug": "futbolki-i-polo",
+        "items": [
+          {
+            "id": 1,
+            "title": "Футболки и олимпийки",
+            "slug": "Futbolki-i-olimpijki"
+          },
+          {
+            "id": 2,
+            "title": "Штаны",
+            "slug": "Shtany"
+          },
+          {
+            "id": 3,
+            "title": "Комплекты",
+            "slug": "Komplekty"
+          }
+        ]
+      },
+      {
+        "id": 4,
+        "title": "Борюки и шорты",
+        "slug": "boryuki-i-shorty",
+        "items": [
+          {
+            "id": 1,
+            "title": "Футболки и олимпийки",
+            "slug": "futbolki-i-olimpijki"
+          },
+          {
+            "id": 2,
+            "title": "Штаны",
+            "slug": "shtany"
+          },
+          {
+            "id": 3,
+            "title": "Комплекты",
+            "slug": "komplekty"
+          }
+        ]
+      },
+      {
+        "id": 5,
+        "title": "Спортивные костюмы",
+        "slug": "sportivnye-kostyumy",
+        "items": [
+          {
+            "id": 1,
+            "title": "Футболки и олимпийки",
+            "slug": "futbolki-i-olimpijki"
+          },
+          {
+            "id": 2,
+            "title": "Штаны",
+            "slug": "shtany"
+          },
+          {
+            "id": 3,
+            "title": "Комплекты",
+            "slug": "komplekty"
+          }
+        ]
+      },
+      {
+        "id": 6,
+        "title": "Аксессуары",
+        "slug": "aksessuary",
+        "items": [
+          {
+            "id": 1,
+            "title": "Футболки и олимпийки",
+            "slug": "futbolki-i-olimpijki"
+          },
+          {
+            "id": 2,
+            "title": "Штаны",
+            "slug": "shtany"
+          },
+          {
+            "id": 3,
+            "title": "Комплекты",
+            "slug": "komplekty"
+          }
+        ]
+      },
+      {
+        "id": 7,
+        "title": "Обувь",
+        "slug": "obuv",
+        "items": [
+          {
+            "id": 1,
+            "title": "Футболки и олимпийки",
+            "slug": "futbolki-i-olimpijki"
+          },
+          {
+            "id": 2,
+            "title": "Штаны",
+            "slug": "shtany"
+          },
+          {
+            "id": 3,
+            "title": "Комплекты",
+            "slug": "komplekty"
+          }
+        ]
+      }
+    ],
+    "forwhom": [
+      {
+        "id": 1,
+        "title": "Мужчины"
+      },
+      {
+        "id": 2,
+        "title": "Женщины"
+      },
+      {
+        "id": 3,
+        "title": "Дети"
+      }
+    ],
+    "special": [
+      {
+        "id": 1,
+        "title": "Со скидкой"
+      },
+      {
+        "id": 2,
+        "title": "Новинки"
+      },
+      {
+        "id": 3,
+        "title": "Хит"
+      }
+    ],
+    "сollection": [
+      {
+        "id": 1,
+        "title": "Игровая форма 2020/2021"
+      },
+      {
+        "id": 2,
+        "title": "British Tour 1945"
+      },
+      {
+        "id": 3,
+        "title": "Яшин"
+      },
+      {
+        "id": 4,
+        "title": "Осень/зима 2020–2021"
+      },
+      {
+        "id": 5,
+        "title": "Весна/лето 2020"
+      },
+      {
+        "id": 6,
+        "title": "Что-то еще 1"
+      },
+      {
+        "id": 7,
+        "title": "Что-то еще 2"
+      },
+      {
+        "id": 8,
+        "title": "Что-то еще 3"
+      }
+    ],
+    "clothingSize": [
+      {
+        "id": 1,
+        "title": "XS"
+      },
+      {
+        "id": 2,
+        "title": "S"
+      },
+      {
+        "id": 3,
+        "title": "M"
+      },
+      {
+        "id": 4,
+        "title": "L"
+      },
+      {
+        "id": 5,
+        "title": "XL"
+      },
+      {
+        "id": 6,
+        "title": "46"
+      },
+      {
+        "id": 7,
+        "title": "48"
+      },
+      {
+        "id": 8,
+        "title": "50"
+      },
+      {
+        "id": 9,
+        "title": "52"
+      },
+      {
+        "id": 10,
+        "title": "54"
+      }
+    ],
+    "shoeSize": [
+      {
+        "id": 1,
+        "title": "36"
+      },
+      {
+        "id": 2,
+        "title": "37"
+      },
+      {
+        "id": 3,
+        "title": "38"
+      },
+      {
+        "id": 4,
+        "title": "39"
+      },
+      {
+        "id": 5,
+        "title": "40"
+      },
+      {
+        "id": 6,
+        "title": "41"
+      },
+      {
+        "id": 7,
+        "title": "42"
+      },
+      {
+        "id": 8,
+        "title": "43"
+      },
+      {
+        "id": 9,
+        "title": "44"
+      },
+      {
+        "id": 10,
+        "title": "45"
+      }
+    ]
+  },
+  "catalog": {
+    "title": "Каталог",
+    "total": 147,
+    "items": [
+      {
+        "productPreviewImg": "/_nuxt/assets/image/preview-second-catalog.png",
+        "favorite": true,
+        "title": "Шапка с помпоном и вышитым логотипом Динамо",
+        "price": "1290",
+        "discountPrice": "1990"
+      },
+      {
+        "productPreviewImg": "/_nuxt/assets/image/preview-second-catalog.png",
+        "favorite": false,
+        "title": "Шорты вратарские взрослые",
+        "firm": "Сезон 2020/2021",
+        "price": "3990"
+      },
+      {
+        "productPreviewImg": "/_nuxt/assets/image/preview-second-catalog.png",
+        "favorite": true,
+        "title": "Шорты вратарские взрослые",
+        "firm": "Сезон 2020/2021",
+        "price": "3990"
+      },
+      {
+        "productPreviewImg": "/_nuxt/assets/image/preview-second-catalog.png",
+        "favorite": false,
+        "title": "Шорты вратарские взрослые",
+        "firm": "Сезон 2020/2021",
+        "price": "3990"
+      },
+      {
+        "productPreviewImg": "/_nuxt/assets/image/preview-second-catalog.png",
+        "favorite": false,
+        "title": "Шорты вратарские взрослые",
+        "firm": "Сезон 2020/2021",
+        "price": "3990"
+      }
+    ]
+  },
+  "search": [
+    "Спорт",
+    "Спортивные костюмы мужские",
+    "Спортивные костюмы женские",
+    "Спортивные костюмы детские",
+    "Спортивные штаны",
+    "Спортивные футболки"
+  ],
+  "answer": {
+    "cards": {
+      "total": 147,
+      "items": [
+        {
+          "productPreviewImg": "/_nuxt/assets/image/preview-second-catalog.png",
+          "favorite": true,
+          "title": "Шапка с помпоном и вышитым логотипом Динамо",
+          "price": "1290",
+          "discountPrice": "1990"
+        },
+        {
+          "productPreviewImg": "/_nuxt/assets/image/preview-second-catalog.png",
+          "favorite": false,
+          "title": "Шорты вратарские взрослые",
+          "firm": "Сезон 2020/2021",
+          "price": "3990"
+        },
+        {
+          "productPreviewImg": "/_nuxt/assets/image/preview-second-catalog.png",
+          "favorite": true,
+          "title": "Шорты вратарские взрослые",
+          "firm": "Сезон 2020/2021",
+          "price": "3990"
+        },
+        {
+          "productPreviewImg": "/_nuxt/assets/image/preview-second-catalog.png",
+          "favorite": false,
+          "title": "Шорты вратарские взрослые",
+          "firm": "Сезон 2020/2021",
+          "price": "3990"
+        },
+        {
+          "productPreviewImg": "/_nuxt/assets/image/preview-second-catalog.png",
+          "favorite": false,
+          "title": "Шорты вратарские взрослые",
+          "firm": "Сезон 2020/2021",
+          "price": "3990"
+        }
+      ]
+    },
+    "images": {
+      "total": 3,
+      "items": []
+    },
+    "promotions": {
+      "total": 2,
+      "items": [
+        {
+          "id": 1,
+          "start": "29 мар 2021",
+          "end": "29 апр 2021",
+          "url": "/_nuxt/assets/image/preview-second-catalog.png",
+          "title": "СуперАКЦИЯ!!!!",
+          "preview": "СуперАкция СуперАкция СуперАкция СуперАкция СуперАкция СуперАкция СуперАкция СуперАкция",
+          "description": "Подробное описание СуперАкции Подробное описание СуперАкции Подробное описание СуперАкции Подробное описание СуперАкции Подробное описание СуперАкции Подробное описание СуперАкции Подробное описание СуперАкции Подробное описание СуперАкции Подробное описание СуперАкции Подробное описание СуперАкции Подробное описание СуперАкции"
+        },
+        {
+          "id": 2,
+          "start": "29 мар 2021",
+          "end": "29 апр 2021",
+          "url": "/_nuxt/assets/image/preview-second-catalog.png",
+          "title": "СуперАКЦИЯ!!!!",
+          "preview": "СуперАкция СуперАкция СуперАкция СуперАкция СуперАкция СуперАкция СуперАкция СуперАкция",
+          "description": "Подробное описание СуперАкции Подробное описание СуперАкции Подробное описание СуперАкции Подробное описание СуперАкции Подробное описание СуперАкции Подробное описание СуперАкции Подробное описание СуперАкции Подробное описание СуперАкции Подробное описание СуперАкции Подробное описание СуперАкции Подробное описание СуперАкции"
+        },
+        {
+          "id": 3,
+          "start": "29 мар 2021",
+          "end": "29 апр 2021",
+          "url": "/_nuxt/assets/image/preview-second-catalog.png",
+          "title": "СуперАКЦИЯ!!!!",
+          "preview": "СуперАкция СуперАкция СуперАкция СуперАкция СуперАкция СуперАкция СуперАкция СуперАкция",
+          "description": "Подробное описание СуперАкции Подробное описание СуперАкции Подробное описание СуперАкции Подробное описание СуперАкции Подробное описание СуперАкции Подробное описание СуперАкции Подробное описание СуперАкции Подробное описание СуперАкции Подробное описание СуперАкции Подробное описание СуперАкции Подробное описание СуперАкции"
+        },
+        {
+          "id": 4,
+          "start": "29 мар 2021",
+          "end": "29 апр 2021",
+          "url": "/_nuxt/assets/image/preview-second-catalog.png",
+          "title": "СуперАКЦИЯ!!!!",
+          "preview": "СуперАкция СуперАкция СуперАкция СуперАкция СуперАкция СуперАкция СуперАкция СуперАкция",
+          "description": "Подробное описание СуперАкции Подробное описание СуперАкции Подробное описание СуперАкции Подробное описание СуперАкции Подробное описание СуперАкции Подробное описание СуперАкции Подробное описание СуперАкции Подробное описание СуперАкции Подробное описание СуперАкции Подробное описание СуперАкции Подробное описание СуперАкции"
+        },
+        {
+          "id": 5,
+          "start": "29 мар 2021",
+          "end": "29 апр 2021",
+          "url": "/_nuxt/assets/image/preview-second-catalog.png",
+          "title": "СуперАКЦИЯ!!!!",
+          "preview": "СуперАкция СуперАкция СуперАкция СуперАкция СуперАкция СуперАкция СуперАкция СуперАкция",
+          "description": "Подробное описание СуперАкции Подробное описание СуперАкции Подробное описание СуперАкции Подробное описание СуперАкции Подробное описание СуперАкции Подробное описание СуперАкции Подробное описание СуперАкции Подробное описание СуперАкции Подробное описание СуперАкции Подробное описание СуперАкции Подробное описание СуперАкции"
+        }
+      ]
+    }
+  },
+  "favorites": {
+    "total": 21,
+    "items": [
+      {
+        "id": 101,
+        "productPreviewImg": "/_nuxt/assets/image/preview-second-catalog.png",
+        "favorite": true,
+        "title": "Шапка с помпоном и вышитым логотипом Динамо",
+        "price": "1290",
+        "discountPrice": "1990"
+      },
+      {
+        "id": 721,
+        "productPreviewImg": "/_nuxt/assets/image/preview-second-catalog.png",
+        "favorite": true,
+        "title": "Шорты вратарские взрослые",
+        "firm": "Сезон 2020/2021",
+        "price": "3990"
+      },
+      {
+        "id": 221,
+        "productPreviewImg": "/_nuxt/assets/image/preview-second-catalog.png",
+        "favorite": true,
+        "title": "Шорты вратарские взрослые",
+        "firm": "Сезон 2020/2021",
+        "price": "3990"
+      },
+      {
+        "id": 621,
+        "productPreviewImg": "/_nuxt/assets/image/preview-second-catalog.png",
+        "favorite": true,
+        "title": "Шорты вратарские взрослые",
+        "firm": "Сезон 2020/2021",
+        "price": "3990"
+      },
+      {
+        "id": 836,
+        "productPreviewImg": "/_nuxt/assets/image/preview-second-catalog.png",
+        "favorite": true,
+        "title": "Шорты вратарские взрослые",
+        "firm": "Сезон 2020/2021",
+        "price": "3990"
+      }
+    ]
+  },
+  "pickUpPoints": {
+    "Moscow": {
+      "ru": [
+        {
+          "lat": "55.732771",
+          "lng": "37.576319",
+          "name": "Постомат",
+          "address": "Москва, Малая Пироговская ул., 1/1",
+          "shelfLife": "Срок хранения 7 дней",
+          "workTime": "Ежедневно. Круглосуточно",
+          "pickupTime": "Можно забрать в воскресенье, 22 ноября, бесплатно",
+          "phone": "+74992450310",
+          "label": ["postomats", "daily", "fulltime"]
+        },
+        {
+          "lat": "55.772154",
+          "lng": "37.745860",
+          "name": "ПВЗ СДЭК",
+          "address": "МЦК Соколиная Гора, платформа №2, Москва",
+          "shelfLife": "Срок хранения 7 дней",
+          "workTime": "Ежедневно с 10 до 21",
+          "pickupTime": "Можно забрать в воскресенье, 22 ноября, бесплатно",
+          "phone": "+74992450310",
+          "label": ["daily"]
+        },
+        {
+          "lat": "55.785346",
+          "lng": "37.604932",
+          "name": "Постомат",
+          "address": "пл. Борьбы, 13, Москва",
+          "shelfLife": "Срок хранения 7 дней",
+          "workTime": "Ежедневно с 10 до 21",
+          "pickupTime": "Можно забрать в воскресенье, 22 ноября, бесплатно",
+          "phone": "+74997631447",
+          "label": ["postomats", "daily"]
+        },
+        {
+          "lat": "55.784357",
+          "lng": "37.597693",
+          "name": "ПВЗ СДЭК",
+          "address": "Новослободская ул., 36/1, Москва, 127055",
+          "shelfLife": "Срок хранения 7 дней",
+          "workTime": "ПН-ПТ. Круглосуточно",
+          "pickupTime": "Можно забрать в понедельник, 22 ноября, бесплатно",
+          "phone": "+79161566286",
+          "label": ["fulltime"]
+        },
+        {
+          "lat": "55.756537",
+          "lng": "37.583676",
+          "name": "ПВЗ СДЭК",
+          "address": "Новинский бул., 27, Москва, 123242",
+          "shelfLife": "Срок хранения 7 дней",
+          "workTime": "Ежедневно. Круглосуточно",
+          "pickupTime": "Можно забрать в понедельник, 22 ноября, бесплатно",
+          "label": ["fulltime", "daily"]
+        },
+        {
+          "lat": "55.756537",
+          "lng": "37.583676",
+          "name": "Постомат",
+          "address": "Новинский бул., 27, Москва, 123242",
+          "shelfLife": "Срок хранения 7 дней",
+          "workTime": "Ежедневно. 11:00–19:00",
+          "pickupTime": "Можно забрать в понедельник, 22 ноября, бесплатно",
+          "label": ["daily", "postomats"]
+        }
+      ],
+      "en": [
+        {
+          "lat": "55.732771",
+          "lng": "37.576319",
+          "name": "Postomat",
+          "address": "Moscow, Malaya Pirogovskaya st., 1/1",
+          "shelfLife": "Shelf life 7 days",
+          "workTime": "Daily. Around the clock.",
+          "pickupTime": "Pick up on Sunday 22 November, free of charge",
+          "phone": "+74992450310",
+          "label": ["postomats", "daily", "fulltime"]
+        },
+        {
+          "lat": "55.772154",
+          "lng": "37.745860",
+          "name": "PVZ CDEK",
+          "address": "MCC Sokolinaya Gora, platform 2, Moscow",
+          "shelfLife": "Shelf life 7 days",
+          "workTime": "Daily from 10 am to 9 pm",
+          "pickupTime": "Pick up on Sunday 22 November, free of charge",
+          "phone": "+74992450310",
+          "label": ["daily"]
+        },
+        {
+          "lat": "55.785346",
+          "lng": "37.604932",
+          "name": "Postomat",
+          "address": "pl. Borby, 13, Moscow",
+          "shelfLife": "Shelf life 7 days",
+          "workTime": "Daily from 10 am to 9 pm",
+          "pickupTime": "Pick up on Sunday 22 November, free of charge",
+          "phone": "+74997631447",
+          "label": ["postomats", "daily"]
+        },
+        {
+          "lat": "55.784357",
+          "lng": "37.597693",
+          "name": "PVZ CDEK",
+          "address": "Novoslobodskaya st., 36/1, Moscow, 127055\n",
+          "shelfLife": "Shelf life 7 days",
+          "workTime": "Mon-Fri. Around the clock",
+          "pickupTime": "Pickup available Monday 22 November, free of charge",
+          "phone": "+79161566286",
+          "label": ["fulltime"]
+        },
+        {
+          "lat": "55.756537",
+          "lng": "37.583676",
+          "name": "PVZ CDEK",
+          "address": "Novinsky blvd., 27, Moscow, 123242\n",
+          "shelfLife": "\nShelf life 7 days",
+          "workTime": "Daily. Around the clock",
+          "pickupTime": "Pickup available Monday 22 November, free of charge",
+          "label": ["fulltime", "daily"]
+        },
+        {
+          "lat": "55.756537",
+          "lng": "37.583676",
+          "name": "Postomat",
+          "address": "Novinsky blvd., 27, Moscow, 123242",
+          "shelfLife": "Shelf life 7 days",
+          "workTime": "Daily. 11: 00-19: 00",
+          "pickupTime": "Pickup available Monday 22 November, free of charge",
+          "label": ["daily", "postomats"]
+        }
+      ]
+    },
+    "SaintPetersburg": {
+      "ru": [
+        {
+          "lat": "59.888534",
+          "lng": "30.382072",
+          "name": "Постомат",
+          "address": "Софийская ул., д, 2, Санкт-Петербург, 192102",
+          "shelfLife": "Срок хранения 7 дней",
+          "workTime": "Ежедневно. Круглосуточно",
+          "pickupTime": "Можно забрать в воскресенье, 22 ноября, бесплатно",
+          "phone": "+78124139842",
+          "label": ["postomats", "daily", "fulltime"]
+        },
+        {
+          "lat": "59.936285",
+          "lng": "30.251342",
+          "name": "ПВЗ СДЭК",
+          "address": "пр. Средний В.О., 87, Санкт-Петербург, 192012",
+          "shelfLife": "Срок хранения 7 дней",
+          "workTime": "Ежедневно с 10 до 21",
+          "pickupTime": "Можно забрать в воскресенье, 22 ноября, бесплатно",
+          "phone": "+78129710015",
+          "label": ["daily"]
+        },
+        {
+          "lat": "59.986276",
+          "lng": "30.354439",
+          "name": "Постомат",
+          "address": "Санкт-Петербург Полюстровский проспект 84 ТРК Европолис, Санкт-Петербург, 195197",
+          "shelfLife": "Срок хранения 7 дней",
+          "workTime": "Ежедневно с 10 до 21",
+          "pickupTime": "Можно забрать в воскресенье, 22 ноября, бесплатно",
+          "phone": "+78006007775",
+          "label": ["postomats", "daily"]
+        },
+        {
+          "lat": "59.804864",
+          "lng": "30.327715",
+          "name": "ПВЗ СДЭК",
+          "address": "Пулковское ш., 48, Санкт-Петербург, 196140",
+          "shelfLife": "Срок хранения 7 дней",
+          "workTime": "ПН-ПТ. Круглосуточно",
+          "pickupTime": "Можно забрать в понедельник, 22 ноября, бесплатно",
+          "phone": "+78123466050",
+          "label": ["fulltime"]
+        },
+        {
+          "lat": "59.704462",
+          "lng": "30.577754",
+          "name": "ПВЗ СДЭК",
+          "address": "Ленинградская ул., 9 Б, Ям-Ижора, Ленинградская обл., 187033",
+          "shelfLife": "Срок хранения 7 дней",
+          "workTime": "Ежедневно. Круглосуточно",
+          "pickupTime": "Можно забрать в понедельник, 22 ноября, бесплатно",
+          "label": ["fulltime", "daily"]
+        },
+        {
+          "lat": "59.856021",
+          "lng": "29.905064",
+          "name": "Постомат",
+          "address": "ул. Братьев Горкушенко, 26, Санкт-Петербург, 198510",
+          "shelfLife": "Срок хранения 7 дней",
+          "workTime": "Ежедневно. 11:00–19:00",
+          "pickupTime": "Можно забрать в понедельник, 22 ноября, бесплатно",
+          "label": ["daily", "postomats"]
+        }
+      ],
+      "en": [
+        {
+          "lat": "59.888534",
+          "lng": "30.382072",
+          "name": "Postomat",
+          "address": "\nSofiyskaya st., D, 2, St. Petersburg, 192102",
+          "shelfLife": "Shelf life 7 days",
+          "workTime": "Daily. Around the clock.",
+          "pickupTime": "Pick up on Sunday 22 November, free of charge",
+          "phone": "+74992450310",
+          "label": ["postomats", "daily", "fulltime"]
+        },
+        {
+          "lat": "59.936285",
+          "lng": "30.251342",
+          "name": "PVZ CDEK",
+          "address": "\nAve Sredny V.O., 87, St. Petersburg, 192012",
+          "shelfLife": "Shelf life 7 days",
+          "workTime": "Daily from 10 am to 9 pm",
+          "pickupTime": "Pick up on Sunday 22 November, free of charge",
+          "phone": "+78129710015",
+          "label": ["daily"]
+        },
+        {
+          "lat": "59.986276",
+          "lng": "30.354439",
+          "name": "Postomat",
+          "address": "\nSt. Petersburg Polyustrovsky prospect 84 Europolis shopping center, St. Petersburg, 195197",
+          "shelfLife": "Shelf life 7 days",
+          "workTime": "Daily from 10 am to 9 pm",
+          "pickupTime": "Pick up on Sunday 22 November, free of charge",
+          "phone": "+78006007775",
+          "label": ["postomats", "daily"]
+        },
+        {
+          "lat": "59.804864",
+          "lng": "30.327715",
+          "name": "PVZ CDEK",
+          "address": "\nPulkovskoe sh., 48, St. Petersburg, 196140",
+          "shelfLife": "Shelf life 7 days",
+          "workTime": "Mon-Fri. Around the clock",
+          "pickupTime": "Pickup available Monday 22 November, free of charge",
+          "phone": "+78123466050",
+          "label": ["fulltime"]
+        },
+        {
+          "lat": "59.704462",
+          "lng": "30.577754",
+          "name": "PVZ CDEK",
+          "address": "\nLeningradskaya st., 9 B, Yam-Izhora, Leningrad region, 187033",
+          "shelfLife": "\nShelf life 7 days",
+          "workTime": "Daily. Around the clock",
+          "pickupTime": "Pickup available Monday 22 November, free of charge",
+          "label": ["fulltime", "daily"]
+        },
+        {
+          "lat": "59.856021",
+          "lng": "29.905064",
+          "name": "Postomat",
+          "address": "\nst. Brothers Gorkushenko, 26, St. Petersburg, 198510",
+          "shelfLife": "Shelf life 7 days",
+          "workTime": "Daily. 11: 00-19: 00",
+          "pickupTime": "Pickup available Monday 22 November, free of charge",
+          "label": ["daily", "postomats"]
+        }
+      ]
+    },
+    "Yekaterinburg": {
+      "ru": [
+        {
+          "lat": "56.872183",
+          "lng": "60.603025",
+          "name": "Постомат",
+          "address": "Артинская ул., 12б, Екатеринбург, Свердловская обл., 620141",
+          "shelfLife": "Срок хранения 7 дней",
+          "workTime": "Ежедневно. Круглосуточно",
+          "pickupTime": "Можно забрать в воскресенье, 22 ноября, бесплатно",
+          "phone": "+73433122030",
+          "label": ["postomats", "daily", "fulltime"]
+        },
+        {
+          "lat": "56.824212",
+          "lng": "60.563204",
+          "name": "ПВЗ СДЭК",
+          "address": "Ветеринарная ул., 8, Екатеринбург, Свердловская обл., 620104",
+          "shelfLife": "Срок хранения 7 дней",
+          "workTime": "Ежедневно с 10 до 21",
+          "pickupTime": "Можно забрать в воскресенье, 22 ноября, бесплатно",
+          "phone": "+73432132999",
+          "label": ["daily"]
+        },
+        {
+          "lat": "56.844013",
+          "lng": "60.619154",
+          "name": "Постомат",
+          "address": "ул. Первомайская, 27, Екатеринбург, Свердловская обл., 620075",
+          "shelfLife": "Срок хранения 7 дней",
+          "workTime": "Ежедневно с 10 до 21",
+          "pickupTime": "Можно забрать в воскресенье, 22 ноября, бесплатно",
+          "phone": "+73433508538",
+          "label": ["postomats", "daily"]
+        },
+        {
+          "lat": "56.847778",
+          "lng": "60.630133",
+          "name": "ПВЗ СДЭК",
+          "address": "Асбестовский пер., 3, Екатеринбург, Свердловская обл., 620041",
+          "shelfLife": "Срок хранения 7 дней",
+          "workTime": "ПН-ПТ. Круглосуточно",
+          "pickupTime": "Можно забрать в понедельник, 22 ноября, бесплатно",
+          "phone": "+78123466050",
+          "label": ["fulltime"]
+        },
+        {
+          "lat": "56.852821",
+          "lng": "60.635089",
+          "name": "ПВЗ СДЭК",
+          "address": "ул. Советская, 24 а, офис 109, 1 этаж, Екатеринбург, Свердловская обл., 620041",
+          "shelfLife": "Срок хранения 7 дней",
+          "workTime": "Ежедневно. Круглосуточно",
+          "pickupTime": "Можно забрать в понедельник, 22 ноября, бесплатно",
+          "label": ["fulltime", "daily"]
+        },
+        {
+          "lat": "56.858690",
+          "lng": "60.634947",
+          "name": "Постомат",
+          "address": "Июльская ул., 39/1, Екатеринбург, Свердловская обл., 620137",
+          "shelfLife": "Срок хранения 7 дней",
+          "workTime": "Ежедневно. 11:00–19:00",
+          "pickupTime": "Можно забрать в понедельник, 22 ноября, бесплатно",
+          "label": ["daily", "postomats"]
+        }
+      ],
+      "en": [
+        {
+          "lat": "56.872183",
+          "lng": "60.603025",
+          "name": "Postomat",
+          "address": "Artinskaya st., 12b, Yekaterinburg, Sverdlovsk region, 620141",
+          "shelfLife": "Shelf life 7 days",
+          "workTime": "Daily. Around the clock.",
+          "pickupTime": "Pick up on Sunday 22 November, free of charge",
+          "phone": "+73433122030",
+          "label": ["postomats", "daily", "fulltime"]
+        },
+        {
+          "lat": "56.824212",
+          "lng": "60.563204",
+          "name": "PVZ CDEK",
+          "address": "Veterinary st., 8, Yekaterinburg, Sverdlovsk region, 620104",
+          "shelfLife": "Shelf life 7 days",
+          "workTime": "Daily from 10 am to 9 pm",
+          "pickupTime": "Pick up on Sunday 22 November, free of charge",
+          "phone": "+73432132999",
+          "label": ["daily"]
+        },
+        {
+          "lat": "56.844013",
+          "lng": "60.619154",
+          "name": "Postomat",
+          "address": "st. Pervomayskaya, 27, Yekaterinburg, Sverdlovsk region, 620075",
+          "shelfLife": "Shelf life 7 days",
+          "workTime": "Daily from 10 am to 9 pm",
+          "pickupTime": "Pick up on Sunday 22 November, free of charge",
+          "phone": "+73433508538",
+          "label": ["postomats", "daily"]
+        },
+        {
+          "lat": "56.847778",
+          "lng": "60.630133",
+          "name": "PVZ CDEK",
+          "address": "Asbestovsky lane, 3, Yekaterinburg, Sverdlovsk region, 620041",
+          "shelfLife": "Shelf life 7 days",
+          "workTime": "Mon-Fri. Around the clock",
+          "pickupTime": "Pickup available Monday 22 November, free of charge",
+          "phone": "+78123466050",
+          "label": ["fulltime"]
+        },
+        {
+          "lat": "56.852821",
+          "lng": "60.635089",
+          "name": "PVZ CDEK",
+          "address": "st. Sovetskaya, 24 a, office 109, 1st floor, Yekaterinburg, Sverdlovsk region, 620041",
+          "shelfLife": "\nShelf life 7 days",
+          "workTime": "Daily. Around the clock",
+          "pickupTime": "Pickup available Monday 22 November, free of charge",
+          "label": ["fulltime", "daily"]
+        },
+        {
+          "lat": "56.858690",
+          "lng": "60.634947",
+          "name": "Postomat",
+          "address": "Yulskaya st., 39/1, Yekaterinburg, Sverdlovsk region, 620137",
+          "shelfLife": "Shelf life 7 days",
+          "workTime": "Daily. 11: 00-19: 00",
+          "pickupTime": "Pickup available Monday 22 November, free of charge",
+          "label": ["daily", "postomats"]
+        }
+      ]
+    },
+    "Vladivostok": {
+      "ru": [
+        {
+          "lat": "43.148764",
+          "lng": "131.919643",
+          "name": "Постомат",
+          "address": "Волховская ул., 26А, Владивосток, Приморский край, 690039",
+          "shelfLife": "Срок хранения 7 дней",
+          "workTime": "Ежедневно. Круглосуточно",
+          "pickupTime": "Можно забрать в воскресенье, 22 ноября, бесплатно",
+          "phone": "+74232340009",
+          "label": ["postomats", "daily", "fulltime"]
+        },
+        {
+          "lat": "43.154687",
+          "lng": "131.918507",
+          "name": "ПВЗ СДЭК",
+          "address": "улица Карбышева, 4, Офис 102, Владивосток, Приморский край, 690048",
+          "shelfLife": "Срок хранения 7 дней",
+          "workTime": "Ежедневно с 10 до 21",
+          "pickupTime": "Можно забрать в воскресенье, 22 ноября, бесплатно",
+          "phone": "+74232348010",
+          "label": ["daily"]
+        },
+        {
+          "lat": "43.158551",
+          "lng": "131.917975",
+          "name": "Постомат",
+          "address": "ул. Гамарника, дом 15, Владивосток, Приморский край, 690033",
+          "shelfLife": "Срок хранения 7 дней",
+          "workTime": "Ежедневно с 10 до 21",
+          "pickupTime": "Можно забрать в воскресенье, 22 ноября, бесплатно",
+          "phone": "+73433508538",
+          "label": ["postomats", "daily"]
+        },
+        {
+          "lat": "43.162898",
+          "lng": "131.922615",
+          "name": "ПВЗ СДЭК",
+          "address": "16 лит, ул. Иртышская, 15, Владивосток, Приморский край, 690089",
+          "shelfLife": "Срок хранения 7 дней",
+          "workTime": "ПН-ПТ. Круглосуточно",
+          "pickupTime": "Можно забрать в понедельник, 22 ноября, бесплатно",
+          "phone": "+74232769611",
+          "label": ["fulltime"]
+        },
+        {
+          "lat": "43.168770",
+          "lng": "131.919196",
+          "name": "ПВЗ СДЭК",
+          "address": "ул. Русская, 33, Владивосток, Приморский край, 690069",
+          "shelfLife": "Срок хранения 7 дней",
+          "workTime": "Ежедневно. Круглосуточно",
+          "pickupTime": "Можно забрать в понедельник, 22 ноября, бесплатно",
+          "label": ["fulltime", "daily"]
+        },
+        {
+          "lat": "43.174278",
+          "lng": "131.925431",
+          "name": "Постомат",
+          "address": "ул. Давыдова, 40-Б, Владивосток, Приморский край, 690000",
+          "shelfLife": "Срок хранения 7 дней",
+          "workTime": "Ежедневно. 11:00–19:00",
+          "pickupTime": "Можно забрать в понедельник, 22 ноября, бесплатно",
+          "label": ["daily", "postomats"]
+        }
+      ],
+      "en": [
+        {
+          "lat": "43.148764",
+          "lng": "131.919643",
+          "name": "Postomat",
+          "address": "Volkhovskaya st., 26A, Vladivostok, Primorsky Territory, 690039",
+          "shelfLife": "Shelf life 7 days",
+          "workTime": "Daily. Around the clock.",
+          "pickupTime": "Pick up on Sunday 22 November, free of charge",
+          "phone": "+74232340009",
+          "label": ["postomats", "daily", "fulltime"]
+        },
+        {
+          "lat": "43.154687",
+          "lng": "131.918507",
+          "name": "PVZ CDEK",
+          "address": "\nKarbysheva street, 4, Office 102, Vladivostok, Primorsky Krai, 690048",
+          "shelfLife": "Shelf life 7 days",
+          "workTime": "Daily from 10 am to 9 pm",
+          "pickupTime": "Pick up on Sunday 22 November, free of charge",
+          "phone": "+74232348010",
+          "label": ["daily"]
+        },
+        {
+          "lat": "43.158551",
+          "lng": "131.917975",
+          "name": "Postomat",
+          "address": "st. Gamarnika, house 15, Vladivostok, Primorsky Territory, 690033",
+          "shelfLife": "Shelf life 7 days",
+          "workTime": "Daily from 10 am to 9 pm",
+          "pickupTime": "Pick up on Sunday 22 November, free of charge",
+          "phone": "+73433508538",
+          "label": ["postomats", "daily"]
+        },
+        {
+          "lat": "43.162898",
+          "lng": "131.922615",
+          "name": "PVZ CDEK",
+          "address": "16 litas, st. Irtyshskaya, 15, Vladivostok, Primorsky Territory, 690089",
+          "shelfLife": "Shelf life 7 days",
+          "workTime": "Mon-Fri. Around the clock",
+          "pickupTime": "Pickup available Monday 22 November, free of charge",
+          "phone": "+74232769611",
+          "label": ["fulltime"]
+        },
+        {
+          "lat": "43.168770",
+          "lng": "131.919196",
+          "name": "PVZ CDEK",
+          "address": "st. Russian, 33, Vladivostok, Primorsky Territory, 690069",
+          "shelfLife": "\nShelf life 7 days",
+          "workTime": "Daily. Around the clock",
+          "pickupTime": "Pickup available Monday 22 November, free of charge",
+          "label": ["fulltime", "daily"]
+        },
+        {
+          "lat": "43.174278",
+          "lng": "131.925431",
+          "name": "Postomat",
+          "address": "st. Davydova, 40-B, Vladivostok, Primorsky Territory, 690000",
+          "shelfLife": "Shelf life 7 days",
+          "workTime": "Daily. 11: 00-19: 00",
+          "pickupTime": "Pickup available Monday 22 November, free of charge",
+          "label": ["daily", "postomats"]
+        }
+      ]
+    }
+  },
+  "cities": {
+    "Moscow": {
+      "ru": "Москва",
+      "en": "Moscow",
+      "name": "Moscow"
+    },
+    "SaintPetersburg": {
+      "ru": "Санкт-Петербург",
+      "en": "Saint Petersburg",
+      "name": "SaintPetersburg"
+    },
+    "Yekaterinburg": {
+      "ru": "Екатерингбург",
+      "en": "Yekaterinburg",
+      "name": "Yekaterinburg"
+    },
+    "Vladivostok": {
+      "ru": "Владивосток",
+      "en": "Vladivostok",
+      "name": "Vladivostok"
+    }
+  }
+}

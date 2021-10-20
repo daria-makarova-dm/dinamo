@@ -1,0 +1,6 @@
+.filter-menu(:class="{ open }")
+  .filter-menu__link(@click="open = !open")
+    slot(name="link")
+    .filter-menu__icon
+  .filter-menu__content(v-show="open")
+    slot(name="content")

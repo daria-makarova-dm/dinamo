@@ -1,0 +1,13 @@
+.promotion-card(:class="{'--no-picture': !promotionPhoto}")
+  .promotion-card__picture-block
+    span.promotion-card__date
+      | {{ promotionDateStart }}
+      br
+      | - {{ promotionDateEnd }}
+    picture.promotion-card__picture(v-if="promotionPhoto")
+      img(:src="promotionPhoto")
+  NuxtLink(:to="promotionLink" class="promotion-card__title")
+    span
+      | {{ promotionTitle }}
+  p.promotion-card__descr(v-if="promotionDescr")
+    | {{ promotionDescr }}

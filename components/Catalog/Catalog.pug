@@ -1,0 +1,140 @@
+.page-catalog
+
+  //- Титульник + кол-во товаров
+  .catalog__title
+    h1.title--h1 {{ title }}
+      span.catalog__amount(v-if="isTitleLength") {{ inLength }} Товара
+
+  //- Тогда: Мобилка
+  div(v-if="mobile")
+    .filter-menu-wrap
+      Menu
+        template(#link) Тип товара
+        template(#content)
+          AccordionMobile(
+            v-for="category in getCategories"
+            :key="`category-${category.id}`"
+            :link="category.title"
+          )
+            template(#content)
+              ul
+                li(
+                  v-for="item in category.items"
+                  :key="`category-${category.id}-${item.id}`"
+                )
+                  NuxtLink(:to="`/catalog/${category.slug}/${item.slug}`") {{ item.title }}
+      Menu.filter-menu--sort
+        template(#link) Фильтры и Сортировка
+        template(#content)
+          .filter-menu-wrap__content
+            //- Сортировка
+            TheFilterSC(
+              :title="$t('sort.title')"
+              :list="sortList"
+              :selected="sortValue"
+              queryParam="sorting"
+              @send="sortedSetParams"
+              isMobile
+            )
+
+            //- Фильтр
+            TheFilter(
+              @loadData="data => filterParams = data"
+              @filterSend="filterSetParams"
+              :queryParams="queryParams"
+              isMobile
+            )
+
+          .filter-sort__bottom-panel
+            .filter-sort__found Найдено {{ getCount }} Товаров
+            button.btn.btn--white.filter-sort__btn Показать
+            .filter-sort__clear(@click="sendRemoveData('all')") Очистить Фильтры
+
+    //- Блок: Бэйжды выбранных фильтров и кнопка очистить
+    .chosen(v-if="getSelected.length")
+      .chosen__item(v-for="item in getSelected" :key="`selected-${item.key}`")
+        .chosen__name {{ item.value }}
+        .chosen__close(@click="sendRemoveData('one', item.key)")
+          svg(class="chosen__close-icon" fill='none' xmlns='http://www.w3.org/2000/svg')
+            path(d='M1 0.5L8 7.5M8 0.5L1 7.5', stroke='white')
+      .chosen__clear(@click="sendRemoveData('all')") Очистить всё
+
+    //- Карточки
+    .catalog__cards
+      .products-cards__list
+        TheProductCard(
+          v-for="(cart, idx) in inCards"
+          :key="idx"
+          :productPreviewImg="cart.productPreviewImg"
+          :propFavorite="cart.propFavorite"
+          :title="cart.title"
+          :firm="cart.firm"
+          :price="cart.price"
+          :bestsellerLabel="cart.bestsellerLabel"
+          :noveltyLabel="cart.noveltyLabel"
+          :discountPrice="cart.discountPrice"
+          :custom="cart.custom"
+          class="products-cards__card"
+        )
+
+    //- Показать еще
+    .show-more.catalog__show-more(v-if="showMoreBtn")
+      h4.catalog__shown-products показано {{ inOffset }} из {{ inLength }} товаров
+      button.catalog__show-more-button(@click="showMore") Показать еще
+
+  //- Если: Десктоп или Планшет
+  div(v-else)
+
+    //- Сортировка + кол-во товаров на странице
+    .filterSC__wrapper
+
+      //- Сортировка
+      TheFilterSC.filterSC--sort(
+        :title="$t('sort.title')"
+        :list="sortList"
+        :selected="sortValue"
+        queryParam="sorting"
+        @send="sortedSetParams"
+      )
+
+      //- Товаров на странице
+      TheFilterSC(
+        :title="$t('show.title')"
+        :list="showList"
+        :selected="showValue"
+        queryParam="shown"
+        @send="showSetParams"
+      )
+
+    .catalog__content-wrapper
+
+      //- Фильтр
+      .catalog__filter
+        TheFilter(
+          @loadData="data => filterParams = data"
+          @filterSend="filterSetParams"
+          :queryParams="queryParams"
+        )
+
+      //- Карточки
+      .catalog__cards
+        .products-cards__list
+          TheProductCard(
+            v-for="(cart, idx) in inCards"
+            :key="idx"
+            :productPreviewImg="cart.productPreviewImg"
+            :propFavorite="cart.propFavorite"
+            :title="cart.title"
+            :firm="cart.firm"
+            :price="cart.price"
+            :bestsellerLabel="cart.bestsellerLabel"
+            :noveltyLabel="cart.noveltyLabel"
+            :discountPrice="cart.discountPrice"
+            :custom="cart.custom"
+            class="products-cards__card"
+          )
+
+        //- Показать еще
+        .catalog__show-more(v-if="showMoreBtn")
+          h4.catalog__shown-products {{ inOffset }} из {{ inLength }} товаров
+          button.catalog__show-more-button(@click="showMore") Показать еще

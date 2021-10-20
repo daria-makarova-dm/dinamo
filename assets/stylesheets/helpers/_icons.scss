@@ -1,0 +1,110 @@
+@font-face {
+	font-family: "icons";
+	src: url('~assets/fonts/icons.eot');
+	src: url('~assets/fonts/icons.eot?#iefix') format('eot'),
+		url('~assets/fonts/icons.woff2') format('woff2'),
+		url('~assets/fonts/icons.woff') format('woff'),
+		url('~assets/fonts/icons.ttf') format('truetype'),
+    url('~assets/fonts/icons.svg#icons') format('svg');
+    font-display: swap;
+}
+
+@mixin icon-styles {
+	font-family: "icons";
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: normal;
+	// speak: none; // only necessary if not using the private unicode range (firstGlyph option)
+	text-decoration: none;
+	text-transform: none;
+}
+
+%icon {
+	@include icon-styles;
+}
+
+@function icon-char($filename) {
+	$char: "";
+  @if $filename == arrow-angle {
+		$char: "\E001";
+  }
+  @if $filename == arrow-full {
+		$char: "\E002";
+  }
+  @if $filename == arrow-long {
+		$char: "\E003";
+  }
+  @if $filename == arrow-small {
+		$char: "\E004";
+  }
+  @if $filename == arrow-thin {
+	$char: "\E005";
+}
+  @if $filename == check {
+		$char: "\E006";
+  }
+  @if $filename == close {
+		$char: "\E007";
+  }
+  @if $filename == eye {
+		$char: "\E008";
+  }
+  @if $filename == file {
+		$char: "\E009";
+  }
+  @if $filename == play {
+	$char: "\E00A";
+  }
+  @if $filename == search {
+	$char: "\E00B";
+  }
+
+	@return $char;
+}
+
+@mixin icon($filename, $insert: before, $extend: true) {
+	&:#{$insert} {
+		@if $extend {
+			@extend %icon;
+		} @else {
+			@include icon-styles;
+		}
+		content: icon-char($filename);
+	}
+}
+
+.icon-arrow-angle {
+	@include icon(arrow-angle);
+}
+.icon-arrow-full {
+	@include icon(arrow-full);
+}
+.icon-arrow-long {
+	@include icon(arrow-long);
+}
+.icon-arrow-small {
+	@include icon(arrow-small);
+}
+.icon-arrow-thin {
+	@include icon(arrow-thin);
+}
+.icon-check {
+	@include icon(check);
+}
+.icon-close {
+	@include icon(close);
+}
+.icon-eye {
+	@include icon(eye);
+}
+.icon-file {
+	@include icon(file);
+}
+.icon-play {
+	@include icon(play);
+}
+.icon-search {
+	@include icon(search);
+}

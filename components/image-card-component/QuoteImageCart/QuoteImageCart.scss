@@ -1,0 +1,53 @@
+.quote-block {
+  position: relative;
+
+  &__title {
+    font-size: 36px;
+    line-height: 40px;
+    margin-bottom: 15px;
+    font-weight: 400;
+
+    @media (min-width: $tablet) {
+      font-size: 56px;
+      line-height: 60px;
+      margin-bottom: 20px;
+    }
+  }
+
+  &__text {
+    @media (min-width: $tablet) {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+    }
+  }
+
+  &__quote {
+    font-size: 14px;
+    line-height: 16px;
+
+    @media (min-width: $tablet) {
+      font-size: 16px;
+      line-height: 20px;
+      width: 50%;
+    }
+  }
+
+  &__quote-link-arrow {
+    position: absolute;
+    top: 7px;
+    right: 0;
+
+    @media (min-width: $tablet) {
+      display: none;
+    }
+  }
+
+  &__quote-link {
+    display: none !important;
+
+    @media (min-width: $tablet) {
+      display: block !important;
+    }
+  }
+}

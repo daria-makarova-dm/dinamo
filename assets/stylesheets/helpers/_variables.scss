@@ -1,0 +1,150 @@
+// COLORS - CONTENT
+$trs: transparent;
+$color-text: #333333;
+$color-text-second: #928879;
+$color-heading-text: #35495e;
+
+$color-accent: #89A658;
+$color-accent-second: #85B534;
+
+$color-background: #F6F5F2;
+
+// COLORS - LINKS
+$color-link: #39a275;
+$color-link-active: $color-text;
+
+// COLORS - INPUTS
+$color-input-border: lighten($color-heading-text, 50%);
+
+// COLORS - BUTTONS
+$color-button-bg: $color-link;
+$color-button-bg-hover: darken($color-link, 10%);
+$color-button-disabled-bg: darken(desaturate($color-button-bg, 20%), 10%);
+$color-button-text: white;
+
+// FONTS
+// $font-text: 'TT Hoves';
+// $font-medium: 'TTHoves-Medium', bold; // wieght 500
+// $font-italic: 'TTHoves-Italic', italic;
+// $font-medium-italic: 'TTHoves-MediumItalic', bold, italic;
+// $font-bold: 'TTHoves-DemiBold', bold; //wieght 600
+// $font-extra-bold: 'TTHoves-ExtraBold', bold;  //wieght 800
+
+// DURATIONS
+$duration-animation-base: 300ms;
+
+// RADIUS
+$radius-default: 4px;
+$radius-circle: 50%;
+
+// Resolution
+$desktop-big: 1920px;
+$desktop-medium: 1440px;
+$desktop: 1280px;
+$desktop-min: 1024px;
+$tablet: 768px;
+$mobile-big: 480px;
+$mobile: 320px;
+
+// default color
+$cl-white: #fff;
+$cl-black: #000;
+$cl-black-base: #333333;
+$cl-black-subsidiary: #666666;
+$cl-read: #FE5D67;
+$cl-read-2: #EF3E58;
+$cl-read-3: #FB4752;
+$cl-read-4: #F13C47;
+$cl-light-read: #FF9AA0;
+$cl-light-blue: #1B8BDC;
+$cl-light-blue-2: #1FA1FF;
+$cl-blue: #275EAE;
+$cl-white-blue: #ddeefa;
+$cl-light-gray: #F4F7FB;
+$cl-light-gray-2: #040505;
+$cl-gray: #C5CDDA;
+$cl-gray2: #C5CCDA;
+$cl-silver: #C4C4C4;
+$cl-gray-dis: #9AA6BC;
+$cl-white-dark: #E5E5E5;
+$cl-dark-gray: #888888;
+$cl-glitchy: #959AA6;
+$cl-dulux: #7C8698;
+$cl-ncs: #BDC2D6;
+$cl-strong-red: #c8102e;
+$cl-pink: #FF52D9;
+$cl-bunting: #2E3547;
+$cl-radical-red: #EF3E58;
+$cl-dodger-blue: #249cf2;
+$cl-dodger-blue-2:#2892DE;
+$cl-denim: #2c6cc9;
+$cl-alice-blue: #F2F8FD;
+$cl-alice-blue-2: #F4F7FB;
+$cl-tangaroa: #13293D;
+$cl-daisy-bush: #57439F;
+$cl-link-water: #C5CDDA;
+$cl-spindle: #BAC8D3;
+$cl-nobel: #999999;
+$cl-dark-gray: #888888;
+$cl-link-water:#BDC2D6;
+$cl-grayish-blue: #E7EDF2;
+
+//custom color
+$cl-cobalt: #0959A1;
+$cl-salem: #1e8a47;
+$cl-white-smoke: #f7f7f7;
+$cl-dark-spring-green: #178240;
+$cl-nepal: #8FA2B2;
+$cl-silver: #BDBDBD;
+$cl-alice-blue: #EEF0F1;
+$cl-gold: #BFA069;
+$cl-pattens-blue: #CEDBE5;
+
+// z-Index
+$z-index-base-overlay: 10;
+$z-index-header: 100;
+
+// Default
+$z-index-base-overlay: 10;
+$background-base-overlay: rgba($cl-black, 0.25);
+
+//Logo-Header
+$color-logo-header-bg: $cl-cobalt;
+$width-logo-header: 120px;
+$width-logo-header-big: 240px;
+$height-logo-header: 120px;
+$height-logo-header-big: 240px;
+
+//Menu-Header
+$menu-header-width: calc(100vw - #{$width-logo-header});
+$menu-header-width-big: calc(100vw - #{$width-logo-header-big});
+$menu-header-height-row: 60px;
+$menu-header-border-color: $cl-cobalt;
+$menu-header-nav-width: calc(100% - 180px);
+
+$menu-header-link-color: $cl-cobalt;
+$menu-header-link-color-hover: $cl-cobalt;
+$menu-header-link-color-active: $cl-cobalt;
+
+$submenu-link-font-size: 12px;
+$submenu-link-line-height: 1.67;
+
+$catalog-nav-btn-count: 8;
+$catalog-nav-btn-font-size: 14px;
+$catalog-nav-btn-line-height: 1.43;
+
+// Footer
+$color-footer-font: $cl-white;
+
+$footer-background: $cl-cobalt;
+$footer-title-font-size: 17,2px;
+$footer-title-line-height: 1.16;
+$footer-title-color: $cl-white;
+$footer-title-weight: 600;
+
+$footer-partner-color-border: $cl-white;
+
+$footer-menu-link-size: 14.2px;
+$footer-menu-link-line-height: 1.41;
+$footer-menu-link-color: $color-footer-font;
+$footer-menu-hover-color: $cl-white;

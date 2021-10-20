@@ -1,0 +1,6 @@
+ul.breadcrumbs
+    li.breadcrumbs__item(v-for="(breadcrumb, idx) in breadcrumbsList" :key="idx")
+        span(v-if="!breadcrumb.link")
+            | {{ breadcrumb.crumb }}
+        NuxtLink(v-else :to="breadcrumb.link")
+            | {{ breadcrumb.crumb }}

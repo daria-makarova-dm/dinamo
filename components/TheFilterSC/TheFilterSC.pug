@@ -1,0 +1,24 @@
+.filterSC
+  .filterSC__mobile(v-if="isMobile")
+    AccordionMobile(:link="title" :text="value.name")
+      template(#content)
+        div(v-for="(option, index) in list" :key="`${queryParam}-${index}`")
+          BaseRadiobutton(
+            v-model="value"
+            :name="queryParam"
+            :value="option"
+            @change="onChange"
+          ) {{ option.name }}
+  .filterSC__desktop(v-else)
+    //- span.filterSC__title {{ title }}
+    VSelect(
+      :options="list"
+      v-model="value"
+      :custom-label="nameWithLang"
+      :searchable="false"
+      :allowEmpty="false"
+      label="name"
+      :showLabels="false"
+      @select="onSelect"
+      :labelText="title"
+    ).b-select--big

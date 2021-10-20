@@ -1,0 +1,13 @@
+.b-header {
+  display: flex;
+  margin: 0 auto;
+  max-width: 1920px;
+  width: 100%;
+  z-index: $z-index-header;
+
+  @media (min-width: $desktop) {
+    &.scroll-top.main-page {
+      padding-left: 240px;
+    }
+  }
+}

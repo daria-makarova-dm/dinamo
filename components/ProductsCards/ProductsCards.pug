@@ -1,0 +1,21 @@
+.products-cards.fix-block-width
+  .products-cards__title-block.title-block
+    h3.products-cards__title {{productsCardsTitle}}
+    NuxtLink.products-cards__link-arrow(:to="link")
+      ArrowIcon
+  .products-cards__list
+    TheProductCard(
+      v-for="(cart, idx) in productCarts"
+      :key="idx"
+      :id="cart.id"
+      :productPreviewImg="cart.productPreviewImg"
+      :propFavorite="cart.propFavorite"
+      :title="cart.title"
+      :firm="cart.firm"
+      :price="cart.price"
+      :bestsellerLabel="cart.bestsellerLabel"
+      :noveltyLabel="cart.noveltyLabel"
+      :discountPrice="cart.discountPrice"
+      :custom="cart.custom"
+      class="products-cards__card"
+    )

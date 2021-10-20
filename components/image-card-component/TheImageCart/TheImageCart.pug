@@ -1,0 +1,38 @@
+.image-card.fix-block-width(:class="{ 'mirror': isBlockMirror }")
+  .image-card__fashion
+    QuoteImageCard(:quote="quote")
+  .image-card__photo
+    img.image-card__photo-img(:src="photoUrl" :alt="photoTitle")
+  .image-card__product-cards(v-if="productCarts.length > 2")
+    ImageCartSlider(
+      v-if="device !== 'mobile'"
+      :productCarts="productCarts"
+    )
+    .image-card__product-card-block(v-else)
+      TheProductCart(
+        v-for="(cart, idx) in productCarts"
+        v-if="idx < 2"
+        :key="idx"
+        :id="cart.id"
+        :productPreviewImg="cart.productPreviewImg"
+        :propFavorite="cart.propFavorite"
+        :title="cart.title"
+        :firm="cart.firm"
+        :price="cart.price"
+        :bestsellerLabel="cart.bestsellerLabel"
+        :noveltyLabel="cart.noveltyLabel"
+        :discountPrice="cart.discountPrice"
+        :custom="cart.custom"
+      )
+  NuxtLink.image-card__product-cards-more(to="/" v-if="productCarts.length > 3 && device === 'mobile'") Ещё {{ productCarts.length - 2 }} товара
+//- .image-card(v-else)
+//-   .image-card__content-left
+//-     .image-card__photo
+//-       img.image-card__photo-img(:src="photoUrl" :alt="photoTitle")
+//-   .image-card__content-right
+//-     .image-card__fashion
+//-       QuoteImageCard(:quote="quote")
+//-     .image-card__product-cards(v-if="productCarts.length > 2")
+//-       ImageCartSlider(
+//-         :productCarts="productCarts"
+//-       )

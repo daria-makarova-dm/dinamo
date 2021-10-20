@@ -1,0 +1,24 @@
+.cart-order
+  .container
+    h2.cart-order__title {{ $t('basket.order.title') }}
+    table.cart-order__payment
+      thead
+      tbody
+        tr
+          td {{ sumPriceProduct }}
+          td {{ allPrice | currency }}
+        tr
+          td Скидки и бонусы
+          td − {{ discountPrice | currency }}
+        tr.total
+          td Итого
+          td {{ finalPrice | currency }}
+    form.cart-order__form-promo(@submit.prevent)
+      .cart-order__form-control
+        input.cart-order__form-input(type="text" v-model="promo" @keyup="checkPromo")
+        BaseButton.cart-order__form-button(@click.native="resetPromoInput") {{ $t('remove') }}
+        p.cart-order__promo(v-if="rightPromo") Промокод успешно применён
+    .cart-order__button-box
+      p Войдите в аккаунт болельщика, чтобы пользоваться бонусами и получить 65 баллов за заказ
+      BaseButton.btn.btn--blue(type="link" to="/auth") войти в аккаунт болельщика
+      BaseButton.btn(type="link" to="/order") перейти к оформлению заказа

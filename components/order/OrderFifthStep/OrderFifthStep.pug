@@ -1,0 +1,12 @@
+div.order-pay
+  h2 Способ оплаты
+  .order-pay__list
+    BaseRadiobutton.order-pay___item(
+      v-for="(way, idx) in ways"
+      :key="idx"
+      :value="way"
+      v-model="value"
+      @change="changeWayPayment($event)"
+    ) {{ way }}
+  h2 Дополнительно
+  textarea(v-model="comment" @input="changeComment($event)")

@@ -1,0 +1,7 @@
+.b-menu-users-button
+  NuxtLink.b-menu-users-button__btn(:class="{ disabled: !isFaforites }" to="/favorites")
+    FavoriteIcon
+    span.count(v-show="isFaforites") {{ getItems.length }}
+  button.b-menu-users-button__btn
+    UserIcon
+  MenuSearch

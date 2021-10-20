@@ -1,0 +1,33 @@
+.b-footer-bottom-row {
+  width: calc(205 * 100% / 330);
+  display: flex;
+  flex-direction: column;
+
+  &__left-text {
+    margin-bottom: 20px;
+  }
+
+  &__text {
+    font-size: 12px;
+    line-height: 20px;
+  }
+
+  @media (min-width: $tablet) {
+    width: 100%;
+    padding-top: 20px;
+    &__text {
+      font-size: 14px;
+    }
+  }
+
+  @media (min-width: $desktop) {
+    padding-top: 0;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+
+    &__left-text {
+      margin-bottom: 0;
+    }
+  }
+}

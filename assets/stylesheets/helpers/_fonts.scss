@@ -1,0 +1,55 @@
+@font-face {
+  font-family: 'TT Hoves';
+  src: url('~assets/fonts/TTHoves/regular.woff2') format('woff2'),
+       url('~assets/fonts/TTHoves/regular.woff')  format('woff');
+  font-weight: normal;
+  font-style:  normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'TT Hoves';
+  src: url('~assets/fonts/TTHoves/medium.woff2') format('woff2'),
+       url('~assets/fonts/TTHoves/medium.woff')  format('woff');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'TT Hoves';
+  src: url('~assets/fonts/TTHoves/italic.woff2') format('woff2'),
+       url('~assets/fonts/TTHoves/italic.woff')  format('woff');
+  font-weight: normal;
+  font-style:  italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'TT Hoves';
+  src: url('~assets/fonts/TTHoves/medium_italic.woff2') format('woff2'),
+       url('~assets/fonts/TTHoves/medium_italic.woff')  format('woff');
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'TT Hoves';
+  src: url('~assets/fonts/TTHoves/demibold.woff2') format('woff2'),
+       url('~assets/fonts/TTHoves/demibold.woff')  format('woff');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'TT Hoves';
+  src: url('~assets/fonts/TTHoves/bold.woff2') format('woff2'),
+       url('~assets/fonts/TTHoves/bold.woff')  format('woff');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+$TTHoves: 'TT Hoves';

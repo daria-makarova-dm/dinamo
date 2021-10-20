@@ -1,0 +1,41 @@
+form.order-courier(@submit.prevent)
+  h2 Адрес получателя
+  //- здесь мог бы быть див с картой, но у меня есть тока картинка
+  .order-courier__map(v-if="desktop")
+    img(src="~/assets/image/map.jpg")
+  .order-courier__adress
+    .form-control.full(:class="{ invalid: !addressIsValid }")
+      label(for="address") Адрес
+      input(type="text" id="address" v-model="address" @input="changeData($event, 'address')" @blur="changeDirty('address')")
+      ul(v-if="searchCityOpen")
+        li(v-for="(item, idx) in streets" :key="idx" @click="chooseAddress(item)") {{ item }}
+    .form-control(:class="{ invalid: !flatIsValid }")
+      label(for="flat") Квартира
+      input(type="text" id="flat" v-model="flat" @input="changeData($event, 'flat')" @blur="changeDirty('flat')")
+    .form-control(:class="{ invalid: !entranceIsValid }")
+      label(for="entrance") Подъезд
+      input(type="text" id="entrance" v-model="entrance" @input="changeData($event, 'entrance')" @blur="changeDirty('entrance')")
+    .form-control(:class="{ invalid: !intercomIsValid }")
+      label(for="intercom") Домофон
+      input(type="text" id="intercom" v-model="intercom" @input="changeData($event, 'intercom')" @blur="changeDirty('intercom')")
+    .form-control(:class="{ invalid: !floorIsValid }")
+      label(for="floor") Этаж
+      input(type="text" id="floor" v-model="floor" @input="changeData($event, 'floor')" @blur="changeDirty('floor')")
+
+  h2 Дата и время получения
+  .order-courier__data
+    .form-control
+      vSelect(
+        v-model="valueDaySelect"
+        :options="daySelect"
+        :searchable="false"
+        :hide-selected="true"
+      )
+    p Курьер поднимет на этаж если потребуется
+    .form-control
+      vSelect(
+        v-model="valueTimeSelect"
+        :options="timeSelect"
+        :searchable="false"
+        :hide-selected="true"
+      )

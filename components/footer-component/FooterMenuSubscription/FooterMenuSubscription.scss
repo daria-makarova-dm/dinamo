@@ -1,0 +1,123 @@
+.b-footer-menu-subscription {
+  width: 100%;
+  margin-bottom: 55px;
+  display: block;
+  &-text-success {
+    text-align: right;
+  }
+
+  &__title {
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 20px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+
+  &__input {
+    width: 100%;
+    background: transparent;
+    height: 40px;
+    font-size: 14.2px;
+    line-height: 1.41;
+    color: $cl-white;
+    outline: none;
+    border: 1px solid $cl-white;
+    padding: 10px 40px 10px 15px;
+
+    &::placeholder {
+      color: $cl-white;
+    }
+  }
+
+  &__form-control {
+    position: relative;
+    &:not(:last-of-type) {
+      margin-bottom: 10px;
+    }
+
+    span.b-checkbox__text {
+      font-size: 14px;
+      line-height: 20px;
+      text-transform: none;
+      display: block;
+      width: 100%;
+      &::before,
+      &::after {
+        top: 4px;
+      }
+    }
+
+    label.b-checkbox__label {
+      padding: 0;
+    }
+
+    input.b-checkbox__input:checked + label.b-checkbox__label {
+      background: none;
+    }
+  }
+
+  &__btn {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    right: 13px;
+    top: 0;
+    height: 100%;
+    display: flex;
+    align-items: center;
+  }
+
+  @media (min-width: $tablet) {
+    width: 100%;
+    padding-left: 19px;
+    margin-bottom: 0;
+
+    &__title {
+      font-size: 17.2px;
+      font-weight: 500;
+      line-height: 20px;
+      margin-bottom: 20px;
+    }
+
+    &__form-control {
+      span.b-checkbox__text {
+        color: #ffffff;
+        display: block;
+        width: 100%;
+        &::before {
+          border: 1px solid #ffffff;
+          top: 4px;
+        }
+
+        &::after {
+          border: 2px solid #ffffff;
+          border-top-color: transparent;
+          border-left-color: transparent;
+          top: 4px;
+        }
+      }
+      label.b-checkbox__label {
+        padding: 0;
+      }
+    }
+  }
+
+  @media (min-width: $desktop) {
+    max-width: 440px;
+    padding: 0;
+    margin: 0 0 0 auto;
+
+    &__form-control {
+      &:not(:last-of-type) {
+        margin-bottom: 20px;
+      }
+    }
+  }
+
+  @media (min-width: $desktop-big) {
+    max-width: 599px;
+  }
+}

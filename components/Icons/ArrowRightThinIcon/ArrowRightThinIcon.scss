@@ -1,0 +1,10 @@
+.arrow-right-thin-icon {
+  fill: $cl-white;
+
+  .menu-search__result-list & {
+    fill: $cl-cobalt;
+    height: 14px;
+    line-height: 14px;
+    width: 14px;
+  }
+}

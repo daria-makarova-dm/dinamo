@@ -1,0 +1,7 @@
+.empty-block
+  .container.container--empty
+    h2.empty-block__title {{ $t('basket.empty.title') }}
+    p.empty-block__text {{ $t('basket.empty.description') }}
+    .empty-block__button-box
+      NuxtLink.btn.btn--blue(to="/cart") {{ $t('basket.empty.btnPromotion') }}
+      NuxtLink.btn.button(to="/") {{ $t('basket.empty.btnMainPage') }}

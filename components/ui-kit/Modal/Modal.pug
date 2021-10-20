@@ -1,0 +1,18 @@
+.modal
+  .modal__block(@click="openModal")
+    slot(name="link") открыть
+  .modal__window(:class="modifier" @click="closeModal" v-show="open" ref="modal")
+    BaseOverlay.modal-wrapp
+    .modal__base(@click.stop :class="{ '--no-background': noTitleBlock, '--video': isModalVideo }")
+      .modal__top-block(v-if="!noTitleBlock")
+        .modal__title {{ title }}
+        button(class="modal__close-btn" @click="closeModal")
+          svg(width="14", height="14", viewBox="0 0 14 14", fill='none', xmlns='http://www.w3.org/2000/svg')
+            path(d="M6.99988 8.3435L12.3281 13.6717L13.6716 12.3282L8.34338 7L13.6716 1.67175L12.3281 0.328247L6.99988 5.6565L1.67163 0.328247L0.328125 1.67175L5.65637 7L0.328125 12.3282L1.67163 13.6717L6.99988 8.3435Z")
+      button(v-else class="modal__close-btn" @click="closeModal")
+        svg(width="14", height="14", viewBox="0 0 14 14", fill='none', xmlns='http://www.w3.org/2000/svg')
+          path(d="M6.99988 8.3435L12.3281 13.6717L13.6716 12.3282L8.34338 7L13.6716 1.67175L12.3281 0.328247L6.99988 5.6565L1.67163 0.328247L0.328125 1.67175L5.65637 7L0.328125 12.3282L1.67163 13.6717L6.99988 8.3435Z")
+      .modal__content(v-if="show")
+        slot(name="content" @closeModal="closeModal" v-bind="{}")
+      .modal__content(v-else)
+        slot(name="content" @closeModal="closeModal" v-bind="{}" v-if="open")

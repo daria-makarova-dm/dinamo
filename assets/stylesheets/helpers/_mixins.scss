@@ -1,0 +1,72 @@
+// Pseudo
+@mixin pseudo($display: block, $pos: absolute, $content: "") {
+  content: $content;
+  display: $display;
+  position: $pos;
+}
+
+// Responsive image ratio
+@mixin responsive-ratio($x, $y, $pseudo: false) {
+  $padding: unquote(($y / $x) * 100 + "%");
+  @if $pseudo {
+    &:before {
+      @include pseudo($pos: relative);
+      width: 100%;
+      padding-top: $padding;
+    }
+  } @else {
+    padding-top: $padding;
+  }
+}
+
+// Z-Index order
+@function z($name) {
+  @if index($z-indexes, $name) {
+    @return (length($z-indexes) - index($z-indexes, $name)) + 1;
+  } @else {
+    @warn 'There is no item "#{$name}" in this list; choose one of: #{$z-indexes}';
+    @return null;
+  }
+}
+$z-indexes: (
+  "tooltip",
+  "popover",
+  "modal",
+  "dropdown",
+  "header",
+  "page",
+  "footer"
+);
+
+// Hidden button
+@mixin button-hidden {
+  background: transparent;
+  border: 0 none;
+  line-height: 0;
+}
+
+// Create stack-space
+// @param  {Number} stack-space to set
+@mixin stack-space($value) {
+  margin-bottom: $value;
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+// Create inline-space
+// @param  {Number} inline-space to set
+@mixin inline-space($value) {
+  margin-right: $value;
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+// Saving 4 lines of code every time you use grid.
+@mixin display-flex($direction, $justify, $align) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+}

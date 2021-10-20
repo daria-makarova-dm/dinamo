@@ -1,0 +1,262 @@
+.filter-sort(ref="filterContRef")
+
+  //- Mobile
+  .filter-sort__mobile(v-if="isMobile")
+
+    //- ДЛЯ КОГО
+    AccordionMobile(link="ДЛЯ КОГО" :text="getValuesByKey('forwhom')")
+      template(#content)
+        div(v-for="item in getForwhom" :key="`forwhom-${item.id}`")
+          BaseCheckbox(
+            :id="`forwhom-${item.id}`"
+            :checked="isSelected(`forwhom-${item.id}`)"
+            @input="changeFilter(`forwhom-${item.id}`, item.title)"
+          ) {{ item.title }}
+
+    //- КОЛЛЕКЦИЯ
+    AccordionMobile(link="КОЛЛЕКЦИЯ" :text="getValuesByKey('сollection', 1)")
+      template(#content)
+        div(v-for="item in getCollection" :key="`сollection-${item.id}`")
+          BaseCheckbox(
+            :id="`сollection-${item.id}`"
+            :checked="isSelected(`сollection-${item.id}`)"
+            @input="changeFilter(`сollection-${item.id}`, item.title)"
+          ) {{ item.title }}
+
+    //- Размер одежды
+    AccordionMobile(link="Размер одежды" :text="getValuesByKey('clothingSize')")
+      template(#content)
+        div(v-for="item in getClothingSize" :key="`clothingSize-${item.id}`")
+          BaseCheckbox(
+            :id="`clothingSize-${item.id}`"
+            :checked="isSelected(`clothingSize-${item.id}`)"
+            @input="changeFilter(`clothingSize-${item.id}`, item.title)"
+          ) {{ item.title }}
+
+    //- Размер обуви
+    AccordionMobile(link="Размер обуви" :text="getValuesByKey('shoeSize')")
+      template(#content)
+        div(v-for="item in getShoeSize" :key="`shoeSize-${item.id}`")
+          BaseCheckbox(
+            :id="`shoeSize-${item.id}`"
+            :checked="isSelected(`shoeSize-${item.id}`)"
+            @input="changeFilter(`shoeSize-${item.id}`, item.title)"
+          ) {{ item.title }}
+
+    //- Цвет
+    AccordionMobile(link="Цвет" :text="getValuesByKey('color')")
+      template(#content)
+        div(v-for="item in getColor" :key="`color-${item.id}`")
+          BaseCheckbox(
+            :id="`color-${item.id}`"
+            :checked="isSelected(`color-${item.id}`)"
+            @input="changeFilter(`color-${item.id}`, item.color)"
+          ).b-checkbox--color
+            .b-checkbox__color(:style="`background: #${item.color}`")
+            span {{ item.title }}
+
+    //- Цена
+    client-only
+      AccordionMobile(link="Цена" :text="`от ${getMinPrice} до ${getMaxPrice}`" @open="ind++")
+        template(#content)
+          .filter-sort__range-value
+            div {{ modelRange[0] }}
+            span.filter-sort__range-line
+            div {{ modelRange[1] }}
+          .filter-sort__range-wrapper
+            v-range(
+              v-model="modelRange"
+              :step="step"
+              :min-max-value="minMaxRange"
+              :key="ind"
+              @slide-end="onSlideChange"
+            )
+
+    div(v-for="item in getSpecial" :key="`special-${item.id}`")
+      BaseCheckbox(
+        :checked="isSelected(`special-${item.id}`)"
+        @input="changeFilter(`special-${item.id}`, item.title)"
+      ) {{ item.title }}
+    //- .filter-sort__bottom-panel
+    //-   .filter-sort__found Найдено {{ getCount }} Товаров
+    //-   button.btn.btn--white.filter-sort__btn(@click.prevent="sendDataCards") Показать
+    //-   .filter-sort__clear(@click="sendRemoveData('all')") Очистить Фильтры
+
+  //- Desk
+  .filter-sort__desktop(v-else ref="filterScrolRef" )
+    vScrollBar
+
+      //- Блок: Категории и под категорий
+      //- Аккордионы
+      div.filter-sort__categories
+        Accordion(v-for="category in getCategories" :key="`category-${category.id}`")
+          template(#link)
+            span {{ category.title }}
+          template(#content)
+            ul
+              li(
+                v-for="item in category.items"
+                :key="`category-${category.id}-${item.id}`"
+              )
+                NuxtLink(:to="`/catalog/${category.slug}/${item.slug}`") {{ item.title }}
+
+      //- Блок: Фильтра начало
+      div.filter-sort__filters
+        h2 Фильтры
+
+        //- Блок: Бэйжды выбранных фильтров и кнопка очистить
+        .chosen
+          .chosen__item(v-for="item in getSelected" :key="`selected-${item.key}`")
+            .chosen__name {{ item.value }}
+            .chosen__close(@click="sendRemoveData('one', item.key)")
+              svg(class="chosen__close-icon" width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg")
+                path(d='M1 1L11 11M11 1L1 11', stroke='white')
+          .chosen__clear(@click="sendRemoveData('all')") Очистить всё
+
+        //- Блок: Для кого
+        .filter-sort__filter-block.filter-checkboxes.filter-checkboxes--buttons.filter-checkboxes--buttons-round
+          h4 ДЛЯ КОГО
+          .filter-checkboxes__row
+            div(v-for="item in getForwhom" :key="`forwhom-${item.id}`")
+              Tooltip
+                template(#link)
+                  BaseCheckbox(
+                    :id="`forwhom-${item.id}`"
+                    :checked="isSelected(`forwhom-${item.id}`)"
+                    @input="changeFilter(`forwhom-${item.id}`, item.title)"
+                  ) {{ item.title }}
+                template(#content)
+                  div
+                    div найдено {{ getCount }} товаров
+                    button(@click.prevent="sendDataCards") показать
+
+        //- Блок: Специальные предложения
+        div.filter-sort__filter-block
+          Tooltip
+            template(#link)
+              div(v-for="item in getSpecial" :key="`special-${item.id}`").filter-sort__item
+                BaseCheckbox(
+                  :id="`special-${item.id}`"
+                  :checked="isSelected(`special-${item.id}`)"
+                  @input="changeFilter(`special-${item.id}`, item.title)"
+                ) {{ item.title }}
+            template(#content)
+              div
+                div найдено {{ getCount }} товаров
+                button(@click.prevent="sendDataCards") показать
+
+        //- Блок: Коллекция
+        //- TODO: сделалть компонент, что будет показывать и скрывать еще
+        div.filter-sort__filter-block.filter-sort__filter-block--collection.filter-checkboxes
+          h4 КОЛЛЕКЦИЯ
+          div.filter-checkboxes__row
+            ShowHideMore
+              template(#show)
+                div(v-for="item in getFromTo(getCollection, 0, 5)" :key="`сollection-${item.id}`").filter-sort__item
+                  Tooltip
+                    template(#link)
+                      BaseCheckbox(
+                        :id="`сollection-${item.id}`"
+                        :checked="isSelected(`сollection-${item.id}`)"
+                        @input="changeFilter(`сollection-${item.id}`, item.title)"
+                      ) {{ item.title }}
+                    template(#content)
+                      div
+                        div найдено {{ getCount }} товаров
+                        button(@click.prevent="sendDataCards") показать
+              template(#hide)
+                div(v-for="item in getFromTo(getCollection, 5)" :key="`сollection-${item.id}`")
+                  Tooltip
+                    template(#link)
+                      BaseCheckbox(
+                        :id="`сollection-${item.id}`"
+                        :checked="isSelected(`сollection-${item.id}`)"
+                        @input="changeFilter(`сollection-${item.id}`, item.title)"
+                      ) {{ item.title }}
+                    template(#content)
+                      div
+                        div найдено {{ getCount }} товаров
+                        button(@click.prevent="sendDataCards") показать
+
+        //- Блок: Размер одежды
+        div.filter-sort__filter-block.filter-checkboxes.filter-checkboxes--buttons.filter-checkboxes--buttons-square
+          h4 Размер одежды
+          div
+            Tooltip
+              template(#link)
+                div.filter-checkboxes__row
+                  div(v-for="item in getClothingSize" :key="`clothingSize-${item.id}`")
+                    BaseCheckbox(
+                      :id="`clothingSize-${item.id}`"
+                      :checked="isSelected(`clothingSize-${item.id}`)"
+                      @input="changeFilter(`clothingSize-${item.id}`, item.title)"
+                    ) {{ item.title }}
+              template(#content)
+                div
+                  div найдено {{ getCount }} товаров
+                  button(@click.prevent="sendDataCards") показать
+          ModalTableSize(
+            :table="table"
+          )
+
+        //- Блок: Размер обуви
+        //- TODO: модальное окно по поводу таблицы размеров
+        div.filter-sort__filter-block.filter-checkboxes.filter-checkboxes--buttons.filter-checkboxes--buttons-square
+          h4 Размер обуви
+          div
+            Tooltip
+              template(#link)
+                div.filter-checkboxes__row
+                  div(v-for="item in getShoeSize" :key="`shoeSize-${item.id}`")
+                    BaseCheckbox(
+                      :id="`shoeSize-${item.id}`"
+                      :checked="isSelected(`shoeSize-${item.id}`)"
+                      @input="changeFilter(`shoeSize-${item.id}`, item.title)"
+                    ) {{ item.title }}
+              template(#content)
+                div
+                  div найдено {{ getCount }} товаров
+                  button(@click.prevent="sendDataCards") показать
+          ModalTableSize(
+            :table="table"
+          )
+
+        //- Блок: Цвет
+        div.filter-sort__filter-block.filter-checkboxes.filter-checkboxes--buttons.filter-checkboxes--buttons-colors
+          h4 Цвет
+          div
+            Tooltip
+              template(#link)
+                div.filter-checkboxes__row
+                  div(v-for="item in getColor" :key="`color-${item.id}`")
+                    BaseCheckbox(
+                      :id="`color-${item.id}`"
+                      :checked="isSelected(`color-${item.id}`)"
+                      @input="changeFilter(`color-${item.id}`, item.color)"
+                    )
+                      span(:style="`background: #${item.color}; width: 30px; height: 30px; border-radius: 50%; display: block;`")
+              template(#content)
+                div
+                  div найдено {{ getCount }} товаров
+                  button(@click.prevent="sendDataCards") показать
+
+        //- Блок: Цена
+        div.filter-sort__filter-block.filter-sort__filter-block--price.filter-checkboxes
+          h4 Цена
+          Tooltip
+            template(#link)
+              .filter-sort__range-value
+                div {{ modelRange[0] }}
+                span.filter-sort__range-line
+                div {{ modelRange[1] }}
+              .filter-sort__range-wrapper
+                v-range(
+                  v-model="modelRange"
+                  :step="step"
+                  :min-max-value="minMaxRange"
+                  @slide-end="onSlideChange"
+                )
+            template(#content)
+              div
+                div найдено {{ getCount }} товаров
+                button(@click.prevent="sendDataCards") показать

@@ -1,0 +1,46 @@
+.step-control {
+  border-top: 1px solid $cl-cobalt;
+  padding: 20px 15px 50px;
+  max-width: 1920px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  &__current {
+    color: $cl-nepal;
+    font-size: 14px;
+    line-height: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+  }
+
+  .button {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .btn--blue {
+    margin-bottom: 10px;
+  }
+
+  p {
+    margin-top: 10px;
+    font-size: 12px;
+    line-height: 16px;
+    &.step-control__bonus {
+      font-size: 12px;
+      line-height: 20px;
+      font-weight: 400;
+      letter-spacing: 1px;
+      margin: 20px 0 10px;
+      text-transform: uppercase;
+      color: $cl-nepal;
+      span {
+        color: $cl-cobalt;
+      }
+    }
+  }
+
+  
+}

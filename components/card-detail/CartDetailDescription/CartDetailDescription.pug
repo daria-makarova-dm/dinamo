@@ -1,0 +1,72 @@
+.cart-detail-description
+  h2.cart-detail-description__title {{ objCartDescription.title }}
+  h2.cart-detail-description__title.cart-detail-description__title--thin {{ objCartDescription.titleThin }}
+  .cart-detail-description__labels
+    p.cart-detail-description__label.cart-detail-description__label--discount(v-if="objCartDescription.label.discount") {{ $t('cartDetail.labels.discount') }}
+    p.cart-detail-description__label.cart-detail-description__label--hit(v-if="objCartDescription.label.hit") {{ $t('cartDetail.labels.hit') }}
+    p.cart-detail-description__label.cart-detail-description__label--novelty(v-if="objCartDescription.label.novelty") {{ $t('cartDetail.labels.novelty') }}
+    p.cart-detail-description__article {{ objCartDescription.article }}
+  .cart-detail-discount-message
+    .cart-detail-discount-message__count
+      | {{ objCartDescription.discountMessage.count }}
+    .cart-detail-discount-message__text-block(v-if="objCartDescription.discountMessage")
+      h3.cart-detail-discount-message__text-title {{ objCartDescription.discountMessage.title }}
+      p.cart-detail-discount-message__text {{ objCartDescription.discountMessage.text }}
+  .cart-detail-description__colors
+    NuxtLink(
+      v-for="color in objCartDescription.colors"
+      :key="color.background"
+      :to="color.link"
+      :class="{ active: color.active }"
+      :style="backgroundLinkColor(color.background)"
+    ).cart-detail-description__color-link
+      .cart-detail-description__link-border(v-if="color.active" :style="backgroundLinkActiveBorder(color.background)")
+  .cart-detail-description__size(v-if="objCartDescription.blockSize")
+    button.cart-detail-description__size-btn(
+      type='button'
+      v-for="btn in objCartDescription.blockSize"
+      :key="btn.type"
+      :disabled="btn.disabled"
+      :class="{ active: btn.type === activeSizeBtn }"
+      @click="toggleSizeBtn(btn.type)"
+    ) {{ btn.type }}
+    ModalTableSize(
+      :table="objCartDescription.table"
+    )
+  .cart-detail-description__price
+    .cart-detail-description__price-value {{ objCartDescription.price | currency }}
+    .cart-detail-description__price-bonus(v-if="objCartDescription.bonusPrice") {{ objCartDescription.bonusPrice }}
+  .cart-detail-description__panel-control
+    button.cart-detail-description__add-card(type="button" @click="addToCard")
+      transition(name="btn-cart" mode="out-in")
+        span(v-if="!visibleCountToBtn" key="addCard") {{ $t('cartDetail.addToCard') }}
+        span(v-else key="countCard") {{ `${$t('cartDetail.inCard')} ${countProductToCard}${$t('cartDetail.piecesShort')}` }}
+    button.cart-detail-description__favorites(type="button" @click="toggleFavorite")
+      img.cart-detail-description__favorites-img(src="~/assets/image/detail-cart/star-add.svg" v-if="favorite" alt="favorite-star")
+      img.cart-detail-description__favorites-img(src="~/assets/image/detail-cart/star.svg" v-else alt="favorite-star")
+      | {{ $t('cartDetail.favorites') }}
+    .cart-detail-description__stock
+      | {{ `${$t('cartDetail.stock')} ${objCartDescription.stock} ${$t('cartDetail.pieces')}`}}
+  .cart-detail-description__description-block
+    p.cart-detail-description__description-text(v-for="(text, idx) in objCartDescription.text" :key="idx") {{ text }}
+    ul.cart-detail-description-list
+      li.cart-detail-description-list__item(v-for="(item, idx) in objCartDescription.list" :key="idx") {{ item }}
+    ul.cart-detail-make-list
+      li.li.cart-detail-make-list__title {{ $t('cartDetail.make') }}
+      li.cart-detail-make-list__item(v-for="(item, idx) in objCartDescription.make" :key="idx") {{ item }}
+    ul.cart-detail-care-list
+      li.cart-detail-care-list__title {{ $t('cartDetail.care') }}
+      li.cart-detail-care-list__item(v-for="(item, idx) in objCartDescription.care.item" :key="idx") {{ item }}
+      li.cart-detail-care-list__icons-wrap
+        img(v-for="(icon, idx) in objCartDescription.care.icons" :key="idx" :src="icon" alt="care-icon")
+  .cart-detail-description__delivery-block
+    NuxtLink(to="cart-detail") {{ $t('cartDetail.delivery') }}
+  CartDetailShareSocial
+  MoreProducts(
+    :title="moreProduct.form.title"
+    :arrProduct="moreProduct.form.arrProduct"
+  )
+  MoreProducts(
+    :title="moreProduct.more.title"
+    :arrProduct="moreProduct.more.arrProduct"
+  )

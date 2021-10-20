@@ -1,0 +1,17 @@
+.slider-suggestions.fix-block-width
+  .slider-suggestions__wrap-slider(@mousemove="enterSlider" @mouseleave="leaveSlider")
+    swiper.slider-suggestions__swiper(ref="slider" :options="swiperOption")
+      swiper-slide(v-for="(slide, Index) in slides" :key="Index")
+        picture.slider-suggestions__img-wrap
+          source(v-if="slide.imgUrlSmall" :srcset="slide.imgUrlSmall" media="(max-width: 767px)")
+          source(v-if="slide.imgUrlMedium" :srcset="slide.imgUrlMedium" media="(min-width: 768px) and (max-width: 1279px)")
+          source(v-if="slide.imgUrlBig" :srcset="slide.imgUrlBig" media="(min-width: 1280px) and (max-width: 6000px)")
+          img.slider-suggestions__img(v-if="slide.imgUrlSmall" :srcset="slide.imgUrlSmall" :alt="slide.title")
+        h3.slider-suggestions__title {{ slides[activeSlideIdx].title }}
+  .slider-suggestions__btn-wrap
+    button.slider-suggestions__btn.slider-suggestions__btn-prev(@click="prevSlide")
+      include ../Icons/ArrowIcon/ArrowIcon.pug
+    button.slider-suggestions__btn.slider-suggestions__btn-next(@click="nextSlide")
+      include ../Icons/ArrowIcon/ArrowIcon.pug
+  p.slider-suggestions__count-slide {{ activeSlideIdx + 1 }} - {{ slides.length }}
+  .slider-suggestions__pagination-wrap.js-slider-suggestion-pagination

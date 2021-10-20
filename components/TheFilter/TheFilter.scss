@@ -1,0 +1,194 @@
+// .filter {
+//   padding: 0;
+//   height: 100vh;
+//   background: $color-background;
+//   z-index: 1;
+// }
+.filter-sort {
+  &__bottom-panel{
+    margin-top: 40px;
+    border-top: 1px solid #fff;
+    padding: 15px 15px 50px;
+  }
+  &__found{
+    font-size: 12px;
+    line-height: 20px;
+    text-align: center;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #fff;
+    margin-bottom: 10px;
+  }
+  &__btn {
+    width: 100%!important;
+    margin-bottom: 20px;
+  }
+  &__clear{
+    font-size: 12px;
+    line-height: 20px;
+    text-align: center;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #fff;
+    cursor: pointer;
+  }
+
+  &__categories {
+    padding-top: 30px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid $cl-cobalt;
+  }
+
+  &__filters {
+    padding-left: 20px;
+    padding-top: 20px;
+      h2 {
+        font-size: 36px;
+        line-height: 40px;
+        font-weight: 500;
+      }
+  }
+
+  &__range-value {
+    display: flex;
+    justify-content: space-between;
+    color: $cl-white;
+    padding: 10px 20px 22px;
+    align-items: center;
+
+    & > div {
+      font-size: 14px;
+      line-height: 20px;
+      border-radius: 40px;
+      border: 1px solid $cl-white;
+      padding: 4px 17px;
+    }
+  }
+
+  &__range-wrapper {
+
+    padding: 0 12px;
+    .slider-tooltip-wrap {
+      visibility: hidden;
+    }
+
+    .slider-dot {
+      width: 21px !important;
+      height: 21px !important;
+      top: -10px !important;
+    }
+
+    .vue-range-slider.slider-component.slider-horizontal .slider-process {
+      height: 3px;
+      background-color: $cl-white;
+    }
+
+  }
+
+  &__range-line {
+    width: 100%;
+    height: 1px;
+    background-color: rgba($cl-white, 0.2);
+    background-clip: content-box;
+    padding: 0 10px;
+  }
+
+
+  @media (min-width: $tablet) {
+    &__filter-block {
+      border-top: 1px solid $cl-pattens-blue;
+      padding: 20px 0;
+
+      h4 {
+        font-size: 14px;
+        line-height: 20px;
+        text-transform: uppercase;
+        font-weight: 500;
+        letter-spacing: 1px;
+        margin-bottom: 10px;
+      }
+
+      &--price {
+        padding-right: 20px;
+        .trigger {
+          width: 100%;
+        }
+      }
+
+      &--collection {
+        .b-checkbox__text {
+          text-transform: none;
+        }
+      }
+    }
+
+    &__item {
+      &:not(:last-child) {
+        margin-bottom: 10px;
+      }
+    }
+
+    &__range-value {
+      color: $cl-cobalt;
+      padding: 10px 0 22px;
+
+      & > div {
+        border: 1px solid $cl-cobalt;
+        padding: 4px 17px;
+        min-width: 80px;
+        text-align: center;
+      }
+    }
+
+    &__range-wrapper {
+
+      padding: 0;
+
+      .vue-range-slider.slider-component.slider-horizontal .slider-process {
+        background-color: $cl-cobalt;
+      }
+
+      .vue-range-slider.slider-component.slider-horizontal .slider-dot {
+        background-color: $cl-cobalt;
+      }
+
+      .vue-range-slider.slider-component .slider {
+        background-color: $cl-cobalt;
+      }
+
+      .vue-range-slider.slider-component.slider-horizontal {
+        padding: 8px 0 !important;
+      }
+
+    }
+
+    &__range-line {
+      background-color: $cl-pattens-blue;
+    }
+
+    &__desktop[style*="position: fixed;"] {
+      width: calc(100% / 3);
+    }
+  }
+
+  @media (min-width: $desktop) {
+    &__filters {
+      padding-right: 20px
+    }
+
+    &__desktop[style*="position: fixed;"] {
+      width: 25%;
+    }
+  }
+
+  @media (min-width: $desktop-big) {
+    &__row {
+      margin-right: -10px;
+    }
+
+    &__desktop[style*="position: fixed;"] {
+      width: calc(100% / 5);
+    }
+  }
+
+}

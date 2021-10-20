@@ -1,0 +1,4 @@
+ul.b-footer-partner
+  li.b-footer-partner__item(v-for="(partner, Index) in partners" :key="Index")
+    a.b-footer-partner__link(:href="partner.link" :title="partner.title" target="_blank")
+      img.b-footer-partner__img(:src="partner.src" :alt="partner.title")

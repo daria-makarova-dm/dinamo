@@ -1,0 +1,30 @@
+nav.mobile-navigation
+  .mobile-navigation__top(v-if="!submenu")
+    BaseButton(type="link" to="/auth" mode="menu-mobile big")
+      span.button__icon
+        UserIcon
+      | Войти
+    BaseButton(type="link" to="/" mode="menu-mobile big")
+      span.button__icon
+        FavoriteIcon
+      | Избранное
+  .mobile-navigation__top(v-else)
+    BaseButton(type="button" mode="menu-mobile submenu" @click.native="surfacing")
+      | {{ currentMenuName }}
+      span.button__icon
+        ArrowLeftIcon
+  .mobile-navigation__middle
+    .mobile-navigation__btn-wrap(v-for="(link, idx) in activeMenu" :key="idx")
+      BaseButton(mode="menu-mobile next-lvl" @click.native="immersion(idx)" v-if="link.nextLvlDropdown")
+        | {{ link.name }}
+        ArrowRightIcon
+      BaseButton(type="link" class="test" mode="menu-mobile" v-else :to="link.link") {{ link.name }}
+  .mobile-navigation__wrap-bottom
+    .mobile-navigation__bottom.mobile-navigation__bottom--submenu(v-if="submenu")
+      BaseButton(type="link" mode="menu-mobile bottom" :to="currentMenuLink") {{ $t('seeAll') }}
+    .mobile-navigation__bottom(v-else v-for="(link, idx) in bottomLinks" :key="idx")
+      BaseButton(v-if="link.external" type="external-link" :to="link.link" mode="menu-mobile bottom external")
+        | {{ link.name }}
+        span.button__icon
+          ArrowTopIcon
+      BaseButton(v-else type="link" :to="link.link" mode="menu-mobile bottom") {{ link.name }}

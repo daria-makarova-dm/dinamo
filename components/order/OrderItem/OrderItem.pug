@@ -1,0 +1,16 @@
+div.order-item
+  div.order-item__image-block
+    img(:src="product.img" :title="product.title" :alt="product.title")
+  div.order-item__info
+    div.order-item__price(v-if="product.price.discount")
+      | {{ product.price.discount | currency }}
+      span.order-item__no-discount {{ product.price.value | currency }}
+    div.order-item__price(v-else) {{ product.price.value | currency }}
+    h3.order-item__title {{ product.title }}
+    h3.order-item__subtitle(v-if="product.subtitle") {{ product.subtitle }}
+    div.order-item__controls(v-if="!desktop")
+      span.order-item__color(v-if="product.colors") {{ product.colors.target }}
+      span.order-item__size(v-if="product.size") {{ product.size.target }}
+      span.order-item__count Кол-во: {{ product.count }}
+    div.order-item__controls(v-else)
+      span.order-item__sum {{ product.count }} шт.

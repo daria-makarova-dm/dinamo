@@ -1,0 +1,12 @@
+.mobile-menu(:class="{'open-menu': menuIsOpen}")
+  .mobile-menu__wrap
+    BaseButton(@click.native="toggleMenu" mode="button--burger")
+      span.button__icon
+        span
+      span.button__text  Меню
+    .mobile-menu__search-box
+      MenuSearch(@open-search="closeMenu")
+      BaseButton(type="link" to="/cart" mode="button--cart")
+        CartIcon
+        span.count(v-if="cartProductCount") {{ cartProductCount }}
+  MobileNavigation(v-if="menuIsOpen")

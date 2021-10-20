@@ -1,0 +1,18 @@
+ul.b-submenu
+  li.b-submenu__item(v-for="item in visibleItem" :key="item.id")
+    //Если внешняя ссылка
+    a.b-submenu__link(:href="item.linkUrl" target="_blank" v-if="item.externalReference")
+      | {{ item.text }}
+      span.b-submenu__icon
+        ArrowTopIcon
+    //Если внутренняя ссылка
+    NuxtLink.b-submenu__link(:to="item.linkUrl" v-else) {{ item.text }}
+  li.b-submenu__item.b-submenu__item--dropdown(v-if="dropdownItem")
+    SubmenuDropdown(:link-dropdown="dropdownItem")
+  li.b-submenu__item-lang
+    NuxtLink(
+      v-for="locale in availableLocales"
+      :key="locale.code"
+      :to="switchLocalePath(locale.code)"
+      class="b-submenu__link b-submenu__link--lang"
+    ) {{ locale.name }}

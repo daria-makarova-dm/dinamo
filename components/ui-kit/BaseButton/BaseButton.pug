@@ -1,0 +1,7 @@
+button.button(v-if="type === 'button'" :class="mode")
+  CloseIcon(v-if="mode==='close'")
+  slot(v-else)
+a.button(v-else-if="type === 'external-link'" :class="mode" target="_blank" :href="to")
+  slot
+NuxtLink.button(v-else :class="mode" :to="to")
+  slot

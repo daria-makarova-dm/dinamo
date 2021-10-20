@@ -1,0 +1,128 @@
+.collection-container.fix-block-width
+  .title-page.fullwidth-title
+    span(
+        v-for="(item, idx) in [1,2,3,4,5,6,7,8,9,10]"
+      )
+        | {{collectionCard.preview}} ×
+  .collection-info
+    .collection-info__description
+      p {{collectionCard.description}}
+    .collection-info__media
+      ModalVideo(
+        v-if="collectionCard.url && collectionCard.url.src"
+        :videoposter="collectionCard.url && collectionCard.url.poster"
+        :videosrc="collectionCard.url && collectionCard.url.src"
+        class="collection-info__media-img-wrap video"
+        noTitleBlock
+        isModalVideo
+      )
+      picture.collection-info__media-img-wrap(v-else)
+        img(:src="collectionCard.url || collectionCard.url.poster" alt="#2")
+      ModalVideo(
+        v-if="collectionCard.url && collectionCard.url.src"
+        :videoposter="collectionCard.url && collectionCard.url.poster"
+        :videosrc="collectionCard.url && collectionCard.url.src"
+        class="collection-info__media-img-wrap video"
+        noTitleBlock
+        isModalVideo
+      )
+      picture.collection-info__media-img-wrap(v-else)
+        img(:src="collectionCard.url || collectionCard.url.poster" alt="#2")
+  .collection-promo
+    .collection-promo__image
+      ModalVideo(
+        v-if="collectionCard.url && collectionCard.url.src"
+        :videoposter="collectionCard.url && collectionCard.url.poster"
+        :videosrc="collectionCard.url && collectionCard.url.src"
+        class="collection-info__media-img-wrap video"
+        isFullContainer
+        noTitleBlock
+        isModalVideo
+      )
+      picture.collection-info__media-img-wrap(v-else)
+        img(:src="collectionCard.url || collectionCard.url.poster" alt="#2")
+      //- picture.collection-promo__image-wrap
+      //-   img.collection-promo__image-img(:src="collectionCard.url" alt="#")
+    .collection-promo__products-block
+      .collection-promo__list-block
+        ul.collection-promo__list
+          li.collection-promo__item Рубашка
+            span.collection-promo__item-quantity 1
+          li.collection-promo__item Майка
+            span.collection-promo__item-quantity 2
+          li.collection-promo__item Пиджак
+            span.collection-promo__item-quantity 3
+          li.collection-promo__item Свитшот
+            span.collection-promo__item-quantity 4
+          li.collection-promo__item Шлёпанцы
+            span.collection-promo__item-quantity 5
+      .collection-promo__products-list
+        TheProductCart(
+          v-for="(card, idx) in productCards"
+          :key="idx"
+          :productPreviewImg="card.productPreviewImg"
+          :propFavorite="card.propFavorite"
+          :title="card.title"
+          :firm="card.firm"
+          :price="card.price"
+          :bestsellerLabel="card.bestsellerLabel"
+          :noveltyLabel="card.noveltyLabel"
+          :discountPrice="card.discountPrice"
+          :custom="card.custom"
+          class="collection-promo__product"
+        )
+  .collection-products
+    .collection-products__block-title
+      span(
+        v-for="(item, idx) in [1,2,3,4,5,6,7,8,9,10]"
+      )
+        | {{collectionCard.preview}} ×
+    .collection-products__products-list
+      TheProductCart(
+        v-for="(card, idx) in productCards"
+        :key="idx"
+        :productPreviewImg="card.productPreviewImg"
+        :propFavorite="card.propFavorite"
+        :title="card.title"
+        :firm="card.firm"
+        :price="card.price"
+        :bestsellerLabel="card.bestsellerLabel"
+        :noveltyLabel="card.noveltyLabel"
+        :discountPrice="card.discountPrice"
+        :custom="card.custom"
+        class="collection-products__product"
+      )
+  CollectionsList(
+    :collectionsCards="collectionsCards"
+  )
+  .collection-products
+    .collection-products__block-title
+      span(
+        v-for="(item, idx) in [1,2,3,4,5,6,7,8,9,10]"
+      )
+        | {{collectionCard.preview}} ×
+    .collection-products__products-list
+      TheProductCart(
+        v-for="(card, idx) in productCards"
+        :key="idx"
+        :productPreviewImg="card.productPreviewImg"
+        :propFavorite="card.propFavorite"
+        :title="card.title"
+        :firm="card.firm"
+        :price="card.price"
+        :bestsellerLabel="card.bestsellerLabel"
+        :noveltyLabel="card.noveltyLabel"
+        :discountPrice="card.discountPrice"
+        :custom="card.custom"
+        class="collection-products__product"
+      )
+  .collection-links
+    TheCrossLink(
+      v-for="(link, idx) in crossLinks"
+      :key="idx"
+      :link="link.link"
+      :srcImage="link.srcImage"
+      :title="link.title"
+      :type="link.type"
+      class="collection-links__link"
+    )

@@ -1,0 +1,21 @@
+.arrow-icon {
+  width: 31px;
+  height: 30px;
+  stroke: $cl-cobalt;
+
+  @media (min-width: $desktop) {
+    width: 41px;
+    height: 40px;
+  }
+
+  & path {
+    fill: $cl-cobalt;
+    transition: fill 0.3s;
+  }
+
+  &:hover {
+    & path {
+      fill: $cl-white;
+    }
+  }
+}

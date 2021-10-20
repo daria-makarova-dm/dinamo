@@ -1,0 +1,18 @@
+.title {
+    &--h1 {
+        font-weight: 600;
+        font-size: 36px;
+        line-height: 40px;
+        padding: 10px 15px;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        text-transform: uppercase;
+        span{
+            font-weight: normal;
+            font-size: 12px;
+            line-height: 20px;
+            padding-left: 20px;
+        }
+    }
+}

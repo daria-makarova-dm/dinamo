@@ -1,0 +1,14 @@
+section.cart
+  .container.container--cart
+    ClearCart(v-if="clearModal" @close-modal="toggleClearModal(false)")
+    .cart__wrap
+      .cart__top-block(v-if="checkProduct")
+        h1.cart__title {{ $t('basket.title') }}
+        BaseButton.cart__clear(@click.native="toggleClearModal(true)") {{ $t('basket.clear') }}
+      .cart__top-block(v-if="!checkProduct")
+        h1.cart__title {{ $t('basket.title') }}
+      EmptyCard(v-if="!checkProduct")
+      .cart__product-list(v-else)
+        .container
+          CartItem(v-for="product in arrProduct" :key="product.id" :product="product")
+      CartOrder(v-if="checkProduct")

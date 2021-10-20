@@ -1,0 +1,76 @@
+.b-footer {
+  max-width: 1920px;
+  margin: 0 auto;
+  background: $footer-background;
+  padding: 30px 15px 20px;
+
+  &,
+  & a {
+    color: $color-footer-font;
+  }
+
+  &-title {
+    font-size: 12px;
+    line-height: 20px;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+  }
+
+  &__row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  &__col {
+    width: 100%;
+  }
+  @media (min-width: $tablet) {
+    padding: 40px 20px 30px;
+
+    &-title {
+      font-size: 17.2px;
+      font-weight: 500;
+      line-height: 20px;
+      margin-bottom: 20px;
+    }
+
+    &__row {
+      width: 50%;
+      order: 3;
+      &:first-of-type {
+        width: 100%;
+        order: 1;
+      }
+
+      &:last-of-type {
+        order: 2;
+      }
+    }
+
+    &__information {
+      display: flex;
+      flex-wrap: wrap;
+    }
+  }
+
+  @media (min-width: $desktop) {
+    padding: 40px 20px 20px;
+    &__row {
+      width: 50%;
+      order: 2;
+
+      &:first-of-type {
+        width: 50%;
+        order: 1;
+      }
+
+      &:last-of-type {
+        width: 100%;
+        margin-top: 80px;
+        order: 3;
+      }
+    }
+  }
+}

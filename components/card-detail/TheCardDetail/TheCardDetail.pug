@@ -1,0 +1,78 @@
+.card-detail
+  .card-detail__top-block(ref="cardDetailTopBlock")
+    button.card-detail__favorite-btn-mobile(type="button" @click="toggleFavorite")
+      FavoriteBtn
+    h2.card-detail__title {{ objCardDescription.title }}
+    h2.card-detail__title.card-detail__title--gray {{ objCardDescription.titleGray }}
+    .card-detail__labels
+      p.card-detail__label.label.label--discount(v-if="objCardDescription.label.discount") {{ $t('cardDetail.labels.discount') }}
+      p.card-detail__label.label.label--hit(v-if="objCardDescription.label.hit") {{ $t('cardDetail.labels.hit') }}
+      p.card-detail__label.label.label--new(v-if="objCardDescription.label.novelty") {{ $t('cardDetail.labels.novelty') }}
+      p.card-detail__article {{ objCardDescription.article }}
+  ImageTabCartDetail
+  CardImageSlider(
+    class="card-detail__image-slider"
+  )
+  .card-detail__middle-block(ref="cardDetailMiddleBlock")
+    CardDetailDiscountMessage(
+      :discount="objCardDescription.discountMessage.count"
+      :title="objCardDescription.discountMessage.title"
+      :text="objCardDescription.discountMessage.text"
+      class="card-detail__discount-message"
+    )
+    .card-detail__colors
+      NuxtLink(
+        v-for="color in objCardDescription.colors"
+        :key="color.background"
+        :to="color.link"
+        :class="{ active: color.active }"
+        :style="backgroundLinkColor(color.background)"
+      ).card-detail__color-link
+        .card-detail__link-border(v-if="color.active" :style="backgroundLinkActiveBorder(color.background)")
+    .card-detail__sizes(v-if="objCardDescription.blockSize")
+      button.card-detail__size-btn(
+        type='button'
+        v-for="btn in objCardDescription.blockSize"
+        :key="btn.type"
+        :disabled="btn.disabled"
+        :class="{ active: btn.type === activeSizeBtn }"
+        @click="toggleSizeBtn(btn.type)"
+      ) {{ btn.type }}
+      ModalTableSize(
+        :table="objCardDescription.table"
+        class="card-detail__size-table"
+      )
+    CardDetailCustomization
+    .card-detail__prices
+      .card-detail__price-value {{ objCardDescription.price | currency }}
+      .card-detail__price-value.card-detail__price-value--discount {{ objCardDescription.discountPrice | currency }}
+      .card-detail__price-bonus(v-if="objCardDescription.bonusPrice") {{ objCardDescription.bonusPrice }}
+    .card-detail__panel-control
+      button.card-detail__add-card.btn.btn--blue(type="button" @click="addToCard")
+        transition(name="btn-card" mode="out-in")
+          span(v-if="!visibleCountToBtn" key="addCard") {{ $t('cardDetail.addToCard') }}
+          span(v-else key="countCard") {{ `${$t('cardDetail.inCard')} ${countProductToCard}${$t('cardDetail.piecesShort')}` }}
+      button.card-detail__favorites(type="button" @click="toggleFavorite")
+        FavoriteBtn
+        | {{ $t('cardDetail.favorites') }}
+      .card-detail__stock
+        | {{ `${$t('cardDetail.stock')} ${objCardDescription.stock} ${$t('cardDetail.pieces')}`}}
+  .card-detail__bottom-block(ref="cardDetailBottomBlock")
+    .card-detail__description-block
+      p.card-detail__description-text(v-for="(text, idx) in objCardDescription.text" :key="idx") {{ text }}
+      ul.card-detail-list
+        li.card-detail-list__item(v-for="(item, idx) in objCardDescription.list" :key="idx") {{ item }}
+      ul.card-detail-make-list
+        li.li.card-detail-make-list__title {{ $t('cardDetail.make') }}
+        li.card-detail-make-list__item(v-for="(item, idx) in objCardDescription.make" :key="idx") {{ item }}
+      ul.card-detail-care-list
+        li.card-detail-care-list__title {{ $t('cardDetail.care') }}
+        li.card-detail-care-list__item(v-for="(item, idx) in objCardDescription.care.item" :key="idx") {{ item }}
+        li.card-detail-care-list__icons-wrap
+          img(v-for="(icon, idx) in objCardDescription.care.icons" :key="idx" :src="icon" alt="care-icon")
+    .card-detail__delivery-block
+      NuxtLink(to="card-detail") {{ $t('cardDetail.delivery') }}
+    CardDetailShareSocial(
+      class="card-detail__sharing"
+    )
+

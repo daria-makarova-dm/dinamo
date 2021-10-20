@@ -1,0 +1,15 @@
+form.b-footer-menu-subscription(@submit.prevent="submitForm" novalidate="true" v-if="valid === false")
+  h3.b-footer-menu-subscription__title {{ formData.title }}
+  .b-footer-menu-subscription__form-control
+    input(
+      autocomplete="off"
+      id="email-subscription"
+      v-model.trim="email"
+      type="email"
+      placeholder="Email address"
+    ).b-footer-menu-subscription__input
+    button.b-footer-menu-subscription__btn
+      img(src="~/assets/image/icon-arrow.svg")
+  .b-footer-menu-subscription__form-control
+    BaseCheckbox(v-model="checkbox") {{ formData.personalData }}
+p(v-else).b-footer-menu-subscription-text-success {{ formData.textSuccess }}

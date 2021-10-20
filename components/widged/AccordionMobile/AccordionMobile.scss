@@ -1,0 +1,75 @@
+.accordion-mobile{
+  &__text{
+    font-size: 12px;
+    line-height: 20px;
+    color: #fff;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 10px 15px;
+    &-back {
+      text-align: center;
+    }
+  }
+  &__link{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  &__arrow-right{
+    position: absolute;
+    background-image: url('~/assets/image/icon-arrow-while.svg');
+    width: 10px;
+    height: 10px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    right: 15px;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    &-back {
+      right: auto;
+      left: 15px;
+      transform: rotate(180deg);
+      width: 15px;
+      height: 15px;
+    }
+  }
+  &__content {
+    position: absolute;
+    width: 100%;
+    z-index: 2;
+    height: calc(100% - 216px);
+    background: #0959A1;
+    top: 0;
+    overflow-y: auto;
+    overflow-x: hidden;
+    ul{
+      padding: 0;
+      li {
+        padding: 10px 15px;
+      }
+      a{
+        font-size: 12px;
+        line-height: 20px;
+        color: #fff;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+      }
+    }
+  }
+  &__back {
+    position: relative;
+    border-bottom: 1px solid #FFFFFF;
+    margin-bottom: 10px;
+  }
+  &__desk{
+    font-size: 10px;
+    line-height: 16px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #CEDBE5;
+    margin-right: 35px;
+  }
+}

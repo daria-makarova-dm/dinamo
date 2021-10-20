@@ -1,0 +1,17 @@
+.images {
+  &__list-grid {
+    border-bottom: 1px solid $cl-cobalt;
+  }
+
+  &__filter-header {
+    padding-bottom: 10px;
+
+    @media (min-width: $tablet) {
+      padding-bottom: 20px;
+    }
+  }
+
+  &__image-card {
+    border-top: 1px solid $cl-cobalt;
+  }
+}

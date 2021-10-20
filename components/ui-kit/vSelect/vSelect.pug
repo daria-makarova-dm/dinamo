@@ -1,0 +1,17 @@
+.b-select
+  label.b-select__lable(v-if="labelText") {{ labelText }}
+  multiselect(
+    v-model="model"
+    :label="label"
+    :options="options"
+    :selected="selected"
+    :placeholder="placeholder"
+    :custom-label="customLabel"
+    :searchable="searchable"
+    :deselect-label="deselectLabel"
+    :show-labels="showLabels"
+    :allow-empty="allowEmpty"
+    :hide-selected="hideSelected"
+    @update="updateValue"
+    @select="onSelect"
+  )

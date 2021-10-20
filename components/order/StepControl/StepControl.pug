@@ -1,0 +1,14 @@
+.step-control
+  .container
+  .step-control__current(v-if="step !== 6")
+    | {{ $t('orderPage.stepControl.step') }}
+    | {{ step }}
+    | {{ $t('orderPage.stepControl.of') }}
+    | 6
+  BaseButton.btn--blue(@click.native="nextstep" v-if="isPyament") перейти к оплате
+  BaseButton.btn--blue(@click.native="nextstep" v-else) Продолжить
+  BaseButton(v-if="isCart" type="link" to="/cart") Назад в корзину
+  BaseButton(v-else @click.native="backstep") Назад
+  p.step-control__bonus(v-if="step === 6") вам начислится 
+    span 126 баллов
+  p(v-if="isPyament") Нажимая «Перейти к оплате», вы соглашаетесь с условиями использования сервиса. С подробными условиями доставки можно ознакомиться на странице о доставке

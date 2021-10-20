@@ -1,0 +1,19 @@
+.mobile-navigation {
+  background: $cl-cobalt;
+  height: calc(100vh - 100%);
+  left: 0;
+  overflow-y: auto;
+  position: absolute;
+  right: 0;
+  top: 100%;
+  z-index: 11;
+
+  &__middle {
+    border-bottom: 1px solid $cl-white;
+    padding: 15px 0 0;
+  }
+
+  &__wrap-bottom {
+    padding: 25px 0 20px;
+  }
+}

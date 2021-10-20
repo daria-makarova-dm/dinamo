@@ -1,0 +1,8 @@
+.image-tab-card-detail
+  .image-tab-card-detail__column--left
+    .image-tab-card-detail__trigger(v-for="(img, Index) in arrImages" :class="{ active: Index === activeIdxImg }" @click="changeActiveImg(Index)")
+      img.image-tab-card-detail__img-small(v-if="Index < 8" :src="img" alt="small image preview")
+  .image-tab-card-detail__column--right(ref="imageTabCardDetailVerticalSlider")
+    .image-tab-card-detail__preview(v-for="(img, Index) in arrImages")
+      //- img.image-tab-card-detail__img-big(v-if="Index === activeIdxImg" :src="img" alt="small image preview")
+      img.image-tab-card-detail__img-big(:src="img" alt="small image preview" :data-index="Index" )

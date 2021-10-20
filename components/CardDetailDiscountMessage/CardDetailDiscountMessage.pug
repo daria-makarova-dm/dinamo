@@ -1,0 +1,6 @@
+.card-detail-discount-message
+  .card-detail-discount-message__count
+    | {{ discount }}
+  .card-detail-discount-message__text-block(v-if="title")
+    h3.card-detail-discount-message__title {{ title }}
+    p.card-detail-discount-message__text {{ text }}

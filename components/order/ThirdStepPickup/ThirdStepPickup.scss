@@ -1,0 +1,259 @@
+.order-pickup {
+    padding-top: 25px;
+    padding-bottom: 50px;
+    h2 {
+        font-size: 26px;
+        line-height: 30px;
+        font-weight: 500;
+        margin-bottom: 22px;
+    }
+
+    &__sorting{
+        margin-bottom: 10px;
+    }
+
+    .checkbox-wrap {
+        display: flex;
+        flex-wrap: wrap;
+        .b-checkbox {
+            margin-right: 20px;
+            margin-bottom: 10px;
+            &__label {
+                padding: 0;
+            }
+            &__text {
+                font-size: 16px;
+                line-height: 20px;
+                text-transform: none;
+                font-weight: 500;
+                color: $cl-cobalt;
+                padding-left: 30px;
+                &::before {
+                    border-color: $cl-cobalt;
+                    height: 20px;
+                    width: 20px;
+                }
+                &::after {
+                    border-right: 2px solid $cl-cobalt;
+                    border-bottom: 2px solid $cl-cobalt;
+                    height: 12px;
+                    width: 8px;
+                    top: 3px;
+                    left: 2px;
+                }
+            }
+        }
+    }
+
+    &__search-wrapper {
+        margin-bottom: 20px;
+        position: relative;
+    }
+
+    &__search {
+        padding: 20px 15px;
+        border: 1px solid $cl-cobalt;
+        border-radius: 0;
+        font-size: 16px;
+        line-height: 20px;
+        font-weight: 500;
+        width: 100%;
+        color: $cl-cobalt;
+        &::placeholder {
+            color: $cl-nepal;
+        }
+    }
+
+    &__icon {
+        position: absolute;
+        top: 0;
+        right: 0;
+        height: 100%;
+        width: 38px;
+        &::after {
+            content: url("~/assets/image/search.svg");
+            position: absolute;
+            height: 15px;
+            width: 15px;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+    }
+
+    &__list {
+        padding: 0 20px 0 10px;
+        border: 1px solid $cl-cobalt;
+        max-height: 473px;
+        overflow: hidden;
+        overflow-y: scroll;
+    }
+
+    &__item {
+        padding: 20px 0;
+        border-bottom: 1px solid $cl-silver;
+        &:last-child {
+            border-bottom: none;
+        }
+    }
+
+    &__info {
+        h3 {
+            font-size: 20px;
+            line-height: 25px;
+            margin-bottom: 10px;
+            font-weight: 500;
+        }
+
+        p {
+            font-size: 14px;
+            line-height: 20px;
+            margin-bottom: 5px;
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
+
+    &__post {
+        font-size: 14px;
+        line-height: 20px;
+        text-transform: uppercase;
+        margin-bottom: 0;
+    }
+
+    &__buttons {
+        margin-top: 20px;
+        .modal__block {
+            .btn {
+                border: 1px solid $cl-cobalt;
+                margin-bottom: 10px;
+                width: 100%;
+                justify-content: center;
+            }
+        }
+
+        .btn {
+            width: 100%;
+            justify-content: center;
+            border: 1px solid $cl-cobalt;
+            &--blue {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+    }
+}
+
+@media (min-width: $desktop-min) {
+    .order-pickup {
+        padding: 0;
+        margin-bottom: 30px;
+        h2 {
+            font-size: 36px;
+            line-height: 40px;
+            margin-bottom: 15px;
+        }
+
+        &__sorting {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        .checkbox-wrap {
+            flex-wrap: nowrap;
+            align-items: center;
+            .b-checkbox {
+                margin-bottom: 0;
+            }
+        }
+
+        .visible-control {
+            display: flex;
+            .button {
+                height: 35px;
+                width: 35px;
+                padding: 0px;
+            }
+            .map {
+                position: relative;
+                border: 1px solid $cl-cobalt;
+                border-radius: 0;
+                background: $cl-white;
+                color: $cl-cobalt;
+                &::before {
+                    content: url("~/assets/image/map.svg");
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    color: $cl-cobalt;
+                }
+
+                &:hover {
+                    background: $cl-white;
+                    color: $cl-cobalt;
+                    border-radius: 0;
+                }
+            }
+
+            .list {
+                position: relative;
+                border: 1px solid $cl-cobalt;
+                border-radius: 0;
+                background: $cl-cobalt;
+                color: $cl-white;
+                &::before {
+                    content: url("~/assets/image/list.svg");
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    color: $cl-white;
+                }
+
+                &:hover {
+                    border: 1px solid $cl-cobalt;
+                    border-radius: 0;
+                    background: $cl-cobalt;
+                    color: $cl-white;
+                }
+            }
+        }
+
+        &__item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        &__info {
+            max-width: 350px;
+        }
+
+        &__buttons {
+            margin-top: 0;
+            width: 145px;
+            .button {
+                padding: 0 10px !important;
+            }
+
+            .btn {
+                &--change {
+                    margin-top: 20px;
+                }
+            }
+        }
+
+        &__map {
+            margin-bottom: 60px;
+        }
+    }
+}
+
+@media (min-width: $desktop) {
+    .order-pickup {
+        max-width: 680px;
+    }
+}

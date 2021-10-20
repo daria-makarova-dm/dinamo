@@ -1,0 +1,54 @@
+.cart-item(:class={clear: clearMode})
+  NuxtLink.cart-item__image-block(:to="{path: `/card/${product.id}`, params: {id: product.id}}")
+    img(:src="product.img" :title="product.title" :alt="product.title")
+  .cart-item__info
+    .cart-item__bonus(v-if="product.bonus && !clearMode")
+      span.cart-item__bonus-name {{ bonusName }}
+      span.cart-item__bonus-value(v-if="product.bonus.value") {{ product.bonus.value }}
+
+    .cart-item__price(v-if="product.price.discount && !clearMode")
+      | {{ discount | currency }}
+      span.cart-item__no-discount {{ price | currency }}
+    .cart-item__price(v-else-if="!product.price.discount && !clearMode") {{ price | currency }}
+
+    NuxtLink.cart-item__title(:to="{path: `/card/${product.id}`, params: {id: product.id}}") {{ product.title }}
+    h3.cart-item__subtitle(v-if="product.subtitle") {{ product.subtitle }}
+
+    .cart-item__add(v-if="product.add && !clearMode")
+      span.cart-item__add-name {{ product.add.name }}
+      span.cart-item__add-value(v-if="product.add.value") {{ product.add.value }}
+
+    .cart-item__controls
+      .cart-item__controls-dropdown.cart-item__controls-dropdown--color(v-if="product.colors" @click="toggleShowColorsOrSize('color')")
+        | {{ product.colors.target }}
+        img(src="~/assets/image/cart/toggle-arrow.svg" v-if="product.colors.options && !clearMode")
+        ul.size-list(v-if="product.colors.options && showColors && !clearMode")
+          li.size-list__item(
+            v-for="(item, idx) in product.colors.options"
+            :key="idx"
+            @click="changeColorSize(idx, 'colors')"
+          ) {{ item }}
+
+      .cart-item__controls-dropdown.cart-item__controls-dropdown--size(v-if="product.size" @click="toggleShowColorsOrSize('size')")
+        | {{ product.size.target }}
+        img(src="~/assets/image/cart/toggle-arrow.svg" v-if="product.size.options && !clearMode")
+        ul.size-list(v-if="product.size.options && showSize && !clearMode")
+          li.size-list__item(
+            v-for="(item, idx) in product.size.options"
+            :key="idx"
+            @click="changeColorSize(idx, 'size')"
+          ) {{ item }}
+      .cart-item__controls-count
+        | {{ $t('basket.count') }} 
+        .controls-count
+          span.controls-count__decrement(v-if="product.maxCount && !clearMode" :class="disabledDecrement" @click="changeCount('decrement')") -
+          span.controls-count__value {{ count }}
+          span.controls-count__increment(v-if="product.maxCount && !clearMode" @click="changeCount('increment')") +
+
+    .cart-item__remove-product(v-if="!clearMode" @click="showRemoveModal") 
+      span.cart-item__remove-text {{ $t('basket.removeProduct') }}
+      img(src="~/assets/image/cart/cart.svg" v-if="!clearMode")
+    .cart-item__remove-modal(v-if="removeModal && !clearMode")
+      h3 {{ $t('basket.removeProductModalMessage') }}
+      BaseButton(@click.native="removeProduct") {{ $t('remove') }}
+      BaseButton.btn--blue(@click.native="hiddenRemoveModal") {{ $t('cancel') }}

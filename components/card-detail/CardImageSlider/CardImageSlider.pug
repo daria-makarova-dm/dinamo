@@ -1,0 +1,6 @@
+.card-image-slider
+  swiper.card-image-slider__swiper(ref="cardImageSlider" :options="swiperOption")
+    swiper-slide.card-image-slider__slide(v-for="(card, idx) in arrImages" :key="idx")
+      picture.card-image-slider__picture
+        img(:src="card")
+  .card-image-slider__pagination.js-card-image-slider-pagination(:data-slider-length="arrImages.length")

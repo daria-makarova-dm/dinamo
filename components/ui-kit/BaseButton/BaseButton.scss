@@ -1,0 +1,341 @@
+.button {
+  font-size: 14px;
+  line-height: 1.43;
+  padding: 10px 30px;
+  text-align: center;
+  color: $cl-cobalt;
+  border-radius: 20px;
+  display: inline-flex;
+
+  &:hover {
+    background: $cl-cobalt;
+    color: $cl-white;
+  }
+
+  &.blue {
+    background: $cl-cobalt;
+    color: $cl-white;
+    border-radius: 20px;
+
+    &:hover {
+      color: $cl-cobalt;
+      background: $cl-white;
+      border: 1px solid $cl-cobalt;
+    }
+  }
+
+  &.close {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    padding: 0;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+
+    path {
+      stroke: $cl-cobalt;
+    }
+
+    &:hover path {
+      stroke: $cl-white;
+    }
+  }
+
+  &.bottom {
+    font-size: 12px;
+  }
+
+  &.menu-mobile {
+    background: transparent;
+    border-radius: 0;
+    color: $cl-white;
+    font-size: 14px;
+    letter-spacing: 1px;
+    line-height: 20px;
+    padding: 0 15px 15px 15px;
+    text-transform: uppercase;
+    width: 100%;
+
+    &:hover {
+      background: transparent;
+      color: $cl-white;
+    }
+
+    .button__icon {
+      align-items: center;
+      display: inline-flex;
+      justify-content: center;
+    }
+
+    &.big {
+      border-bottom: 1px solid $cl-white;
+      padding: 15px;
+
+      .button__icon {
+        height: 20px;
+        margin: 0 15px 0 0;
+        width: 20px;
+      }
+    }
+
+    &.next-lvl {
+      align-items: center;
+      display: flex;
+      justify-content: space-between;
+      position: relative;
+    }
+
+    &.submenu {
+      border-bottom: 1px solid $cl-white;
+      font-size: 18px;
+      justify-content: center;
+      letter-spacing: 2px;
+      line-height: 24px;
+      padding: 13px 15px;
+      position: relative;
+
+      .button__icon {
+        position: absolute;
+        left: 16px;
+        top: 50%;
+        margin: -8px 0 0;
+      }
+    }
+
+    &.bottom {
+      align-items: center;
+      display: flex;
+      font-size: 10px;
+      line-height: 20px;
+      padding: 0 15px 5px;
+
+      .button__icon {
+        height: 10px;
+        margin: 0 0 0 5px;
+        width: 10px;
+      }
+
+      .mobile-navigation__bottom--submenu & {
+        font-size: 12px;
+        padding: 0 15px;
+      }
+    }
+  }
+
+  &--burger,
+  &--search,
+  &--cart,
+  &--close,
+  &--search-result,
+  &.dropdown {
+    border-radius: 0;
+    padding: 0;
+    text-align: left;
+
+    &:hover {
+      background: transparent;
+      color: $cl-cobalt;
+    }
+  }
+
+  &--burger {
+    align-items: center;
+    color: $cl-cobalt;
+    font-family: $TTHoves;
+    font-size: 14px;
+    letter-spacing: 1px;
+    line-height: 20px;
+    text-transform: uppercase;
+
+    .open-menu & {
+      color: $cl-white;
+    }
+  }
+
+  &--burger & {
+    &__icon {
+      align-items: center;
+      cursor: pointer;
+      display: flex;
+      height: 16px;
+      margin: 0 11px 0 0;
+      position: relative;
+      width: 20px;
+      z-index: 1;
+
+      span {
+        background: $cl-cobalt;
+        display: block;
+        height: 2px;
+        position: absolute;
+        transition-duration: 0.25s;
+        width: 100%;
+
+        &:before,
+        &:after {
+          background: $cl-cobalt;
+          display: block;
+          height: 2px;
+          position: absolute;
+          transition-duration: 0.25s;
+          width: 100%;
+        }
+
+        &:before {
+          content: "";
+          top: -5px;
+        }
+
+        &:after {
+          content: "";
+          top: 5px;
+        }
+      }
+    }
+
+    .open-menu & {
+      &__icon {
+        span {
+          background: $cl-white;
+          transform: rotate(45deg);
+
+          &:before,
+          &:after {
+            background: $cl-white;
+          }
+
+          &:before {
+            top: 0;
+            transform: rotate(0);
+          }
+
+          &:after {
+            top: 0;
+            transform: rotate(90deg);
+          }
+        }
+      }
+    }
+  }
+
+  &__wide {
+    line-height: 18px;
+    text-align: center;
+    width: 100%;
+    border: 1px solid $cl-cobalt;
+    box-sizing: border-box;
+    border-radius: 0;
+    background-color: $cl-white;
+    display: block;
+    transition: all $duration-animation-base ease;
+
+    &:hover {
+      color: $cl-cobalt;
+      background-color: $cl-white;
+    }
+
+    &.active {
+      color: $cl-white;
+      background-color: $cl-cobalt;
+    }
+
+    @media (min-width: $desktop) {
+      font-size: 20px;
+      line-height: 23px;
+      padding: 12.5px;
+    }
+  }
+
+  &--search {
+    margin: 0 30px 0 0;
+
+    @media (min-width: $tablet) {
+      align-items: center;
+      border-right: 1px solid transparent;
+      display: flex;
+      height: 100%;
+      justify-content: center;
+      margin: 0;
+      width: 60px;
+    }
+  }
+
+  &--cart {
+    position: relative;
+
+    .count {
+      background: $cl-cobalt;
+      color: $cl-white;
+      font-size: 12px;
+      height: 20px;
+      letter-spacing: 1px;
+      line-height: 20px;
+      position: absolute;
+      right: -15px;
+      text-align: center;
+      top: -17px;
+      width: 20px;
+
+      .open-menu & {
+        background: $cl-white;
+        color: $cl-cobalt;
+      }
+    }
+  }
+
+  &--close {
+    flex: none;
+    margin: 0 0 0 10px;
+  }
+
+  &--search-result {
+    color: $cl-cobalt;
+    display: flex;
+    font-size: 16px;
+    line-height: 24px;
+    padding: 5px 15px;
+
+    @media (min-width: $tablet) {
+      align-items: center;
+      border-bottom: 1px solid $cl-cobalt;
+      font-size: 25.8px;
+      line-height: 30px;
+      padding: 10px 20px 14px;
+
+      &:hover {
+        background: $cl-grayish-blue;
+      }
+    }
+  }
+
+  &.dropdown {
+    align-items: center;
+    color: $cl-cobalt;
+    display: flex;
+    justify-content: space-between;
+    letter-spacing: 1px;
+    padding: 10px 10px 10px 20px;
+    text-transform: uppercase;
+    width: 100%;
+
+    &:hover {
+      color: $cl-white;
+    }
+  }
+
+  .b-catalog-dropdown__lvl1 &.dropdown {
+    font-size: 18px;
+    line-height: 20px;
+  }
+
+  .active &.dropdown {
+    color: $cl-white;
+  }
+
+  .b-catalog-dropdown__lvl2 &.dropdown {
+    font-size: 14px;
+    line-height: 20px;
+    padding: 10px 20px;
+  }
+}

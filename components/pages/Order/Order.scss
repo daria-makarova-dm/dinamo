@@ -1,0 +1,104 @@
+.order {
+    h1 {
+        padding: 10px 15px 15px;
+        border-bottom: 1px solid $cl-cobalt;
+
+    }
+}
+
+@media (min-width: $desktop-min) {
+    .order {
+        display: flex;
+        .container {
+            &--min {
+                padding: 0 10px 0 20px;
+            }
+        }
+        h1 {
+            padding: 30px 20px;
+            border: none;
+        }
+        &__right {
+            width: 360px;
+        }
+
+        &__left {
+            width: calc(100% - 360px);
+            border-right: 1px solid $cl-cobalt;
+            padding-bottom: 40px;
+        }
+
+        .btn {
+            &--pay {
+                margin-bottom: 20px;
+            }
+        }
+
+        &__total-block {
+            box-shadow: 0px -4px 4px rgba(9, 89, 161, 0.1);
+            padding: 20px 0;
+            .total {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                font-size: 20px;
+                line-height: 25px;
+                font-weight: 500;
+                margin-bottom: 20px;
+                span {
+                    font-size: 36px;
+                    line-height: 40px;
+                }
+            }
+
+            .btn {
+                margin: 0 auto 15px;
+                width: 280px;
+            }
+
+            .bonus {
+                font-size: 12px;
+                line-height: 20px;
+                letter-spacing: 1px;
+                font-weight: 500;
+                text-transform: uppercase;
+                color: $cl-nepal;
+                text-align: center;
+                span {
+                    color: $cl-cobalt;
+                }
+            }
+        }
+    }
+}
+
+@media (min-width: $desktop) {
+    .order {
+        h1 {
+            padding: 20px 20px 40px;
+        }
+
+        &__left {
+            padding-bottom: 120px;
+        }
+
+        &__pay-block {
+            max-width: 680px;
+        }
+    }
+}
+
+@media (min-width: $desktop-big) {
+    .order {
+        .container {
+            border: none;
+        }
+        &__left {
+            width: calc(100% - 480px);
+        }
+
+        &__right {
+            width: 480px;
+        }
+    }
+}

@@ -1,0 +1,119 @@
+.cross-link {
+  display: flex;
+  position: relative;
+  cursor: pointer;
+  height: 720px;
+
+  &:not(:last-child) {
+    border-bottom: 1px solid $cl-cobalt;
+  }
+
+  @media (min-width: $tablet) {
+    &:nth-child(1),
+    &:nth-child(3) {
+      border-right: 1px solid $cl-cobalt;
+    }
+    &:nth-child(3),
+    &:nth-child(4),
+    &:nth-child(5) {
+      border-bottom: none;
+    }
+    &:nth-child(4) {
+      border-right: 1px solid $cl-cobalt;
+    }
+  }
+
+  &__background {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+    object-position: top;
+  }
+
+  &__btn {
+    display: block;
+    margin-top: auto;
+    font-size: 46px;
+    font-size: 26px;
+    line-height: 35px;
+    background-color: $cl-white;
+    color: $cl-cobalt;
+    position: relative;
+    text-align: left;
+    max-width: 520px;
+
+    & svg {
+      position: absolute;
+      top: 19px;
+      right: 20px;
+
+      @media (min-width: $tablet) {
+        top: 30px;
+      }
+    }
+  }
+
+  &--half {
+    width: 100%;
+    height: 100vw;
+
+    @media (min-width: $tablet) {
+      width: 50%;
+      height: 720px;
+    }
+
+    & .cross-link__btn {
+      padding: 15px 55px 15px 15px;
+
+      @media (min-width: $tablet) {
+        padding: 30px 80px 30px 30px;
+        font-size: 46px;
+        line-height: 50px;
+      }
+
+      & svg {
+        position: absolute;
+
+        @media (min-width: $tablet) {
+          top: 37px;
+        }
+      }
+    }
+  }
+
+  &--rub {
+    width: 100%;
+    height: calc(100vw * 0.438);
+
+    @media (min-width: $tablet) {
+      width: 33.333%;
+      height: 720px;
+    }
+
+    & .cross-link__btn {
+      padding: 6px 15px;
+
+      & svg {
+        display: none;
+      }
+
+      @media (min-width: $tablet) {
+        padding: 30px;
+        font-size: 56px;
+        line-height: 60px;
+        font-weight: 600;
+        text-transform: uppercase;
+      }
+    }
+  }
+}
+
+.cross-links {
+  display: flex;
+  flex-wrap: wrap;
+}

@@ -1,0 +1,55 @@
+.promotions-list {
+
+  &__title {
+    padding: 10px;
+
+    @media (min-width: $tablet) {
+      padding: 20px;
+    }
+  }
+
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    border-top: 1px solid $cl-cobalt;
+  }
+
+  &__card {
+    width: 100%;
+
+    @media (min-width: $tablet) {
+      width: 50%;
+      border-top: none !important;
+      border-left: none !important;
+
+      &:nth-child(2n) {
+        border-right: none !important;
+      }
+    }
+
+    @media (min-width: $desktop) {
+      width: 33.333%;
+
+      &:nth-child(2n) {
+        border-right: 1px solid $cl-cobalt !important;
+      }
+
+      &:nth-child(3n) {
+        border-right: none;
+      }
+    }
+
+    @media (min-width: $desktop-big) {
+      width: 25%;
+
+      &:nth-child(2n),
+      &:nth-child(3n) {
+        border-right: 1px solid $cl-cobalt !important;
+      }
+
+      &:nth-child(4n) {
+        border-right: none;
+      }
+    }
+  }
+}

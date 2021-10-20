@@ -1,0 +1,152 @@
+.menu-search {
+  align-items: center;
+  display: flex;
+
+  &__open {
+    background: $cl-white;
+    height: 100%;
+    left: 0;
+    padding: 13px 15px;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 12;
+
+    @media (min-width: $tablet) {
+      padding: 14px 20px 15px;
+    }
+
+    &:before {
+      border-bottom: 1px solid $cl-cobalt;
+      bottom: 0;
+      content: '';
+      height: 1px;
+      left: 0;
+      position: absolute;
+      width: 100%;
+    }
+
+    &:after {
+      background: $cl-white;
+      content: '';
+      height: 100%;
+      left: 0;
+      position: absolute;
+      top: 0;
+      width: 100%;
+      z-index: -1;
+    }
+
+    @media (min-width: $tablet) {
+      &:before {
+        content: none;
+      }
+    }
+  }
+
+  &__field-wrap {
+    align-items: center;
+    display: flex;
+  }
+
+  &__field {
+    align-items: center;
+    display: flex;
+    flex: 1;
+  }
+
+  &__button {
+    align-items: center;
+    display: flex;
+    flex: none;
+    height: 20px;
+    justify-content: center;
+    margin: 0 10px 0 0;
+    width: 20px;
+  }
+
+  &__input-wrap {
+    align-items: center;
+    display: flex;
+    flex: 1;
+  }
+
+  &__input {
+    background-color: transparent;
+    border-radius: 0;
+    border: none;
+    color: $cl-cobalt;
+    display: block;
+    font-family: $TTHoves;
+    font-size: 16px;
+    line-height: 24px;
+    padding: 0;
+    width: 100%;
+
+    &::placeholder {
+      color: $cl-cobalt;
+      font-size: 14px;
+      line-height: 24px;
+      text-transform: uppercase;
+    }
+
+    @media (min-width: $tablet) {
+      font-size: 25.8px;
+      line-height: 30px;
+
+      &::placeholder {
+        font-size: 14px;
+        line-height: 30px;
+      }
+    }
+  }
+
+  &__result-list {
+    background: $cl-white;
+    box-shadow: 0 4px 24px rgba(9, 89, 161, .6);
+    position: absolute;
+    left: -50px;
+    padding: 5px 0;
+    top: 50px;
+    right: 0;
+    z-index: -1;
+
+    li {
+      list-style-type: none;
+
+      &:before {
+        content: none;
+      }
+    }
+
+    @media (min-width: $mobile-big) {
+      left: 0;
+    }
+
+    @media (min-width: $tablet) {
+      padding: 0;
+      top: 60px;
+    }
+  }
+
+  &__icon {
+    display: none;
+
+    @media (min-width: $tablet) {
+      align-items: center;
+      display: inline-flex;
+      justify-content: center;
+      flex: none;
+      height: 20px;
+      margin: 0 10px 0 0;
+      width: 20px;
+
+      &--arrow {
+        height: 14px;
+        margin: 0 0 0 auto;
+        padding: 0 0 0 10px;
+        width: 24px;
+      }
+    }
+  }
+}

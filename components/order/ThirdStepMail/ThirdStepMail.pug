@@ -1,0 +1,23 @@
+form.order-mail(@submit.prevent)
+  h2 Доставка почтой
+  .order-mail__adress
+    .form-control.full(:class="{invalid: !addressIsValid}")
+      label(for="address") Адрес
+      input(type="text" id="address" v-model="address" @input="changeData($event, 'address')" @blur="changeDirty('address')")
+    .form-control(:class="{invalid: !homeIsValid}")
+      label(for="home") Дом
+      input(type="text" id="home" v-model="home" @input="changeData($event, 'home')" @blur="changeDirty('home')")
+    .form-control(:class="{invalid: !housingIsValid}")
+      label(for="housing") Корпус
+      input(type="text" id="housing" v-model="housing" @input="changeData($event, 'housing')" @blur="changeDirty('housing')")
+    .form-control(:class="{invalid: !structureIsValid}")
+      label(for="structure") Строение
+      input(type="text" id="structure" v-model="structure" @input="changeData($event, 'structure')" @blur="changeDirty('structure')")
+    .form-control.half(:class="{invalid: !flatIsValid}")
+      label(for="flat") Квартира
+      input(type="text" id="flat" v-model="flat" @input="changeData($event, 'flat')" @blur="changeDirty('flat')")
+    .form-control.index(:class="{invalid: !indexIsValid}")
+      label(for="index") Индекс
+      input(type="text" id="index" v-model="index" @input="changeData($event, 'index')" @blur="changeDirty('index')")
+  h2 Дата и время доставки
+  p Ориентировочное время доставки: 20 мая, Четверг

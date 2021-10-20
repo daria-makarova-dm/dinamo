@@ -1,0 +1,41 @@
+.b-logo {
+  height: 50px;
+  width: 50px;
+  min-width: 50px;
+  background: $color-logo-header-bg;
+  display: block;
+  z-index: $z-index-header;
+
+  @media (min-width: $tablet) {
+    height: 120px;
+    width: 120px;
+    object-fit: cover;
+  }
+
+  @media (min-width: $desktop) {
+    .scroll-top.main-page & {
+      position: absolute;
+      width: 240px;
+      height: 240px;
+      left: 0;
+      top: 0;
+
+      &__img {
+        display: none;
+
+        &--big {
+          display: inline;
+        }
+      }
+    }
+  }
+
+  &__img {
+    width: 100%;
+    height: 100%;
+
+    &--big {
+      display: none;
+    }
+  }
+}

@@ -1,0 +1,84 @@
+.promotion-page
+  .promotion-top
+    .promotion-top__title {{promoCard.title}}
+    .promotion-top__date-block
+      .promotion-top__date
+        .promotion-top__date-start {{promoCard.start}}
+        .promotion-top__date-end(v-if="promoCard.end")
+          span - {{promoCard.end}}
+      //- CardDetailShareSocial
+      .card-detail-share-social.promotion-top__socials
+        <script src="//yastatic.net/es5-shims/0.0.2/es5-shims.min.js" async defer></script>
+        <script src="//yastatic.net/share2/share.js" async defer></script>
+        h3.card-detail-share-social__title {{ $t('cardDetail.shareSocialTitle') }}
+        .card-detail-share-social__wrap-icons
+          .card-detail-share-social__icon.ya-share2.card-detail-share-social__icon--vk(data-services="vkontakte")
+          .card-detail-share-social__icon.ya-share2.card-detail-share-social__icon--tw(data-services="twitter")
+          .card-detail-share-social__icon.ya-share2.card-detail-share-social__icon--fb(data-services="facebook")
+    picture.promotion-top__image-wrap
+      img.promotion-top__image(v-if="promoCard.url" :src="promoCard.url" alt="promoTitle")
+  .content
+    p.promotion-page__main-description(v-if="promoCard.description") {{promoCard.description}}
+    p
+      | В Европе определился последний чемпион сезона-2019/20. Румыния не подвела с интригой: в заключительном туре встречались лидирующие в таблице «ЧФР» (46 очков перед решающей игрой) и «КСУ Крайова» (44). Только вот «Крайова» провела на матч меньше. В предпоследнем туре команда не сыграла с «Астрой» из-за коронавируса.
+      | УЕФА просил доиграть все чемпионаты до 3 августа. Полночь – крайний срок для подачи на квалификацию Лиги чемпионов. Румынам нужно было экстренно решать, как определить чемпиона. Времени для матча с «Астрой» уже не оставалось, поэтому за (!) 3 часа до решающей игры в федерации пошли на безумную концовку – в случае ничьей «ЧФР» и «Крайова» должны были играть дополнительное время, а затем, если понадобится, бить пенальти.
+      | Фанатам «Крайовы» обидно, ведь в случае победы над «Астрой» им бы для титула хватило и ничьей в последнем туре. Однако выбора уже не было. «Я просто надеюсь, что сегодня вечером ничьи не будет! Будем надеяться, что кто-то победит, и не придется проводить дополнительное время и пенальти!» – сказал за пару часов до начала босс футбольной федерации Разван Бурлеану.
+    h3 Так, а где российские команды?
+    ul
+      li УЕФА просил доиграть все чемпионаты до 3 августа. Полночь — крайний срок для подачи на квалификацию Лиги чемпионов.
+      li Румынам нужно было экстренно решать, как определить чемпиона. Времени для матча с «Астрой» уже не оставалось, поэтому за (!) 3 часа до решающей игры в федерации пошли на безумную концовку.
+      li В случае ничьей «ЧФР» и «Крайова» должны были играть дополнительное время, а затем, если понадобится, бить пенальти.
+      li УЕФА просил доиграть все чемпионаты до 3 августа. Полночь — крайний срок для подачи на квалификацию Лиги чемпионов.
+      li Румынам нужно было экстренно решать, как определить чемпиона.
+    h3 B федерации пошли на безумную концовку
+    p
+      | В Европе определился последний чемпион сезона-2019/20. Румыния не подвела с интригой: в заключительном туре встречались лидирующие в таблице «ЧФР» (46 очков перед решающей игрой) и «КСУ Крайова» (44). Только вот «Крайова» провела на матч меньше. В предпоследнем туре команда не сыграла с «Астрой» из-за коронавируса.
+      | УЕФА просил доиграть все чемпионаты до 3 августа. Полночь – крайний срок для подачи на квалификацию Лиги чемпионов. Румынам нужно было экстренно решать, как определить чемпиона. Времени для матча с «Астрой» уже не оставалось, поэтому за (!) 3 часа до решающей игры в федерации пошли на безумную концовку – в случае ничьей «ЧФР» и «Крайова» должны были играть дополнительное время, а затем, если понадобится, бить пенальти.
+      | Фанатам «Крайовы» обидно, ведь в случае победы над «Астрой» им бы для титула хватило и ничьей в последнем туре. Однако выбора уже не было. «Я просто надеюсь, что сегодня вечером ничьи не будет! Будем надеяться, что кто-то победит, и не придется проводить дополнительное время и пенальти!» – сказал за пару часов до начала босс футбольной федерации Разван Бурлеану.
+    picture.--moved-left
+      img(:src="pictureImg" alt="фотография акции")
+      span Местная команда могла взять титул впервые с 1991 года
+    .content__video.--moved-left
+      //- Video(:videosrc="videoSrc" :videodescr="Местная команда могла взять титул впервые с 1991 года")
+      .video
+        vue-plyr
+          video(class="video__inner")
+            source(:src="videoSrc" type='video/mp4')
+        span.video__descr
+          | Местная команда могла взять титул впервые с 1991 года
+
+    .content__slider
+      swiper.content__slider-swiper(ref="slider" :options="swiperOption")
+        swiper-slide(v-for="(slide, Index) in sliderPictures" :key="Index")
+          picture.content__slider-img-wrap
+            img.content__slider-img(:src="slide.imgUrl" :alt="slide.imgDescr")
+          .content__slider-title-block
+            span.content__slider-title {{ sliderPictures[activeSlideIdx].imgDescr }}
+            span.content__slider-title.content__slider-title--author {{ sliderPictures[activeSlideIdx].imgAuthor }}
+      button.content__slider-btn.content__slider-btn-prev
+        include ../../Icons/ArrowIcon/ArrowIcon.pug
+      button.content__slider-btn.content__slider-btn-next
+        include ../../Icons/ArrowIcon/ArrowIcon.pug
+      p.content__slider-count-slide {{ activeSlideIdx + 1 }} - {{ sliderPictures.length }}
+    .content__map.--moved-left
+      BaseGoogleMap(
+        :mapConfig="{ center: markers[0].location, zoom: 15 }"
+        :markers="markers"
+      )
+    .content__addresses.--moved-left(v-if="addresses.length > 0")
+      .content__address(v-for="(address, index) in addresses" :key="addresses + index")
+        span.content__address-city {{ address.city }}
+        span.content__address-address {{ address.address }}
+        span.content__address-shop {{ address.shop }}
+        span.content__address-working-hours Часы работы
+        .content__address-working-hours-block
+          span.content__address-days {{ address.workdays }}
+          span.content__address-hours {{ address.worktime }}
+        span.content__address-phone-title Телефон
+        span.content__address-phone {{ address.phone }}
+
+
+
+
+
+

@@ -1,0 +1,6 @@
+NuxtLink.cross-link(:to="link" :class="classType")
+  img.cross-link__background(:src="srcImage" alt="background cross link")
+  button.cross-link__btn
+    | {{ title }}
+    //- img.cross-link__arrow(src="~/assets/image/icon-arrow-blue.svg" v-if="type === 'half'")
+    ArrowIcon(v-if="type === 'half'")

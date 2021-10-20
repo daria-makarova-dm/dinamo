@@ -1,0 +1,103 @@
+.empty-block {
+    padding-top: 100px;
+    padding-bottom: 100px;
+    text-align: center;
+    &__title {
+        font-size: 20px;
+        line-height: 24px;
+        text-align: center;
+        margin-bottom: 15px;
+        font-weight: 500;
+    }
+
+    &__text {
+        font-size: 14px;
+        line-height: 20px;
+        text-align: center;
+        font-weight: 400;
+        margin-bottom: 30px;
+    }
+
+    &__button-box {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        .btn {
+            width: 100%;
+            &--blue {
+                margin-bottom: 10px;
+            }
+        }
+    }
+}
+
+@media (min-width: 480px) {
+    .empty-block {
+        padding-top: 50px;
+        padding-bottom: 70px;
+        .container {
+            &--empty {
+                padding: 0 75px;
+            }
+        }
+    }
+}
+
+@media (min-width: $tablet) {
+    .empty-block {
+        padding-top: 60px;
+        padding-bottom: 70px;
+        width: 100%;
+        .container {
+            &--empty {
+                padding: 0;
+                max-width: 680px;
+                margin: 0 auto;
+            }
+        }
+
+        &__title {
+            font-size: 36px;
+            line-height: 40px;
+            margin-bottom: 20px;
+        }
+
+        &__text {
+            font-size: 16px;
+            line-height: 20px;
+            text-align: center;
+            font-weight: 400;
+            margin-bottom: 30px;
+        }
+
+        &__button-box {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            .btn {
+                width: max-content;
+                &--blue {
+                    margin-bottom: 0;
+                    margin-right: 20px;
+                }
+            }
+        }
+    }
+}
+
+@media (min-width: $desktop) {
+    .empty-block {
+        padding-top: 100px;
+        padding-bottom: 170px;
+        width: 100%;
+    }
+}
+
+@media (min-width: $desktop-big) {
+    .empty-block {
+        .container {
+            border: none;
+        }
+    }
+}

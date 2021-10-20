@@ -1,0 +1,12 @@
+.favorite-btn {
+  fill: $trs;
+  transition: fill 0.3s;
+
+  &:hover {
+    fill: $cl-cobalt;
+  }
+
+  &.active {
+    fill: $cl-cobalt;
+  }
+}

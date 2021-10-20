@@ -1,0 +1,7 @@
+.user-icon {
+  stroke: $cl-cobalt;
+
+  .mobile-menu & {
+    stroke: $cl-white;
+  }
+}

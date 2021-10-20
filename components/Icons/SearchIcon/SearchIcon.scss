@@ -1,0 +1,11 @@
+.search-icon {
+  stroke: $cl-cobalt;
+
+  .open-menu & {
+    stroke: $cl-white;
+  }
+
+  .open & {
+    stroke: $cl-cobalt;
+  }
+}

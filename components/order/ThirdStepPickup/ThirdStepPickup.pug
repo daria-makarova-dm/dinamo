@@ -1,0 +1,63 @@
+div
+  div(v-if="$store.state.order.targetCity && !targetPickupPoint")
+    BaseSpinner(v-if="isLoad")
+    form.order-pickup(@submit.prevent v-else)
+      h2 Пункты самовывоза в городе {{ $store.state.order.targetCity[$store.state.ln] }} (1635)
+      .order-pickup__sorting
+        .checkbox-wrap
+          BaseCheckbox(id="postomats" @input="changeCheckbox($event, 'postomats')") Постаматы
+          BaseCheckbox(id="daily" @input="changeCheckbox($event, 'daily')") Работает ежедневно
+          BaseCheckbox(id="fulltime" @input="changeCheckbox($event, 'fulltime')") Круглосуточные
+        .visible-control(v-if="desktop")
+          BaseButton.list(@click.native="changeVisible('list')")
+          BaseButton.map(@click.native="changeVisible('map')")
+      .form-control
+        div.order-pickup__search-wrapper
+          label.order-pickup__icon(for="search") &nbsp;
+          input.order-pickup__search(type="text" id="search" v-model="searchInput" placeholder="Поиск по метро, улице и названию")
+        div.order-pickup__map(v-if="visible === 'map'")
+          BaseGoogleMap(
+            v-if="markers && desktop && visible === 'map'"
+            :mapConfig="{ center: markers[0].location, zoom: 15 }"
+            :markers="markers"
+          )
+        div.order-pickup__list(v-if="visible === 'list'")
+          div.order-pickup__item(v-for="(item, idx) in filterPVZ" :key="idx")
+            div.order-pickup__info
+              p.order-pickup__post {{ item.name }}
+              h3 {{ item.address }}
+              p {{ item.pickupTime }}
+              p {{ item.shelfLife }}
+              p {{ item.workTime }}
+            div.order-pickup__buttons
+              Modal(title="Подробнее" :show="false")
+                template(v-slot:link)
+                  BaseButton.btn Подробнее
+                template(v-slot:content)
+                  BaseGoogleMap(
+                    :mapConfig="{ center: markers[idx].location, zoom: 15 }"
+                    :markers="markers[idx]"
+                  )
+                  p {{ item.name }}
+                  h3 {{ item.address }}
+                  p {{ item.pickupTime }}
+                  p {{ item.shelfLife }}
+                  p {{ item.workTime }}
+                  p Информация о проезде к пункту
+                  p Возможно оплатить картой или наличными
+                  BaseButton.btn.btn--blue(@click.native="choosePickupPoint(item)") Выбрать
+              BaseButton.btn.btn--blue(@click.native="choosePickupPoint(item)") Выбрать
+  div.order-pickup(v-else-if="targetPickupPoint")
+    h2 Выбранные вами пункт доставки:
+    div.order-pickup__info
+      p.order-pickup__post {{ targetPickupPoint.name }}
+      h3 {{ targetPickupPoint.address }}
+      p {{ targetPickupPoint.pickupTime }}
+      p {{ targetPickupPoint.shelfLife }}
+      p {{ targetPickupPoint.workTime }}
+      p Информация о проезде к пункту
+      p Возможно оплатить картой или наличными
+    div.order-pickup__buttons
+      BaseButton.btn.btn--change(@click.native="resetPickupPoint") Изменить
+  div.order-pickup(v-else)
+    h2 Для отображения доступных точек самовывоза необходимо выбрать город

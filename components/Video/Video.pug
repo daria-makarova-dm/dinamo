@@ -1,0 +1,5 @@
+.video
+  vue-plyr(:options="plyrOptions")
+    video(class="video__inner")
+      source(:src="videosrc" type='video/mp4')
+  span.video__descr(v-if="videodescr") {{ videodescr }}

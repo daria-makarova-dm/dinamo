@@ -1,0 +1,56 @@
+.filterSC {
+    position: relative;
+    margin-bottom: 5px;
+    &:not(:last-child) {
+        border-right: 1px solid $cl-cobalt;
+    }
+    &::after{
+        content: '';
+        position: absolute;
+        bottom: 0;
+        width: calc(100% - 30px);
+        height: 1px;
+        background: rgba(255, 255, 255, 0.1);
+        left: 15px;
+    }
+
+    @media (min-width: $tablet) {
+
+        flex-basis: calc(100% / 3);
+        margin-bottom: 0;
+
+        &__wrapper {
+            display: flex;
+        }
+
+        &--sort {
+            flex-basis: calc(100% / 3 * 2);
+        }
+
+        &__title {
+            text-transform: uppercase;
+            font-size: 11.5px;
+            letter-spacing: 1px;
+        }
+    }
+
+    @media (min-width: $desktop) {
+        flex-basis: 25%;
+
+        &--sort {
+            flex-basis: 75%;
+        }
+    }
+
+
+    @media (min-width: $desktop-big) {
+
+        flex-basis: calc(100% / 5);
+
+        &--sort {
+            flex-basis: calc(100% / 5 * 4);
+        }
+
+    }
+
+}

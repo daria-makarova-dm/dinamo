@@ -1,0 +1,11 @@
+.clear-cart
+  .clear-cart__wrap
+    .clear-cart__top
+      h2.clear-cart__title Очистить корзину
+      BaseButton(mode="close" @click.native="closeModal")
+    .container
+      p.clear-cart__confirm-message {{ removeMessage }}
+      CartItem(v-for="product in arrProduct" :clear-mode="true" :key="product.id" :product="product")
+      .clear-cart__button-box
+        BaseButton(@click.native="clearCart") {{ $t('basket.clear') }}
+        BaseButton.btn--blue(@click.native="closeModal") {{ $t('cancel') }}

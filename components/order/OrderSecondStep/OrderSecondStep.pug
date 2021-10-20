@@ -1,0 +1,13 @@
+div.order-get
+  h2 Способ получения
+  div.order-get__item(
+    v-for="item in delivery"
+    :key="item.id"
+    :class="{active: item.id === deliveryType}"
+    @click="changeDeliveryType(item.id)"
+  )
+    h3 {{ item.title }}
+    p.order-get__time {{ item.time }}
+    div.order-get__place
+      p {{ item.when }}
+      p {{ item.price }}

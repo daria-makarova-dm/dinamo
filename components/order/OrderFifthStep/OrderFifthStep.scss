@@ -1,0 +1,111 @@
+.order-pay {
+    padding-top: 25px;
+    padding-bottom: 50px;
+    h2 {
+        font-size: 26px;
+        line-height: 35px;
+        margin-bottom: 10px;
+        font-weight: 500;
+    }
+
+    .b-radiobtn {
+        &__label {
+            margin-bottom: 10px;
+            padding: 0;
+            color: $cl-cobalt;
+        }
+
+        &__list {
+            margin-bottom: 25px;
+        }
+
+        &__text {
+            font-size: 16px;
+            line-height: 20px;
+            font-weight: 500;
+            padding-left: 26px;
+            text-transform: none;
+        }
+
+        &__circle {
+            border-color: $cl-cobalt;
+            &::after {
+                background: $cl-white;
+            }
+        }
+
+        &.active {
+            .b-radiobtn__circle {
+                &::after {
+                    background: $cl-cobalt;
+                }
+            }
+        }
+    }
+
+    textarea {
+        width: 100%;
+        height: 143px;
+        padding: 20px 15px;
+        border: 1px solid $cl-cobalt;
+        font-size: 16px;
+        line-height: 20px;
+        font-weight: 500;
+        color: $cl-cobalt;
+        &::placeholder {
+            color: $cl-nepal;
+        }
+    }
+}
+
+@media (min-width: $desktop-min) {
+    .order-pay {
+        padding: 0;
+        margin-bottom: 40px;
+        h2 {
+            font-size: 36px;
+            line-height: 40px;
+            margin-bottom: 20px;
+        }
+
+        &__list {
+            max-width: 510px;
+            display: flex;
+            flex-wrap: wrap;
+            margin-bottom: 10px;
+            
+            .b-radiobtn {
+                margin-bottom: 30px;
+                margin-right: 20px;
+                &__label {
+                    margin-bottom: 0;
+                }
+            }
+        }
+
+        .btn {
+            width: 280px;
+            margin-bottom: 20px;
+        }
+
+        .pay {
+            margin-bottom: 40px;
+        }
+    }
+}
+
+@media (min-width: $desktop) {
+    .order-pay {
+        max-width: 680px;
+        &__list {
+            max-width: 100%;
+            flex-wrap: nowrap;
+            .b-radiobtn {
+                margin-bottom: 0;
+                &__text {
+                    white-space: nowrap;
+                }
+            }
+        }
+    }
+}

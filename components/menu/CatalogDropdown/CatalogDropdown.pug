@@ -1,0 +1,4 @@
+ul.b-catalog-dropdown
+  Portal(to="overlay")
+    BaseOverlay
+  SectionCatalogDropdown(v-for="(item, idx) in history" :key="idx" :data="$t(item)" :lvl="idx + 1")

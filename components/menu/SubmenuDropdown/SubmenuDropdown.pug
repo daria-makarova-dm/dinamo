@@ -1,0 +1,10 @@
+.b-submenu-dropdown(v-click-outside="hideMenu")
+  button.b-submenu-dropdown__dots(@click="toggleMenu")
+  ul.b-submenu-dropdown__list(v-if="openMenu")
+    li.b-submenu-dropdown__item(v-for="item in linkDropdown" :key="item.id")
+      //Если внешняя ссылка
+      a.b-submenu-dropdown__link(:href="item.linkUrl" v-if="item.externalReference")
+        | {{ item.text }}
+        img(:src="require('~/assets/image/union-external-blue.svg')" alt="arrow")
+      //Если внутренняя ссылка
+      NuxtLink.b-submenu-dropdown__link(:to="item.linkUrl" v-else) {{ item.text }}

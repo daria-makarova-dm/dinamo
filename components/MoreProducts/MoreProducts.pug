@@ -1,0 +1,21 @@
+.more-products.fix-block-width
+  .more-products__title-block.title-block
+    h3.more-products__title {{title}}
+    NuxtLink.more-products__link-arrow(to="/")
+      ArrowIcon
+  .more-products__list
+    TheProductCart(
+      v-for="(cart, i) in arrProduct"
+      :key="i"
+      v-if="i < countVisibleCart"
+      :product-preview-img="cart.productPreviewImg"
+      :prop-favorite="cart.favorite"
+      :title="cart.title"
+      :firm="cart.firm"
+      :price="cart.price"
+      :bestseller-label="cart.bestsellerLabel"
+      :novelty-label="cart.noveltyLabel"
+      :discount-price="cart.discountPrice"
+      :custom="cart.custom"
+      class="more-products__item"
+    )

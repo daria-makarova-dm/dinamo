@@ -1,0 +1,26 @@
+.collections-list
+  .collections-list__block(v-for="collection in inCollectionCards" :key="collection.id")
+    .collections-list__description
+      .collections-list__title
+        NuxtLink(:to="{path: `/collections/${collection.id}`, params: {id: collection.id}}" class="collections-list__link") {{ collection.title }}
+          ArrowIcon
+      picture.collections-list__cover
+        img.collections-list__cover-image(:src="collection.mainImageUrl" alt="mainCollectionImage")
+    .collections-list__grid.photo-grid.photo-grid--small(v-if="collection.type === 'small'")
+      picture.photo-grid__block-image-wrap
+        img.photo-grid__block-image(:src="collection.mediaMaterials.bigImage" alt="bigImage")
+      .photo-grid__grid-block
+        picture.photo-grid__grid-block-image-wrap(v-for="(image, index) in collection.mediaMaterials.smallImage" :key="index")
+          img.photo-grid__grid-block-image(:src="image" alt="smallImage")
+    .collections-list__grid.photo-grid.photo-grid--medium(v-else-if="collection.type === 'medium'")
+      picture.photo-grid__block-image-wrap
+        img.photo-grid__block-image(:src="collection.mediaMaterials.bigImage" alt="bigImage")
+      .photo-grid__grid-block
+        picture.photo-grid__grid-block-image-wrap
+          img.photo-grid__grid-block-image(v-if="collection.mediaMaterials.averageImage" :src="collection.mediaMaterials.averageImage" alt="bigImage")
+        picture.photo-grid__grid-block-image-wrap(v-for="(image, index) in collection.mediaMaterials.smallImage" :key="index")
+          img.photo-grid__grid-block-image(:src="image" alt="smallImage")
+    .collections-list__grid.photo-grid.photo-grid--big(v-else)
+      .photo-grid__grid-block(v-for="(image, index) in collection.mediaMaterials.bigImage" :key="index")
+        picture.photo-grid__grid-block-image-wrap
+          img.photo-grid__block-image(:src="image" alt="bigImage")

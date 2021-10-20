@@ -1,0 +1,55 @@
+div.order-final
+  .container
+    .order-final__change
+      h2 Ваш заказ
+      BaseButton(type="link" to="/cart") Изменить
+    table
+      thead
+      tbody
+        tr
+          td {{ $store.getters['cart/allCountMessage'] }} на сумму
+          td {{ $store.getters['cart/allPrice'] | currency }}
+        tr(v-if="$store.state.order.usedScores > 0")
+          td -{{ $store.state.order.usedScores }} баллов
+          td -{{ $store.state.order.usedScores | currency }}
+        tr(v-if="$store.state.order.certificate")
+          td Подарочный сертификат
+          td -{{ $store.state.order.certificate.value | currency }}
+        tr
+          td Доставка
+          td Бесплатно
+        tr
+          td Итого
+          td {{ total | currency }}
+    div.order-final__order-list
+      h3 Состав заказа
+      OrderItem(v-for="(product, idx) in $store.state.cart.arrProduct" :key="idx" :product="product")
+
+    div.order-final__info(v-if="!desktop")
+      div.order-final__info-block
+        h3 получатель
+        p.order-final__info-name {{ fullName }}
+        p {{ orderData.userData.email }}
+        p {{ orderData.userData.phone }}
+      div.order-final__info-block(v-if="orderData.delivery.type === 'courier'")
+        h3 {{ deliveryObj.title }}
+        p
+          span г. {{ orderData.targetCity.ru }},
+          span {{ deliveryObj.address }},
+          span квартира {{ deliveryObj.flat }}
+        p.strong Доставим в {{ deliveryObj.valueDaySelect }} {{ deliveryObj.valueTimeSelect }}
+      div.order-final__info-block(v-if="orderData.delivery.type === 'pickup'")
+        h3 {{ deliveryObj.title }}
+        p
+          span {{ deliveryObj.name }},
+          span {{ deliveryObj.address }},
+          span {{ deliveryObj.shelfLife }}
+          span Время работы: {{ deliveryObj.workTime }}
+      div.order-final__info-block(v-if="orderData.delivery.type === 'mail'")
+        h3 {{ deliveryObj.title }}
+        p
+          span г. {{ orderData.targetCity.ru }},
+          span {{ deliveryObj.address }},
+          span квартира {{ deliveryObj.flat }},
+          span(v-if="deliveryObj.housing") корпус {{ deliveryObj.housing }},
+          span индекс: {{ deliveryObj.index }}

@@ -1,0 +1,10 @@
+.accordion-mobile(:class="{ open }")
+  .accordion-mobile__link(@click="onToggle")
+    .accordion-mobile__text(v-html="link")
+    .accordion-mobile__desk(v-if="text" v-html="text")
+    .accordion-mobile__arrow-right
+  .accordion-mobile__content(v-show="open")
+    .accordion-mobile__back(@click="onToggle")
+      .accordion-mobile__text.accordion-mobile__text-back(v-html="link")
+      .accordion-mobile__arrow-right.accordion-mobile__arrow-right-back
+    slot(name="content")
